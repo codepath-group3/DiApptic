@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
 		F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F831DD9199800A34847 /* AppDelegate.swift */; };
 		F7930F861DD9199800A34847 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F851DD9199800A34847 /* ViewController.swift */; };
 		F7930F891DD9199800A34847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7930F871DD9199800A34847 /* Main.storyboard */; };
@@ -15,6 +16,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.debug.xcconfig"; sourceTree = "<group>"; };
+		DE1898CDF20C7CF8490CD462 /* Pods-DiApptic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.release.xcconfig"; sourceTree = "<group>"; };
 		F7930F801DD9199800A34847 /* DiApptic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiApptic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7930F831DD9199800A34847 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7930F851DD9199800A34847 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F677B17470C808A109751AF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */,
+				DE1898CDF20C7CF8490CD462 /* Pods-DiApptic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		84A68EE731EC3C2E1E9E3411 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F7930F771DD9199800A34847 = {
 			isa = PBXGroup;
 			children = (
 				F7930F821DD9199800A34847 /* DiApptic */,
 				F7930F811DD9199800A34847 /* Products */,
+				5F677B17470C808A109751AF /* Pods */,
+				84A68EE731EC3C2E1E9E3411 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F7930F921DD9199800A34847 /* Build configuration list for PBXNativeTarget "DiApptic" */;
 			buildPhases = (
+				36FEAD8CF1B9A833C9940D2C /* [CP] Check Pods Manifest.lock */,
 				F7930F7C1DD9199800A34847 /* Sources */,
 				F7930F7D1DD9199800A34847 /* Frameworks */,
 				F7930F7E1DD9199800A34847 /* Resources */,
+				6D0B91ECAD720EBF9C76FB5F /* [CP] Embed Pods Frameworks */,
+				FDC244E307A800B396ED8FDB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -130,6 +157,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		36FEAD8CF1B9A833C9940D2C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D0B91ECAD720EBF9C76FB5F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FDC244E307A800B396ED8FDB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F7930F7C1DD9199800A34847 /* Sources */ = {
@@ -256,6 +331,7 @@
 		};
 		F7930F931DD9199800A34847 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DiApptic/Info.plist;
@@ -268,6 +344,7 @@
 		};
 		F7930F941DD9199800A34847 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE1898CDF20C7CF8490CD462 /* Pods-DiApptic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DiApptic/Info.plist;
@@ -297,6 +374,7 @@
 				F7930F941DD9199800A34847 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
