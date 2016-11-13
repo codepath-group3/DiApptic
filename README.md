@@ -14,7 +14,7 @@ As humans we always do better when we have support and we work with others. With
   First name, last name, gender(optional), phone number(optional), profile picture(optional)
   This screen will have a Save button (no cancel action will be provided)
   Upon Save the user is navigated to the home screen
-  * Example of login screen: <img src="https://s-media-cache-ak0.pinimg.com/564x/4a/77/02/4a7702ef781394369a77a30c00a1edeb.jpg" width="200">
+  * Example of login screen: <img src="https://s-media-cache-ak0.pinimg.com/564x/4a/77/02/4a7702ef781394369a77a30c00a1edeb.jpg" width="300">
 
 2. Login with identity provider(Optional)
   * The user is on the login screen and is not registered yet
@@ -33,6 +33,7 @@ As humans we always do better when we have support and we work with others. With
   * Medication taken = Insulin, Oral
   * Any physical activity
   * Any additional note
+  * Example <img src="https://i.ytimg.com/vi/LNVTW_LPOO8/maxresdefault.jpg" width="300">
 4. Record HbA1c
   * The actual reading
   * Any note that can be saved as part of the reading
@@ -44,7 +45,7 @@ As humans we always do better when we have support and we work with others. With
   * Section 2 Line graph at the bottom
   * The pie chart would update based on the period selection from the line chart
   * The pie chart would have highs, lows and normals as the sections
-  * Example: <img src="http://a4.files.theultralinx.com/image/upload/c_fit,cs_srgb,dpr_2.0,q_40,w_620/MTI5MDIyNTEzMDEwMjE4MjU4.jpg" width="200">
+  * Example: <img src="http://a4.files.theultralinx.com/image/upload/c_fit,cs_srgb,dpr_2.0,q_40,w_620/MTI5MDIyNTEzMDEwMjE4MjU4.jpg" width="300">
 5. View history of blood glucose readings 
   1. Detail view
     * daily/weekly/monthly
@@ -78,7 +79,7 @@ As humans we always do better when we have support and we work with others. With
     1. Share everytime I record a reading (public/friends only)
     2. Share everytime I record an HbA1c reading (public/ friends only)
 11. Profile View
-  * <img src="https://d13yacurqjgara.cloudfront.net/users/198986/screenshots/1367326/dribbble.jpg" width="200">
+  * <img src="https://d13yacurqjgara.cloudfront.net/users/198986/screenshots/1367326/dribbble.jpg" width="300">
 
 
 ##Models
