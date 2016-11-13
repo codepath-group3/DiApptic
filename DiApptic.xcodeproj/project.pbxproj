@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
+		97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */; };
+		97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */; };
 		F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F831DD9199800A34847 /* AppDelegate.swift */; };
 		F7930F861DD9199800A34847 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F851DD9199800A34847 /* ViewController.swift */; };
 		F7930F891DD9199800A34847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7930F871DD9199800A34847 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.debug.xcconfig"; sourceTree = "<group>"; };
 		DE1898CDF20C7CF8490CD462 /* Pods-DiApptic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.release.xcconfig"; sourceTree = "<group>"; };
 		F7930F801DD9199800A34847 /* DiApptic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiApptic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +61,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		97D5AD371DD93021006F95B6 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		97D5AD381DD9308D006F95B6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		97D5AD391DD930B1006F95B6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		F7930F771DD9199800A34847 = {
 			isa = PBXGroup;
 			children = (
@@ -78,6 +105,9 @@
 		F7930F821DD9199800A34847 /* DiApptic */ = {
 			isa = PBXGroup;
 			children = (
+				97D5AD391DD930B1006F95B6 /* Views */,
+				97D5AD381DD9308D006F95B6 /* Models */,
+				97D5AD371DD93021006F95B6 /* View Controllers */,
 				F7930F831DD9199800A34847 /* AppDelegate.swift */,
 				F7930F851DD9199800A34847 /* ViewController.swift */,
 				F7930F871DD9199800A34847 /* Main.storyboard */,
@@ -150,6 +180,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */,
 				F7930F8E1DD9199800A34847 /* LaunchScreen.storyboard in Resources */,
 				F7930F8B1DD9199800A34847 /* Assets.xcassets in Resources */,
 				F7930F891DD9199800A34847 /* Main.storyboard in Resources */,
@@ -211,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
 				F7930F861DD9199800A34847 /* ViewController.swift in Sources */,
 				F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */,
 			);
