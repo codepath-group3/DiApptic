@@ -1,0 +1,73 @@
+Use case 1: Login (Required)
+
+1 - User downloads the app and opens it the first time
+2 - Present with the login/registration screen
+3 - The user enters the email and password and clicks on register
+4 - At this state the user has preregistered and would need to be presented a Full registration screen
+5 - Full registration/Profile information screen will be presentented that asks
+	First name, last name, gender(optional), phone number(optional), profile picture(optional)
+	This screen will have a Save button (no cancel action will be provided)
+	Upon Save the user is navigated to the home screen
+
+Use case 2: Login with identity provider(Optional)
+
+1 - The user is on the login screen and is not registered yet
+2 - The login screen would have buttons to login with 
+	- facebook
+	- google
+	- any other oauth providers
+3 - User clicks on of the buttons to login with an identity provider
+4 - Using Oauth fetch the user details and populate in our own db
+5 - Take the user to home screen
+
+Use case 3: Home screen
+1 - The user is logged in and we have a user object that contains the basic information of the user
+2 - Store this information in the shared keychain 
+3 - Take the user to home screen that contains
+4 - The Home screen would have the profile view of the current user at the top
+5 - After the Profile view there would be the summary of the last 7 days
+6 - After the summary there would be stories
+
+Use case 4: Record a reading
+1 - The user is logged in and wants to record a blood glucose reading
+2 - The user clicks on the "Add Reading" button
+3 - Take the user to the Record reading screen
+4 - This screen will capture the following information
+	- The reading (perhaps use a circular slider)
+	- Context
+	- if after meal ask for carbs intake
+	- medication
+	- physical activity
+	- notes
+
+Use case 5: Trend View
+1 - The user is logged in and wants to see the history
+2 - Take the user to the history view which contains two sections
+	- Section 1 will have a pie chart at the top
+	- Section 2 Line graph at the bottom
+	- The pie chart would update based on the period selection from the line chart
+	- The pie chart would have highs, lows and normals as the sections
+
+
+
+1. Login (Required)
+  * User downloads the app and opens it the first time
+  * Present with the login/registration screen
+  * The user enters the email and password and clicks on register
+  * At this state the user has preregistered and would need to be presented a Full registration screen
+  * Full registration/Profile information screen will be presentented that asks
+	First name, last name, gender(optional), phone number(optional), profile picture(optional)
+	This screen will have a Save button (no cancel action will be provided)
+	Upon Save the user is navigated to the home screen
+
+2. Login with identity provider(Optional)
+  * The user is on the login screen and is not registered yet
+  * The login screen would have buttons to login with 
+	- facebook
+	- google
+	- any other oauth providers
+  * User clicks on of the buttons to login with an identity provider
+  * Using Oauth fetch the user details and populate in our own db
+  * Take the user to home screen
+
+
