@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import Parse
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,8 +25,35 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
+   
+    @IBAction func onLoginAction(_ sender: Any) {
+        let username = self.usernameField.text
+        let password = self.passwordField.text
+        
+        if (username?.characters.count)! < 3 {
+            let alert = UIAlertView(title: "Invalid", message: "Username must be greater than 5 characters", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        } else if (password?.characters.count)! < 3{
+            let alert = UIAlertView(title: "Invalid", message: "Password must be greater than 8 characters", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+            
+        }else {
+            
+            PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (user, error) -> Void in
+                
+                if ((user) != nil) {
+                    let alert = UIAlertView(title: "Success", message: "Logged In", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                    
+                } else {
+                    let alert = UIAlertView(title: "Error", message: "\(error)", delegate: self, cancelButtonTitle: "OK")
+                    alert.show()
+                }
+        })
+    }
+        
+    }
     /*
     // MARK: - Navigation
 

@@ -18,6 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Parse.setApplicationId("cuRMkMTRwxGTYVofphrR5ROWEBVJIF8pYYyTLcM3", clientKey: "BFkrS2bmejYuP5895kBffPpjI3JJFpPIfjn0ZHHG")
+        
+        let newEnterNameController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        //self.navigationController.pushViewController(newEnterNameController, animated: true)
+        window?.rootViewController = newEnterNameController
         return true
     }
 
