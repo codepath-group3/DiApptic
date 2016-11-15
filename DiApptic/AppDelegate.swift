@@ -19,9 +19,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         Parse.setApplicationId("cuRMkMTRwxGTYVofphrR5ROWEBVJIF8pYYyTLcM3", clientKey: "BFkrS2bmejYuP5895kBffPpjI3JJFpPIfjn0ZHHG")
         
-        let newEnterNameController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        //let newEnterNameController = LoginViewController(nibName: "LoginViewController", bundle: nil)
         //self.navigationController.pushViewController(newEnterNameController, animated: true)
-        window?.rootViewController = newEnterNameController
+        //window?.rootViewController = newEnterNameController
+        
+        let profileScreenViewController = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
+        //self.navigationController.pushViewController(newEnterNameController, animated: true)
+        window?.rootViewController = profileScreenViewController
         return true
     }
 
