@@ -5,12 +5,14 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11542"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="DiApptic" customModuleProvider="target">
             <connections>
+                <outlet property="lineChartView" destination="JCT-Yh-yaN" id="Kt8-zi-91r"/>
+                <outlet property="pieChartView" destination="eh9-0k-hnd" id="qLG-q1-cWw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,15 +21,32 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyH-on-Row">
-                    <rect key="frame" x="155" y="281" width="55" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-0k-hnd" userLabel="Pie Chart View" customClass="PieChartView" customModule="Charts">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="300" id="wNd-c8-LWi"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCT-Yh-yaN" userLabel="Line Chart View" customClass="LineChartView" customModule="Charts">
+                    <rect key="frame" x="0.0" y="300" width="375" height="367"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="250" id="pJH-3T-Utg"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="eh9-0k-hnd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3VA-4G-77h"/>
+                <constraint firstItem="JCT-Yh-yaN" firstAttribute="top" secondItem="eh9-0k-hnd" secondAttribute="bottom" id="FQf-3m-Ndp"/>
+                <constraint firstItem="JCT-Yh-yaN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TAN-9q-f8T"/>
+                <constraint firstAttribute="trailing" secondItem="eh9-0k-hnd" secondAttribute="trailing" id="cy6-Hn-xjL"/>
+                <constraint firstItem="eh9-0k-hnd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="eMd-EW-zzu"/>
+                <constraint firstAttribute="bottom" secondItem="JCT-Yh-yaN" secondAttribute="bottom" id="hke-C4-4Hq"/>
+                <constraint firstAttribute="trailing" secondItem="JCT-Yh-yaN" secondAttribute="trailing" id="sEz-pV-8ea"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
 </document>
