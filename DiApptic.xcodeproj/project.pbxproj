@@ -19,6 +19,14 @@
 		F7930F891DD9199800A34847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7930F871DD9199800A34847 /* Main.storyboard */; };
 		F7930F8B1DD9199800A34847 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F7930F8A1DD9199800A34847 /* Assets.xcassets */; };
 		F7930F8E1DD9199800A34847 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7930F8C1DD9199800A34847 /* LaunchScreen.storyboard */; };
+		F7930FA11DD94A5100A34847 /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F9F1DD94A5100A34847 /* TabbarController.swift */; };
+		F7930FA21DD94A5100A34847 /* TabbarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7930FA01DD94A5100A34847 /* TabbarController.xib */; };
+		F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930FA31DDA33FD00A34847 /* HomeViewController.swift */; };
+		F7930FA61DDA33FD00A34847 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7930FA41DDA33FD00A34847 /* HomeViewController.xib */; };
+		F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930FA71DDA341400A34847 /* AddReadingViewController.swift */; };
+		F7930FAA1DDA341400A34847 /* AddReadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7930FA81DDA341400A34847 /* AddReadingViewController.xib */; };
+		F7930FAD1DDA342500A34847 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930FAB1DDA342500A34847 /* HistoryViewController.swift */; };
+		F7930FAE1DDA342500A34847 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7930FAC1DDA342500A34847 /* HistoryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +46,14 @@
 		F7930F8A1DD9199800A34847 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F7930F8D1DD9199800A34847 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F7930F8F1DD9199800A34847 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7930F9F1DD94A5100A34847 /* TabbarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		F7930FA01DD94A5100A34847 /* TabbarController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabbarController.xib; sourceTree = "<group>"; };
+		F7930FA31DDA33FD00A34847 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		F7930FA41DDA33FD00A34847 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		F7930FA71DDA341400A34847 /* AddReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReadingViewController.swift; sourceTree = "<group>"; };
+		F7930FA81DDA341400A34847 /* AddReadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddReadingViewController.xib; sourceTree = "<group>"; };
+		F7930FAB1DDA342500A34847 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		F7930FAC1DDA342500A34847 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +88,10 @@
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7930F9F1DD94A5100A34847 /* TabbarController.swift */,
+				F7930FA31DDA33FD00A34847 /* HomeViewController.swift */,
+				F7930FA71DDA341400A34847 /* AddReadingViewController.swift */,
+				F7930FAB1DDA342500A34847 /* HistoryViewController.swift */,
 				97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */,
 				0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */,
 			);
@@ -88,6 +108,10 @@
 		97D5AD391DD930B1006F95B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F7930FA41DDA33FD00A34847 /* HomeViewController.xib */,
+				F7930FA81DDA341400A34847 /* AddReadingViewController.xib */,
+				F7930FAC1DDA342500A34847 /* HistoryViewController.xib */,
+				F7930FA01DD94A5100A34847 /* TabbarController.xib */,
 				97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */,
 				0388AD951DD9830300157140 /* ProfileHeaderView.xib */,
 				0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */,
@@ -192,12 +216,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7930FAA1DDA341400A34847 /* AddReadingViewController.xib in Resources */,
 				97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */,
 				F7930F8E1DD9199800A34847 /* LaunchScreen.storyboard in Resources */,
+				F7930FAE1DDA342500A34847 /* HistoryViewController.xib in Resources */,
 				F7930F8B1DD9199800A34847 /* Assets.xcassets in Resources */,
 				F7930F891DD9199800A34847 /* Main.storyboard in Resources */,
+
 				0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */,
 				0388AD971DD9830300157140 /* ProfileHeaderView.xib in Resources */,
+
+				F7930FA21DD94A5100A34847 /* TabbarController.xib in Resources */,
+				F7930FA61DDA33FD00A34847 /* HomeViewController.xib in Resources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +247,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6D0B91ECAD720EBF9C76FB5F /* [CP] Embed Pods Frameworks */ = {
@@ -256,8 +287,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
+				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
 				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
+				F7930FA11DD94A5100A34847 /* TabbarController.swift in Sources */,
 				F7930F861DD9199800A34847 /* ViewController.swift in Sources */,
+				F7930FAD1DDA342500A34847 /* HistoryViewController.swift in Sources */,
 				F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */,
 				0388AD9E1DD9859400157140 /* ProfileScreenViewController.swift in Sources */,
 				0388AD9B1DD9835D00157140 /* ProfileHeaderView.swift in Sources */,

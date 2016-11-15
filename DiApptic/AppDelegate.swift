@@ -23,9 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //self.navigationController.pushViewController(newEnterNameController, animated: true)
         //window?.rootViewController = newEnterNameController
         
-        let profileScreenViewController = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
+        //let profileScreenViewController = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
         //self.navigationController.pushViewController(newEnterNameController, animated: true)
-        window?.rootViewController = profileScreenViewController
+        //window?.rootViewController = profileScreenViewController
+
+        window?.rootViewController = TabbarController(nibName: "TabbarController", bundle: nil)
+
         return true
     }
 

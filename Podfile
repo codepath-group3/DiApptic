@@ -6,6 +6,7 @@ target 'DiApptic' do
   use_frameworks!
   pod 'AFNetworking'
   pod 'Parse'
+  pod 'Charts'
   # Pods for DiApptic
 
 end
