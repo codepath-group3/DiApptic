@@ -27,11 +27,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         let months = ["Jan", "Feb", "Mar"]
         let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
         let readings = [200.0, 100.0, 5.0]
-        setChart(dataPoints: months, values: readings)
+        setChart(months, values: readings)
         
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChart(_ dataPoints: [String], values: [Double]) {
         
         var dataEntries: [ChartDataEntry] = []
         

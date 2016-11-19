@@ -18,20 +18,23 @@ PODS:
   - Charts (3.0.0):
     - Charts/Core (= 3.0.0)
   - Charts/Core (3.0.0)
+  - CircleSlider (0.5.0)
   - Parse (1.14.2):
     - Bolts/Tasks (~> 1.8)
 
 DEPENDENCIES:
   - AFNetworking
   - Charts
+  - CircleSlider
   - Parse
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
+  CircleSlider: c6eca7297b40e3a638395a938d1b16b8c4710821
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
 
-PODFILE CHECKSUM: b2b875dfe7876f32ae4b5113bd1e74fe3ea673a2
+PODFILE CHECKSUM: 3a8903ea02e5fec90c0ed68764789fa4d9ec241d
 
-COCOAPODS: 1.2.0.beta.1
+COCOAPODS: 1.0.1
