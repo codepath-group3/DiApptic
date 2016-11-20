@@ -24,16 +24,23 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         lineChartView.delegate = self
         lineChartView.chartDescription?.text = "Line Chart"
         pieChartView.chartDescription?.text = "Pie Chart"
+
+        let months = ["Jan", "Feb", "Mar"]
+        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
+        let readings = [200.0, 100.0, 5.0]
+        setChart(months, values: readings)
+
         let readingTypes = ["Highs", "Lows", "Normals"]
         let pieReadings = [200.0,100.0, 300.0]
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
         let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 20.0, 4.0, 6.0, 3.0, 12.0, 16.0]
         setChart(dataPoints: months, values: unitsSold)
         setPieChart(dataPoints: readingTypes, values: pieReadings)
+
         
     }
     
-    func setChart(dataPoints: [String], values: [Double]) {
+    func setChart(_ dataPoints: [String], values: [Double]) {
         
         var dataEntries: [ChartDataEntry] = []
         
