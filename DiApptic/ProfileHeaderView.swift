@@ -10,7 +10,7 @@ import UIKit
 
 class ProfileHeaderView: UIView {
 
-    @IBOutlet var contentView: UIView!
+    
 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var glucoseReadingView: UIView!
@@ -18,6 +18,7 @@ class ProfileHeaderView: UIView {
     @IBOutlet weak var hba1cReadingView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
     
+    @IBOutlet var profileHeaderView: UIView!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -33,7 +34,7 @@ class ProfileHeaderView: UIView {
         // standard initialization logic
         let nib = UINib(nibName: "ProfileHeaderView", bundle: nil)
         nib.instantiate(withOwner: self, options: nil)
-        contentView.frame = bounds
+        profileHeaderView.frame = bounds
         usernameLabel.text = "Tushar Humbe"
         
         // profile image styling
@@ -49,15 +50,20 @@ class ProfileHeaderView: UIView {
         hba1cReadingView.layer.cornerRadius = hba1cReadingView.frame.size.width/2 + 2
         hba1cReadingView.clipsToBounds = true;
 
-        addSubview(contentView)
+        addSubview(profileHeaderView)
         
     }
     
     static func initFromNib() -> UIView {
-        let nib = UINib(nibName: String(describing: type(of: self)), bundle: nil)
-        let view = nib.instantiate(withOwner: self, options: nil)[0] as! ProfileHeaderView
-        view.initSubviews()
-        return view;
+        
+        let customView = Bundle.main.loadNibNamed("ProfileHeaderView", owner: self, options: nil)?.first as? ProfileHeaderView
+        
+        
+        
+        //let nib = UINib(nibName: String(describing: type(of: self)), bundle: nil)
+        //let view = nib.instantiate(withOwner: self, options: nil)[0] as! ProfileHeaderView
+        customView?.initSubviews()
+        return customView!;
     }
     
     /*
