@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0388AD971DD9830300157140 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0388AD951DD9830300157140 /* ProfileHeaderView.xib */; };
+		0388AD9B1DD9835D00157140 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */; };
+		0388AD9E1DD9859400157140 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */; };
+		0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */; };
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
 		977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977BE1791DDEBD6500E4B157 /* Reading.swift */; };
 		97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0388AD961DD9830300157140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileHeaderView.xib; sourceTree = "<group>"; };
+		0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
+		0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
+		0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileScreenViewController.xib; sourceTree = "<group>"; };
 		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		977BE1791DDEBD6500E4B157 /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
 		97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +95,7 @@
 				F7930FA71DDA341400A34847 /* AddReadingViewController.swift */,
 				F7930FAB1DDA342500A34847 /* HistoryViewController.swift */,
 				97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */,
+				0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -107,6 +116,8 @@
 				F7930FAC1DDA342500A34847 /* HistoryViewController.xib */,
 				F7930FA01DD94A5100A34847 /* TabbarController.xib */,
 				97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */,
+				0388AD951DD9830300157140 /* ProfileHeaderView.xib */,
+				0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -141,6 +152,7 @@
 				F7930F8A1DD9199800A34847 /* Assets.xcassets */,
 				F7930F8C1DD9199800A34847 /* LaunchScreen.storyboard */,
 				F7930F8F1DD9199800A34847 /* Info.plist */,
+				0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */,
 			);
 			path = DiApptic;
 			sourceTree = "<group>";
@@ -214,8 +226,13 @@
 				F7930FAE1DDA342500A34847 /* HistoryViewController.xib in Resources */,
 				F7930F8B1DD9199800A34847 /* Assets.xcassets in Resources */,
 				F7930F891DD9199800A34847 /* Main.storyboard in Resources */,
+
+				0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */,
+				0388AD971DD9830300157140 /* ProfileHeaderView.xib in Resources */,
+
 				F7930FA21DD94A5100A34847 /* TabbarController.xib in Resources */,
 				F7930FA61DDA33FD00A34847 /* HomeViewController.xib in Resources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,12 +299,22 @@
 				F7930F861DD9199800A34847 /* ViewController.swift in Sources */,
 				F7930FAD1DDA342500A34847 /* HistoryViewController.swift in Sources */,
 				F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */,
+				0388AD9E1DD9859400157140 /* ProfileScreenViewController.swift in Sources */,
+				0388AD9B1DD9835D00157140 /* ProfileHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		0388AD951DD9830300157140 /* ProfileHeaderView.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0388AD961DD9830300157140 /* Base */,
+			);
+			name = ProfileHeaderView.xib;
+			sourceTree = "<group>";
+		};
 		F7930F871DD9199800A34847 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -404,6 +431,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DiApptic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fah.DiApptic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -417,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = DiApptic/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fah.DiApptic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
