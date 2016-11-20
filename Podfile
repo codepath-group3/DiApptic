@@ -7,7 +7,6 @@ target 'DiApptic' do
   pod 'AFNetworking'
   pod 'Parse'
   pod 'Charts'
-  pod 'CircleSlider'
   # Pods for DiApptic
   
   post_install do |installer|
