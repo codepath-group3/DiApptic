@@ -38,7 +38,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="18"/>
-                                    <state key="normal" title="Home" image="home">
+                                    <state key="normal" title="Home" image="home-1@1x">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -50,7 +50,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="18"/>
-                                    <state key="normal" title="History" image="history">
+                                    <state key="normal" title="History" image="history@1x">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -62,7 +62,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                     <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="18"/>
-                                    <state key="normal" title="Add" image="add">
+                                    <state key="normal" title="Add" image="add@1x">
                                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -96,8 +96,8 @@
         </view>
     </objects>
     <resources>
-        <image name="add" width="24" height="24"/>
-        <image name="history" width="24" height="24"/>
-        <image name="home" width="24" height="24"/>
+        <image name="add@1x" width="24" height="24"/>
+        <image name="history@1x" width="24" height="24"/>
+        <image name="home-1@1x" width="24" height="24"/>
     </resources>
 </document>
