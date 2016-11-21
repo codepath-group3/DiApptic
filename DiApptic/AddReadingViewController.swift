@@ -20,13 +20,14 @@ class AddReadingViewController: UIViewController {
     @IBOutlet weak var carbsSlider: UISlider!
     @IBOutlet weak var injectionButton: UIButton!
     @IBOutlet weak var pillButton: UIButton!
-    
     @IBOutlet weak var notesField: UITextField!
+    
     var context: String?
     var medicationType: Int?
-    var physicalActivity: String? = "Mild"
+    var physicalActivity: String?
     var notes: String?
     var carbsIntake: Int?
+    var readingValue: Int?
     
     private var circleSlider: CircleSlider! {
         didSet {
@@ -62,56 +63,14 @@ class AddReadingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.buildCircleSlider()
-        
-       /* let tapBreakfast = UITapGestureRecognizer(target: self, action: #selector(setContextBreakFast))
-        breakfastImage.addGestureRecognizer(tapBreakfast)
-        breakfastImage.isUserInteractionEnabled = true
-        
-        let tapLunch = UITapGestureRecognizer(target: self, action: #selector(setContextLunch))
-        lunchImage.addGestureRecognizer(tapLunch)
-        lunchImage.isUserInteractionEnabled = true
-
-        let tapDinner = UITapGestureRecognizer(target: self, action: #selector(setContextBreakFast))
-        dinnerImage.addGestureRecognizer(tapDinner)
-        dinnerImage.isUserInteractionEnabled = true
-
-        let tapInsulin = UITapGestureRecognizer(target: self, action: #selector(setMedicationInsulin))
-        injectionImage.addGestureRecognizer(tapInsulin)
-        injectionImage.isUserInteractionEnabled = true
-
-        
-        let tapPill = UITapGestureRecognizer(target: self, action: #selector(setMedicationPill))
-        pillImage.addGestureRecognizer(tapPill)
-        pillImage.isUserInteractionEnabled = true*/
-
-        
     }
     
-    func setContextBreakFast() {
-        context = "Breakfast"
-    }
-    
-    func setContextLunch() {
-        context = "Lunch"
-    }
-    
-    func setContextDinner() {
-        context = "Dinner"
-    }
-    
-    func setMedicationInsulin() {
-        medicationType = 1
-    }
-    
-    func setMedicationPill() {
-         medicationType = 2
-    }
-  
-    @IBAction func onCarbsValueChnaged(_ sender: UISlider) {
+    @IBAction func onCarbsSliderSelected(_ sender: UISlider) {
         var currentValue = Int(sender.value)
         print("Slider changing to \(currentValue) ?")
         carbsIntake = currentValue
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
@@ -137,6 +96,7 @@ class AddReadingViewController: UIViewController {
         switch sender.tag {
         case 0:
             self.valueLabel.text = "\(Int(sender.value))"
+            readingValue = Int(self.valueLabel.text!)
         case 1:
             self.progressLabel.text = "\(Int(sender.value))%"
         default:
@@ -144,12 +104,39 @@ class AddReadingViewController: UIViewController {
         }
     }
     
+    @IBAction func onBreakfastSelected(_ sender: UIButton) {
+        context = "Breakfast"
+        print("Breakfast selected")
+    }
+    
+    @IBAction func onLunchSelected(_ sender: UIButton) {
+        context = "Lunch"
+        print("Lunch selected")
+    }
+    
+    @IBAction func onDinnerSelected(_ sender: UIButton) {
+        context = "Dinner"
+        print("Dinner selected")
+    }
+
+    @IBAction func onInjectionSelected(_ sender: Any) {
+        medicationType = 1
+        print("Injection selected")
+    }
+    
+    @IBAction func onPillSelected(_ sender: UIButton) {
+        medicationType = 2
+        print("Pill selected")
+    }
+    
     func createReading() {
         var reading = PFObject(className:"Reading")
+        reading["value"] = readingValue
         reading["medicationType"] = medicationType
-        reading["carbsTaken"] = 300
-        reading["physicalActivity"] = "run"
+        reading["carbsTaken"] = carbsIntake
+        reading["physicalActivity"] = physicalActivity
         reading["context"] = context
+        reading["note"] = notesField.text
         reading.saveInBackground { (saved:Bool, error:Error?) -> Void in
             if saved {
                 print("saved worked")
@@ -160,9 +147,25 @@ class AddReadingViewController: UIViewController {
     }
     
     
+    @IBAction func onPhysicalActivitySelected(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0:
+            print("Mild segement clicked")
+            physicalActivity = "Mild"
+        case 1:
+            print("Moderate segment clicked")
+            physicalActivity = "Moderate"
+        case 2:
+            print("Intense segemnet clicked")
+            physicalActivity = "Intense"
+        default:
+            break;
+        }  //Switch
+    }
+    
+    
     @IBAction func onSave(_ sender: Any) {
         createReading()
-        
     }
 
 
