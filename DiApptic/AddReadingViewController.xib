@@ -35,12 +35,11 @@
                         <segment title="HbA1c"/>
                     </segments>
                 </segmentedControl>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Qu-kxW">
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1500" minValue="0.0" maxValue="3000" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Qu-kxW">
                     <rect key="frame" x="33" y="271" width="286" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <connections>
-                        <action selector="onCarbsValueChanged:" destination="-1" eventType="valueChanged" id="Cdx-Ll-2In"/>
-                        <action selector="onCarbsValueChnaged:" destination="-1" eventType="valueChanged" id="tGf-tI-f2f"/>
+                        <action selector="onCarbsSliderSelected:" destination="-1" eventType="valueChanged" id="M8p-GT-GTE"/>
                     </connections>
                 </slider>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDQ-rM-YbZ">
@@ -65,6 +64,9 @@
                         <segment title="Moderate"/>
                         <segment title="Intense"/>
                     </segments>
+                    <connections>
+                        <action selector="onPhysicalActivitySelected:" destination="-1" eventType="valueChanged" id="kWT-g7-d9R"/>
+                    </connections>
                 </segmentedControl>
                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-2p-bSZ">
                     <rect key="frame" x="55" y="64" width="240" height="128"/>
@@ -89,6 +91,9 @@
                     <state key="selected">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="onBreakfastSelected:" destination="-1" eventType="touchUpInside" id="zj9-DE-LM6"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99e-dH-8er">
                     <rect key="frame" x="166" y="210" width="50" height="38"/>
@@ -100,6 +105,9 @@
                     <state key="selected">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="onLunchSelected:" destination="-1" eventType="touchUpInside" id="UVv-aJ-bL5"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZd-VO-tnl">
                     <rect key="frame" x="309" y="210" width="50" height="38"/>
@@ -111,6 +119,9 @@
                     <state key="selected">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="onDinnerSelected:" destination="-1" eventType="touchUpInside" id="ey7-UM-aSv"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZzU-D1-LA1">
                     <rect key="frame" x="24" y="314" width="50" height="38"/>
@@ -122,6 +133,9 @@
                     <state key="selected">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="onInjectionSelected:" destination="-1" eventType="touchUpInside" id="beL-Ow-cIZ"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl6-0S-zU3">
                     <rect key="frame" x="309" y="309" width="50" height="38"/>
@@ -133,6 +147,9 @@
                     <state key="selected">
                         <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="onPillSelected:" destination="-1" eventType="touchUpInside" id="gJv-pR-ZbS"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
