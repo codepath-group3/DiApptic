@@ -128,11 +128,9 @@
 				97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */,
 				0388AD951DD9830300157140 /* ProfileHeaderView.xib */,
 				0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */,
-<<<<<<< HEAD
+
 				0379E9CC1DE110E600200E62 /* HomeScreenViewController.xib */,
-=======
 				974E756B1DE25EAC0023B66D /* RegisterViewController.xib */,
->>>>>>> master
 			);
 			name = Views;
 			sourceTree = "<group>";
