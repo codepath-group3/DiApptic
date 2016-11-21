@@ -20,6 +20,7 @@
 		F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23C21DE24D0400385B37 /* CircleSlider.swift */; };
 		F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */; };
 		F74E23C71DE24D6C00385B37 /* CircleSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */; };
+		F74E23E81DE288B200385B37 /* TestFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23E71DE288B200385B37 /* TestFile.swift */; };
 		F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F831DD9199800A34847 /* AppDelegate.swift */; };
 		F7930F861DD9199800A34847 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F851DD9199800A34847 /* ViewController.swift */; };
 		F7930F891DD9199800A34847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7930F871DD9199800A34847 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		F74E23C21DE24D0400385B37 /* CircleSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
 		F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSliderView.swift; sourceTree = "<group>"; };
 		F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircleSliderView.xib; sourceTree = "<group>"; };
+		F74E23E71DE288B200385B37 /* TestFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFile.swift; sourceTree = "<group>"; };
 		F7930F801DD9199800A34847 /* DiApptic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiApptic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7930F831DD9199800A34847 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7930F851DD9199800A34847 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */,
 				0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */,
 				974E756A1DE25EAC0023B66D /* RegisterViewController.swift */,
+				F74E23E71DE288B200385B37 /* TestFile.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -144,13 +147,6 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
-		F74E23E61DE2833A00385B37 /* Fake Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Fake Group";
-			sourceTree = "<group>";
-		};
 		F7930F771DD9199800A34847 = {
 			isa = PBXGroup;
 			children = (
@@ -172,7 +168,6 @@
 		F7930F821DD9199800A34847 /* DiApptic */ = {
 			isa = PBXGroup;
 			children = (
-				F74E23E61DE2833A00385B37 /* Fake Group */,
 				F74E23C11DE24CE600385B37 /* Components */,
 				97D5AD391DD930B1006F95B6 /* Views */,
 				97D5AD381DD9308D006F95B6 /* Models */,
@@ -324,6 +319,7 @@
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
 				F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
+				F74E23E81DE288B200385B37 /* TestFile.swift in Sources */,
 				F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */,
 				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
