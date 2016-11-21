@@ -12,6 +12,8 @@
 		0388AD9E1DD9859400157140 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */; };
 		0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */; };
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
+		970118621DE27BDC0023A34C /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970118601DE27BDC0023A34C /* CircleSlider.swift */; };
+		970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970118611DE27BDC0023A34C /* CircleSliderView.swift */; };
 		974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974E756A1DE25EAC0023B66D /* RegisterViewController.swift */; };
 		974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974E756B1DE25EAC0023B66D /* RegisterViewController.xib */; };
 		977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977BE1791DDEBD6500E4B157 /* Reading.swift */; };
@@ -38,6 +40,8 @@
 		0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
 		0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileScreenViewController.xib; sourceTree = "<group>"; };
 		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		970118601DE27BDC0023A34C /* CircleSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
+		970118611DE27BDC0023A34C /* CircleSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSliderView.swift; sourceTree = "<group>"; };
 		974E756A1DE25EAC0023B66D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		974E756B1DE25EAC0023B66D /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		977BE1791DDEBD6500E4B157 /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 				1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		970118641DE27BE80023A34C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				970118601DE27BDC0023A34C /* CircleSlider.swift */,
+				970118611DE27BDC0023A34C /* CircleSliderView.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
@@ -149,6 +162,7 @@
 		F7930F821DD9199800A34847 /* DiApptic */ = {
 			isa = PBXGroup;
 			children = (
+				970118641DE27BE80023A34C /* Components */,
 				97D5AD391DD930B1006F95B6 /* Views */,
 				97D5AD381DD9308D006F95B6 /* Models */,
 				97D5AD371DD93021006F95B6 /* View Controllers */,
@@ -295,8 +309,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */,
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
 				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
+				970118621DE27BDC0023A34C /* CircleSlider.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
 				977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */,
 				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
