@@ -144,6 +144,13 @@
 			name = Components;
 			sourceTree = "<group>";
 		};
+		F74E23E61DE2833A00385B37 /* Fake Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Fake Group";
+			sourceTree = "<group>";
+		};
 		F7930F771DD9199800A34847 = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +172,7 @@
 		F7930F821DD9199800A34847 /* DiApptic */ = {
 			isa = PBXGroup;
 			children = (
+				F74E23E61DE2833A00385B37 /* Fake Group */,
 				F74E23C11DE24CE600385B37 /* Components */,
 				97D5AD391DD930B1006F95B6 /* Views */,
 				97D5AD381DD9308D006F95B6 /* Models */,
