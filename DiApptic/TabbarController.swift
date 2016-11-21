@@ -45,14 +45,14 @@ class TabbarController: UIViewController {
         edgesForExtendedLayout = []
         buttons = [homeButton,historyButton,addReadingButton]
         for button: UIButton in buttons {
-            layout(button: button)
+            layout(button)
         }
         homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
         addReadingViewController = AddReadingViewController(nibName: "AddReadingViewController", bundle: nil)
         viewControllers = [homeViewController, historyViewController ,addReadingViewController]
         //buttons[selected].isSelected = true
-        tabButtonDidSelect(tabButton: buttons[selected])
+        tabButtonDidSelect(buttons[selected])
         // Do any additional setup after loading the view.
     }
 
@@ -60,7 +60,7 @@ class TabbarController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func tabButtonDidSelect(tabButton: UIButton) {
+    func tabButtonDidSelect(_ tabButton: UIButton) {
         let previous = selected
         buttons[previous].tintColor = UIColor.darkGray
         //buttons[previous].isSelected = false
@@ -69,13 +69,13 @@ class TabbarController: UIViewController {
         contentViewController = viewControllers[tabButton.tag]
         selected = tabButton.tag
     }
-    private func layout(button: UIButton) {
+    fileprivate func layout(_ button: UIButton) {
         let iw = button.imageView!.frame.size.width
         let tw = button.titleLabel!.frame.size.width
         button.imageEdgeInsets = UIEdgeInsetsMake(0, (tw +  iw)/2, 18.0, 0)
    }
     @IBAction func onTabButtonTap(_ sender: UIButton) {
-        tabButtonDidSelect(tabButton: sender)
+        tabButtonDidSelect(sender)
     }
     
 
