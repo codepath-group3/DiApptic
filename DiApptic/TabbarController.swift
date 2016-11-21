@@ -47,7 +47,7 @@ class TabbarController: UIViewController {
         for button: UIButton in buttons {
             layout(button)
         }
-        homeViewController = HomeScreenViewController(nibName: "HomeScreenViewController", bundle: nil)
+        homeViewController = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
         addReadingViewController = AddReadingViewController(nibName: "AddReadingViewController", bundle: nil)
         viewControllers = [homeViewController, historyViewController ,addReadingViewController]
