@@ -23,7 +23,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         //pieChartView.description = " "
         lineChartView.delegate = self
         lineChartView.chartDescription?.text = "Line Chart"
+        lineChartView.drawGridBackgroundEnabled = false
+
+        
         pieChartView.chartDescription?.text = "Pie Chart"
+        //pieChartView.centerText = "185"
+        
         let readingTypes = ["Highs", "Lows", "Normals"]
         let pieReadings = [200.0,100.0, 300.0]
         let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
@@ -37,8 +42,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         
         var dataEntries: [ChartDataEntry] = []
         
-        for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(x: values[i], y: Double(i))
+        for i in 0..<values.count {
+            let dataEntry = ChartDataEntry(x: Double(i), y: values[i])
             dataEntries.append(dataEntry)
         }
 
@@ -48,8 +53,11 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         //pieChartView.data = pieChartData
         
         let lineChartDataSet = LineChartDataSet(values: dataEntries, label: "Readings")
+        lineChartDataSet.lineWidth = 3.0
+        lineChartDataSet.setColor(UIColor.black)
         //let lineChartData = LineChartData(xVals: dataPoints, dataSet: lineChartDataSet)
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
+        //let anotherChartData = LineChartData(dataSets: <#T##[IChartDataSet]?#>)
         lineChartView.data = lineChartData
         
     }
@@ -87,9 +95,10 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     }
     
     func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
-        print("chart translated")
+        //print("dx:\(dX)    dy: \(dY)")
+        print("Lowest visible x:\(lineChartView.lowestVisibleX)  Highest visible x: \(lineChartView.highestVisibleX)")
     }
     func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
-        print("chart scaled")
+        print("Lowest visible x:\(lineChartView.lowestVisibleX)  Highest visible x: \(lineChartView.highestVisibleX)")
     }
 }
