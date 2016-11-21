@@ -322,7 +322,6 @@
 				F74E23E81DE288B200385B37 /* TestFile.swift in Sources */,
 				F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */,
 				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
-				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
 				977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */,
 				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
 				F7930FA11DD94A5100A34847 /* TabbarController.swift in Sources */,
