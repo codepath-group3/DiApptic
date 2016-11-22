@@ -27,7 +27,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //self.navigationController.pushViewController(newEnterNameController, animated: true)
         //window?.rootViewController = profileScreenViewController
 
-        window?.rootViewController = TabbarController(nibName: "TabbarController", bundle: nil)
+       // window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let loginVC = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let navController = UINavigationController(rootViewController: loginVC)
+        
+        window?.rootViewController = navController
 
         return true
     }

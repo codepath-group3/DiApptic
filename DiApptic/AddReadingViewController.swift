@@ -31,6 +31,11 @@ class AddReadingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        breakfastButton.backgroundColor = .clear
+        breakfastButton.layer.cornerRadius = 5
+        breakfastButton.layer.borderWidth = 1
+        breakfastButton.layer.borderColor = UIColor.black.cgColor
     }
     
     @IBAction func onCarbsSliderSelected(_ sender: UISlider) {
