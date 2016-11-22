@@ -68,7 +68,7 @@
                         <action selector="onPhysicalActivitySelected:" destination="-1" eventType="valueChanged" id="kWT-g7-d9R"/>
                     </connections>
                 </segmentedControl>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-2p-bSZ">
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-2p-bSZ" customClass="CircleSliderView" customModule="DiApptic" customModuleProvider="target">
                     <rect key="frame" x="55" y="64" width="240" height="128"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
