@@ -31,11 +31,21 @@ class AddReadingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        breakfastButton.backgroundColor = .clear
-        breakfastButton.layer.cornerRadius = 5
-        breakfastButton.layer.borderWidth = 1
-        breakfastButton.layer.borderColor = UIColor.black.cgColor
+        addCircularBorder(x: 50, y : 200, button: breakfastButton)
+        addCircularBorder(x: 150, y : 200,button: lunchButton)
+        addCircularBorder(x: 250, y : 200,button: dinnerButton)
+        addCircularBorder(x: 50, y : 300,button: injectionButton)
+        addCircularBorder(x: 250, y : 300,button: pillButton)
+    }
+    
+    func addCircularBorder(x: Int, y: Int, button: UIButton) {
+        button.backgroundColor = .clear
+        button.frame = CGRect(x: x, y: y, width: 60, height: 60)
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.clipsToBounds = true
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.gray.cgColor
+
     }
     
     @IBAction func onCarbsSliderSelected(_ sender: UISlider) {
@@ -52,26 +62,39 @@ class AddReadingViewController: UIViewController {
     @IBAction func onBreakfastSelected(_ sender: UIButton) {
         context = "Breakfast"
         print("Breakfast selected")
+        breakfastButton.tintColor = UIColor.cyan
+        lunchButton.tintColor = UIColor.gray
+        dinnerButton.tintColor = UIColor.gray
     }
     
     @IBAction func onLunchSelected(_ sender: UIButton) {
         context = "Lunch"
         print("Lunch selected")
+        lunchButton.tintColor = UIColor.cyan
+        breakfastButton.tintColor = UIColor.gray
+        dinnerButton.tintColor = UIColor.gray
     }
     
     @IBAction func onDinnerSelected(_ sender: UIButton) {
         context = "Dinner"
         print("Dinner selected")
+        dinnerButton.tintColor = UIColor.cyan
+        lunchButton.tintColor = UIColor.gray
+        breakfastButton.tintColor = UIColor.gray
     }
 
     @IBAction func onInjectionSelected(_ sender: Any) {
         medicationType = 1
         print("Injection selected")
+        injectionButton.tintColor = UIColor.cyan
+        pillButton.tintColor = UIColor.gray
     }
     
     @IBAction func onPillSelected(_ sender: UIButton) {
         medicationType = 2
         print("Pill selected")
+        pillButton.tintColor = UIColor.cyan
+        injectionButton.tintColor = UIColor.gray
     }
     
     func createReading() {

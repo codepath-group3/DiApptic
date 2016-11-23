@@ -27,64 +27,57 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ofd-tQ-8qx">
+                <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ofd-tQ-8qx">
                     <rect key="frame" x="24" y="28" width="335" height="29"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Blood Glucose"/>
                         <segment title="HbA1c"/>
                     </segments>
+                    <color key="tintColor" red="0.32793406380000001" green="1" blue="0.81106559249999999" alpha="1" colorSpace="calibratedRGB"/>
                 </segmentedControl>
                 <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1500" minValue="0.0" maxValue="3000" translatesAutoresizingMaskIntoConstraints="NO" id="4gW-Qu-kxW">
-                    <rect key="frame" x="33" y="271" width="286" height="31"/>
+                    <rect key="frame" x="22" y="271" width="339" height="31"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="tintColor" red="0.32793406380000001" green="1" blue="0.81106559249999999" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="onCarbsSliderSelected:" destination="-1" eventType="valueChanged" id="M8p-GT-GTE"/>
                     </connections>
                 </slider>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDQ-rM-YbZ">
-                    <rect key="frame" x="35" y="393" width="282" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <nil key="textColor"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Physical Activity" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YF4-nV-Okv">
-                    <rect key="frame" x="35" y="449" width="124" height="21"/>
+                    <rect key="frame" x="24" y="366" width="93" height="15"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="I9o-1K-dZv">
-                    <rect key="frame" x="35" y="478" width="282" height="29"/>
+                    <rect key="frame" x="24" y="395" width="335" height="29"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <segments>
                         <segment title="Mild"/>
                         <segment title="Moderate"/>
                         <segment title="Intense"/>
                     </segments>
+                    <color key="tintColor" red="0.32793406380000001" green="1" blue="0.81106559249999999" alpha="1" colorSpace="calibratedRGB"/>
                     <connections>
                         <action selector="onPhysicalActivitySelected:" destination="-1" eventType="valueChanged" id="kWT-g7-d9R"/>
                     </connections>
                 </segmentedControl>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-2p-bSZ" customClass="CircleSliderView" customModule="DiApptic" customModuleProvider="target">
-                    <rect key="frame" x="55" y="64" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuU-j0-hoG">
-                    <rect key="frame" x="159" y="553" width="34" height="30"/>
+                    <rect key="frame" x="24" y="512" width="335" height="39"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="0.32793406380000001" green="1" blue="0.81106559249999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <state key="normal" title="Save"/>
                     <connections>
                         <action selector="onSave:" destination="-1" eventType="touchUpInside" id="cdp-1p-jFj"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-AJ-sMx">
+                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fBf-AJ-sMx">
                     <rect key="frame" x="24" y="210" width="50" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-7" maxY="0.0"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-1" maxY="0.0"/>
                     <state key="normal" image="dawn">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -95,10 +88,10 @@
                         <action selector="onBreakfastSelected:" destination="-1" eventType="touchUpInside" id="zj9-DE-LM6"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99e-dH-8er">
+                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99e-dH-8er">
                     <rect key="frame" x="166" y="210" width="50" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-7" maxY="0.0"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" image="hamburger">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -109,10 +102,10 @@
                         <action selector="onLunchSelected:" destination="-1" eventType="touchUpInside" id="UVv-aJ-bL5"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZd-VO-tnl">
+                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZd-VO-tnl">
                     <rect key="frame" x="309" y="210" width="50" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-7" maxY="0.0"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" image="dinner">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -123,10 +116,10 @@
                         <action selector="onDinnerSelected:" destination="-1" eventType="touchUpInside" id="ey7-UM-aSv"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZzU-D1-LA1">
+                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZzU-D1-LA1">
                     <rect key="frame" x="24" y="314" width="50" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-7" maxY="0.0"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" image="medical-2">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -137,10 +130,10 @@
                         <action selector="onInjectionSelected:" destination="-1" eventType="touchUpInside" id="beL-Ow-cIZ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl6-0S-zU3">
+                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hl6-0S-zU3">
                     <rect key="frame" x="309" y="309" width="50" height="38"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="-7" maxY="0.0"/>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" image="medical">
                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -151,9 +144,54 @@
                         <action selector="onPillSelected:" destination="-1" eventType="touchUpInside" id="gJv-pR-ZbS"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rcf-2p-bSZ" customClass="CircleSliderView" customModule="DiApptic" customModuleProvider="target">
+                    <rect key="frame" x="135" y="76" width="140" height="118"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Carbs taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zas-0d-Tsy">
+                    <rect key="frame" x="24" y="264" width="68" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="500" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2My-vo-4Xe">
+                    <rect key="frame" x="24" y="285" width="30" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asm-hu-30U">
+                    <rect key="frame" x="329" y="285" width="30" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Notes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tw2-2D-WnB">
+                    <rect key="frame" x="24" y="436" width="34" height="15"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kDQ-rM-YbZ">
+                    <rect key="frame" x="24" y="459" width="335" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-            <point key="canvasLocation" x="33.5" y="53.5"/>
+            <constraints>
+                <constraint firstItem="ofd-tQ-8qx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="2wH-FK-bu6"/>
+                <constraint firstAttribute="trailing" secondItem="ofd-tQ-8qx" secondAttribute="trailing" id="hgk-Y8-xbD"/>
+                <constraint firstItem="ofd-tQ-8qx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yVW-4i-CDF"/>
+            </constraints>
+            <point key="canvasLocation" x="9.5" y="53.5"/>
         </view>
     </objects>
     <resources>
