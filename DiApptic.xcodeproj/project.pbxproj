@@ -32,7 +32,11 @@
 		F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930FA71DDA341400A34847 /* AddReadingViewController.swift */; };
 		F7930FAA1DDA341400A34847 /* AddReadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7930FA81DDA341400A34847 /* AddReadingViewController.xib */; };
 		F7930FAD1DDA342500A34847 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930FAB1DDA342500A34847 /* HistoryViewController.swift */; };
-		F7930FAE1DDA342500A34847 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7930FAC1DDA342500A34847 /* HistoryViewController.xib */; };
+		F7AC0DD81DEF941700F8D8AC /* CreateReadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */; };
+		F7AC0DDA1DEF943900F8D8AC /* CreateReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */; };
+		F7AC0DDC1DEF945400F8D8AC /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DDB1DEF945400F8D8AC /* Styles.swift */; };
+		F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DDD1DEF946000F8D8AC /* RoundButton.swift */; };
+		F7AC0DE01DEF960200F8D8AC /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,7 +69,11 @@
 		F7930FA71DDA341400A34847 /* AddReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReadingViewController.swift; sourceTree = "<group>"; };
 		F7930FA81DDA341400A34847 /* AddReadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddReadingViewController.xib; sourceTree = "<group>"; };
 		F7930FAB1DDA342500A34847 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		F7930FAC1DDA342500A34847 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
+		F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateReadingViewController.xib; sourceTree = "<group>"; };
+		F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateReadingViewController.swift; sourceTree = "<group>"; };
+		F7AC0DDB1DEF945400F8D8AC /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		F7AC0DDD1DEF946000F8D8AC /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +108,7 @@
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */,
 				F7930F9F1DD94A5100A34847 /* TabbarController.swift */,
 				F7930FA31DDA33FD00A34847 /* HomeViewController.swift */,
 				F7930FA71DDA341400A34847 /* AddReadingViewController.swift */,
@@ -122,10 +131,11 @@
 		97D5AD391DD930B1006F95B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */,
+				F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */,
 				F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */,
 				F7930FA41DDA33FD00A34847 /* HomeViewController.xib */,
 				F7930FA81DDA341400A34847 /* AddReadingViewController.xib */,
-				F7930FAC1DDA342500A34847 /* HistoryViewController.xib */,
 				F7930FA01DD94A5100A34847 /* TabbarController.xib */,
 				97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */,
 				0388AD951DD9830300157140 /* ProfileHeaderView.xib */,
@@ -139,16 +149,18 @@
 			isa = PBXGroup;
 			children = (
 				F74E23C21DE24D0400385B37 /* CircleSlider.swift */,
+				F7AC0DDD1DEF946000F8D8AC /* RoundButton.swift */,
 				F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
 		};
-		F74E23E61DE2833A00385B37 /* Fake Group */ = {
+		F74E23E61DE2833A00385B37 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				F7AC0DDB1DEF945400F8D8AC /* Styles.swift */,
 			);
-			name = "Fake Group";
+			name = Styles;
 			sourceTree = "<group>";
 		};
 		F7930F771DD9199800A34847 = {
@@ -172,7 +184,7 @@
 		F7930F821DD9199800A34847 /* DiApptic */ = {
 			isa = PBXGroup;
 			children = (
-				F74E23E61DE2833A00385B37 /* Fake Group */,
+				F74E23E61DE2833A00385B37 /* Styles */,
 				F74E23C11DE24CE600385B37 /* Components */,
 				97D5AD391DD930B1006F95B6 /* Views */,
 				97D5AD381DD9308D006F95B6 /* Models */,
@@ -251,15 +263,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7AC0DD81DEF941700F8D8AC /* CreateReadingViewController.xib in Resources */,
 				F74E23C71DE24D6C00385B37 /* CircleSliderView.xib in Resources */,
 				974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */,
 				F7930FAA1DDA341400A34847 /* AddReadingViewController.xib in Resources */,
 				97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */,
 				F7930F8E1DD9199800A34847 /* LaunchScreen.storyboard in Resources */,
-				F7930FAE1DDA342500A34847 /* HistoryViewController.xib in Resources */,
 				F7930F8B1DD9199800A34847 /* Assets.xcassets in Resources */,
 				F7930F891DD9199800A34847 /* Main.storyboard in Resources */,
 				0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */,
+				F7AC0DE01DEF960200F8D8AC /* HistoryViewController.xib in Resources */,
 				0388AD971DD9830300157140 /* ProfileHeaderView.xib in Resources */,
 				F7930FA21DD94A5100A34847 /* TabbarController.xib in Resources */,
 				F7930FA61DDA33FD00A34847 /* HomeViewController.xib in Resources */,
@@ -321,11 +334,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */,
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
 				F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
 				F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */,
 				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
+				F7AC0DDA1DEF943900F8D8AC /* CreateReadingViewController.swift in Sources */,
+				F7AC0DDC1DEF945400F8D8AC /* Styles.swift in Sources */,
 				977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */,
 				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
 				F7930FA11DD94A5100A34847 /* TabbarController.swift in Sources */,

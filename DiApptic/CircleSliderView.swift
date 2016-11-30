@@ -16,7 +16,7 @@ class CircleSliderView: UIView {
     var circleSlider: CircleSlider!
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var valueLabel: UILabel!
+    var valueLabel: UILabel!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -26,7 +26,7 @@ class CircleSliderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
-    } 
+    }
     
     func initSubviews() {
         let nib = UINib(nibName: "CircleSliderView", bundle: nil)
@@ -41,7 +41,14 @@ class CircleSliderView: UIView {
         circleSlider.circle_color = UIColor(red: 1, green: 1, blue: 0, alpha: 1)
         circleSlider.makeSlider()
         contentView.addSubview(circleSlider)
+        valueLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 50))
+        valueLabel.center = circleSlider.center
+        valueLabel.textAlignment = .center
+        valueLabel.text = "0"
+        valueLabel.font = valueLabel.font.withSize(35)
+        contentView.addSubview(valueLabel)
         addSubview(contentView)
+        circleSlider.showTouchCircle()
     }
     func sliderFinished() {
         // one full rotation completed

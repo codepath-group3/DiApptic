@@ -196,7 +196,7 @@ class CircleSlider: UIView {
         } else {
             touchFailed()
         }
-    } 
+    }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         // well, same thing as if the touchesMoved
@@ -208,10 +208,13 @@ class CircleSlider: UIView {
             touchFailed()
         }
     }
-    
+    func showTouchCircle(){
+        startTouch(atPoint: CGPoint(x: 18.6, y: 63.6))
+    }
     // * where things happen, states get wild *
     
     fileprivate func startTouch(atPoint point: CGPoint) {
+        print("\(point)")
         endTouching()
         let circlePoint = getPointOnCircle(forPoint: point)
         touch_circle = UIBezierPath(arcCenter: circlePoint, radius: touch_diameter / 2, startAngle: 0, endAngle: CGFloat(M_PI * 2), clockwise: true)

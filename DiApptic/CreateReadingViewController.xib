@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateReadingViewController" customModule="DiApptic" customModuleProvider="target">
+            <connections>
+                <outlet property="afterMealButton" destination="vZq-gH-xXd" id="NXE-Up-an6"/>
+                <outlet property="beforeMealButton" destination="UdT-Sw-6g7" id="WdE-4G-ljO"/>
+                <outlet property="fastingButton" destination="YeH-4H-1Km" id="bu0-bU-k3a"/>
+                <outlet property="insulinButton" destination="lzu-Yf-W4j" id="yXN-Ja-cni"/>
+                <outlet property="oralButton" destination="xmt-TH-iTm" id="ewE-q8-Khy"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleAspectFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMx-WA-GaD" customClass="CircleSliderView" customModule="DiApptic" customModuleProvider="target">
+                    <rect key="frame" x="88" y="0.0" width="200" height="200"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="rOG-Lw-mVa"/>
+                        <constraint firstAttribute="height" constant="200" id="tQ4-UL-Ze3"/>
+                    </constraints>
+                </view>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qAm-0O-iZz" userLabel="Status Heading Stack View">
+                    <rect key="frame" x="4" y="210" width="367" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STATUS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3H-Rw-jY8">
+                            <rect key="frame" x="0.0" y="1.5" width="47.5" height="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z4x-oX-kz6">
+                            <rect key="frame" x="52.5" y="9.5" width="314.5" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="sBg-Lx-c0E"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="k5K-RJ-Q5z"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="f5T-CI-I0q" userLabel="Status Stack View">
+                    <rect key="frame" x="0.0" y="240" width="375" height="54.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aVH-XT-0WN">
+                            <rect key="frame" x="0.0" y="0.0" width="125" height="54.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YeH-4H-1Km" customClass="RoundButton" customModule="DiApptic" customModuleProvider="target">
+                                    <rect key="frame" x="42.5" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="AkM-ZF-BJV"/>
+                                        <constraint firstAttribute="width" constant="40" id="dRD-fk-RPq"/>
+                                    </constraints>
+                                    <state key="normal" image="dawn24x24"/>
+                                    <connections>
+                                        <action selector="statusTap:" destination="-1" eventType="touchUpInside" id="Jk0-ae-YHj"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fasting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cbY-bJ-iL5">
+                                    <rect key="frame" x="42" y="40" width="41" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="usR-KR-l95">
+                            <rect key="frame" x="125" y="0.0" width="125" height="54.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UdT-Sw-6g7" customClass="RoundButton" customModule="DiApptic" customModuleProvider="target">
+                                    <rect key="frame" x="42.5" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="5ym-Hc-ZUJ"/>
+                                        <constraint firstAttribute="width" constant="40" id="d7W-ud-uMy"/>
+                                    </constraints>
+                                    <state key="normal" image="hamburger24x24"/>
+                                    <connections>
+                                        <action selector="statusTap:" destination="-1" eventType="touchUpInside" id="yRt-Fe-7iZ"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Before Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtd-pb-uyO">
+                                    <rect key="frame" x="28.5" y="40" width="68" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="w46-zS-i9X">
+                            <rect key="frame" x="250" y="0.0" width="125" height="54.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vZq-gH-xXd" customClass="RoundButton" customModule="DiApptic" customModuleProvider="target">
+                                    <rect key="frame" x="42.5" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="xUg-eu-cdD"/>
+                                        <constraint firstAttribute="height" constant="40" id="xvT-PA-RHh"/>
+                                    </constraints>
+                                    <state key="normal" image="dinner24x24"/>
+                                    <connections>
+                                        <action selector="statusTap:" destination="-1" eventType="touchUpInside" id="Tan-ta-EYh"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="After Meal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ud-gf-3iS">
+                                    <rect key="frame" x="33.5" y="40" width="58.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="2mX-wc-9zq" userLabel="Medication Heading Stack View">
+                    <rect key="frame" x="4" y="304.5" width="367" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MEDICATION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0WV-C8-CKm">
+                            <rect key="frame" x="0.0" y="1.5" width="82" height="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IUU-Pu-bT4">
+                            <rect key="frame" x="87" y="9.5" width="280" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="Y8E-UQ-Ja2"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="6sP-o5-Dxz"/>
+                    </constraints>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="6Y0-Jl-zGZ" userLabel="Medication Stack View">
+                    <rect key="frame" x="0.0" y="334.5" width="375" height="54.5"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RjD-vD-M7R">
+                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="54.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lzu-Yf-W4j" customClass="RoundButton" customModule="DiApptic" customModuleProvider="target">
+                                    <rect key="frame" x="74" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="rKq-Zj-mvj"/>
+                                        <constraint firstAttribute="width" constant="40" id="vrp-lg-o3F"/>
+                                    </constraints>
+                                    <state key="normal" image="syringe24x24"/>
+                                    <connections>
+                                        <action selector="medicationTap:" destination="-1" eventType="touchUpInside" id="N2I-QF-Wch"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insulin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S7f-yZ-bG1">
+                                    <rect key="frame" x="75.5" y="40" width="36.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kja-50-4v7">
+                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="54.5"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xmt-TH-iTm" customClass="RoundButton" customModule="DiApptic" customModuleProvider="target">
+                                    <rect key="frame" x="74" y="0.0" width="40" height="40"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="40" id="HIj-B6-hAr"/>
+                                        <constraint firstAttribute="height" constant="40" id="hVk-6D-WFB"/>
+                                    </constraints>
+                                    <state key="normal" image="pill24x24"/>
+                                    <connections>
+                                        <action selector="medicationTap:" destination="-1" eventType="touchUpInside" id="mLc-Uo-yU7"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oral" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QfK-Pz-nkX">
+                                    <rect key="frame" x="82" y="40" width="23.5" height="14.5"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jFJ-Pe-51e" userLabel="Note Heading Stack View">
+                    <rect key="frame" x="4" y="399" width="367" height="20"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ADD A NOTE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcf-YP-7om">
+                            <rect key="frame" x="0.0" y="1.5" width="79" height="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QNJ-Ga-NtH">
+                            <rect key="frame" x="84" y="9.5" width="283" height="1"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="KDF-MM-dST"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Mim-ps-9tO"/>
+                    </constraints>
+                </stackView>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sNt-Nc-NFC">
+                    <rect key="frame" x="0.0" y="429" width="375" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="jFJ-Pe-51e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="2ar-PP-Z5e"/>
+                <constraint firstAttribute="trailing" secondItem="sNt-Nc-NFC" secondAttribute="trailing" id="5hN-PY-p7o"/>
+                <constraint firstItem="MMx-WA-GaD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="907-3t-qH3"/>
+                <constraint firstAttribute="trailing" secondItem="2mX-wc-9zq" secondAttribute="trailing" constant="4" id="9QV-76-sde"/>
+                <constraint firstItem="MMx-WA-GaD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Eqj-oS-PGn"/>
+                <constraint firstItem="6Y0-Jl-zGZ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="FUv-C0-UJ0"/>
+                <constraint firstAttribute="trailing" secondItem="qAm-0O-iZz" secondAttribute="trailing" constant="4" id="GX3-nh-4WJ"/>
+                <constraint firstItem="qAm-0O-iZz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="Hga-W3-DyD"/>
+                <constraint firstAttribute="trailing" secondItem="jFJ-Pe-51e" secondAttribute="trailing" constant="4" id="KD0-wu-aCb"/>
+                <constraint firstItem="f5T-CI-I0q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="L4k-qP-Mw0"/>
+                <constraint firstItem="qAm-0O-iZz" firstAttribute="top" secondItem="MMx-WA-GaD" secondAttribute="bottom" constant="10" id="Lsr-g4-HyU"/>
+                <constraint firstItem="jFJ-Pe-51e" firstAttribute="top" secondItem="6Y0-Jl-zGZ" secondAttribute="bottom" constant="10" id="Lzs-bi-u9G"/>
+                <constraint firstAttribute="trailing" secondItem="f5T-CI-I0q" secondAttribute="trailing" id="VgE-Wx-Rt3"/>
+                <constraint firstItem="sNt-Nc-NFC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wli-3i-HPV"/>
+                <constraint firstItem="f5T-CI-I0q" firstAttribute="top" secondItem="qAm-0O-iZz" secondAttribute="bottom" constant="10" id="aiF-6Z-VQP"/>
+                <constraint firstAttribute="trailing" secondItem="6Y0-Jl-zGZ" secondAttribute="trailing" id="ijR-YK-Xw7"/>
+                <constraint firstItem="sNt-Nc-NFC" firstAttribute="top" secondItem="jFJ-Pe-51e" secondAttribute="bottom" constant="10" id="jdL-R3-fbQ"/>
+                <constraint firstItem="2mX-wc-9zq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="qhn-BC-ute"/>
+                <constraint firstItem="6Y0-Jl-zGZ" firstAttribute="top" secondItem="2mX-wc-9zq" secondAttribute="bottom" constant="10" id="sJO-rn-L5Q"/>
+                <constraint firstItem="2mX-wc-9zq" firstAttribute="top" secondItem="f5T-CI-I0q" secondAttribute="bottom" constant="10" id="vgn-8H-1Er"/>
+            </constraints>
+            <point key="canvasLocation" x="33.5" y="53.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="dawn24x24" width="24" height="24"/>
+        <image name="dinner24x24" width="24" height="24"/>
+        <image name="hamburger24x24" width="24" height="24"/>
+        <image name="pill24x24" width="24" height="24"/>
+        <image name="syringe24x24" width="24" height="24"/>
+    </resources>
+</document>

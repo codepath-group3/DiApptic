@@ -49,7 +49,8 @@ class TabbarController: UIViewController {
         }
         homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
-        addReadingViewController = AddReadingViewController(nibName: "AddReadingViewController", bundle: nil)
+        //addReadingViewController = AddReadingViewController(nibName: "AddReadingViewController", bundle: nil)
+        addReadingViewController = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
         viewControllers = [homeViewController, historyViewController ,addReadingViewController]
         //buttons[selected].isSelected = true
         tabButtonDidSelect(buttons[selected])
@@ -64,7 +65,7 @@ class TabbarController: UIViewController {
         let previous = selected
         buttons[previous].tintColor = UIColor.darkGray
         //buttons[previous].isSelected = false
-        buttons[tabButton.tag].tintColor = UIColor.red
+        buttons[tabButton.tag].tintColor = Styles.lightBlue
         //buttons[tabButton.tag].isSelected = true
         contentViewController = viewControllers[tabButton.tag]
         selected = tabButton.tag
@@ -73,6 +74,7 @@ class TabbarController: UIViewController {
         let iw = button.imageView!.frame.size.width
         let tw = button.titleLabel!.frame.size.width
         button.imageEdgeInsets = UIEdgeInsetsMake(0, (tw +  iw)/2, 18.0, 0)
+        button.tintColor = .darkGray
    }
     @IBAction func onTabButtonTap(_ sender: UIButton) {
         tabButtonDidSelect(sender)
