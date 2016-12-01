@@ -30,6 +30,7 @@ class CreateReadingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        edgesForExtendedLayout = []
         statusButtons = [fastingButton, beforeMealButton, afterMealButton]
         medicationButtons = [insulinButton, oralButton]
         

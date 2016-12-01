@@ -19,6 +19,11 @@ class TabbarController: UIViewController {
     @IBOutlet weak var profileButton: UIButton!
     var buttons: [UIButton] = []
     
+    var homeNavigationController: UINavigationController!
+    var historyNavigationController: UINavigationController!
+    var addReadingNavigationController: UINavigationController!
+    var navigationControllers: [UINavigationController] = []
+    
     var homeViewController: UIViewController!
     var historyViewController: UIViewController!
     var addReadingViewController: UIViewController!
@@ -51,10 +56,15 @@ class TabbarController: UIViewController {
             layout(button)
         }
         homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        homeNavigationController = UINavigationController(rootViewController: homeViewController)
+        
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
+        historyNavigationController = UINavigationController(rootViewController: historyViewController)
         //addReadingViewController = AddReadingViewController(nibName: "AddReadingViewController", bundle: nil)
         addReadingViewController = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
+        addReadingNavigationController = UINavigationController(rootViewController: addReadingViewController)
         viewControllers = [homeViewController, historyViewController ,homeViewController,addReadingViewController]
+        navigationControllers = [homeNavigationController, historyNavigationController, homeNavigationController, addReadingNavigationController]
         //buttons[selected].isSelected = true
         tabButtonDidSelect(buttons[selected])
         NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidShow(notification:)), name: .UIKeyboardDidShow, object: nil)
@@ -74,7 +84,7 @@ class TabbarController: UIViewController {
         buttons[tabButton.tag].setTitleColor(Styles.lightBlue, for: UIControlState.normal)
         //buttons[tabButton.tag].isSelected = true
         //buttons[tabButton.tag].isHighlighted = false
-        contentViewController = viewControllers[tabButton.tag]
+        contentViewController = navigationControllers[tabButton.tag]
         selected = tabButton.tag
     }
     fileprivate func layout(_ button: UIButton) {
