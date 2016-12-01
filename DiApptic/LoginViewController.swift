@@ -9,8 +9,13 @@
 import UIKit
 import Parse
 
+protocol LoginDelegate: class {
+    func didLogin()
+}
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
+    weak var delegate: LoginDelegate!
+    
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var inlinePasswordError: UILabel!
@@ -20,9 +25,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         let currentUser = PFUser.current()
         if currentUser != nil {
-            let vc = TabbarController(nibName: "TabbarController", bundle: nil)
-            self.navigationController!.pushViewController(vc, animated: true)
-
+            delegate.didLogin()
         } else {
             usernameField.delegate = self
             passwordField.delegate = self
@@ -70,8 +73,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (user, error) -> Void in
                 
                 if ((user) != nil) {
-                    let vc = TabbarController(nibName: "TabbarController", bundle: nil)
-                    self.navigationController!.pushViewController(vc, animated: true)
+                    //let vc = TabbarController(nibName: "TabbarController", bundle: nil)
+                    //self.navigationController!.pushViewController(vc, animated: true)
+                    self.delegate.didLogin()
                 } else {
                     let alert = UIAlertView(title: "Error", message: "Invalid email or password", delegate: self, cancelButtonTitle: "OK")
                     alert.show()
