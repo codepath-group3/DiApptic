@@ -25,5 +25,10 @@ class Styles: NSObject {
     static let lightBlue = UIColor(netHex: 0x47BBDC)
     static let darkBlue = UIColor(netHex: 0x3895B0)
     static let orange = UIColor(netHex: 0xFF8B33)
-    static let green = UIColor(netHex: 0x8BC333)
+    static let brightRed = UIColor(netHex: 0xE3514A)
+    static let brightGreen = UIColor(netHex: 0x8BC333)
+    static let lighterGray = UIColor(netHex: 0xF5F5F5)
+    static let lightGray = UIColor(netHex: 0xE0E0E0)
+    static let darkGray = UIColor(netHex: 0x9E9E9E)
+    static let darkerGray = UIColor(netHex: 0x424242)
 }
