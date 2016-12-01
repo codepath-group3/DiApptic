@@ -210,6 +210,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartData.setValueFont(NSUIFont.systemFont(ofSize: 14.0))
         pieChartView.data = pieChartData
+
         // light green
         let normalColor = UIColor(red: 132.0/255.0, green: 209.0/255.0, blue: 148.0/255.0, alpha: 1)
         // light yellow

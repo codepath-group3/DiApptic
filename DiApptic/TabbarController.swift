@@ -11,10 +11,12 @@ import UIKit
 class TabbarController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var tabbarView: UIView!
     
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var addReadingButton: UIButton!
+    @IBOutlet weak var profileButton: UIButton!
     var buttons: [UIButton] = []
     
     var homeViewController: UIViewController!
@@ -43,7 +45,8 @@ class TabbarController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         edgesForExtendedLayout = []
-        buttons = [homeButton,historyButton,addReadingButton]
+        tabbarView.backgroundColor = Styles.lighterGray
+        buttons = [homeButton,historyButton,profileButton, addReadingButton]
         for button: UIButton in buttons {
             layout(button)
         }
@@ -51,7 +54,7 @@ class TabbarController: UIViewController {
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
         //addReadingViewController = AddReadingViewController(nibName: "AddReadingViewController", bundle: nil)
         addReadingViewController = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
-        viewControllers = [homeViewController, historyViewController ,addReadingViewController]
+        viewControllers = [homeViewController, historyViewController ,homeViewController,addReadingViewController]
         //buttons[selected].isSelected = true
         tabButtonDidSelect(buttons[selected])
         NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidShow(notification:)), name: .UIKeyboardDidShow, object: nil)
@@ -64,10 +67,13 @@ class TabbarController: UIViewController {
     }
     func tabButtonDidSelect(_ tabButton: UIButton) {
         let previous = selected
-        buttons[previous].tintColor = UIColor.darkGray
+        buttons[previous].tintColor = Styles.darkGray
+        buttons[previous].setTitleColor(Styles.darkGray, for: UIControlState.normal)
         //buttons[previous].isSelected = false
         buttons[tabButton.tag].tintColor = Styles.lightBlue
+        buttons[tabButton.tag].setTitleColor(Styles.lightBlue, for: UIControlState.normal)
         //buttons[tabButton.tag].isSelected = true
+        //buttons[tabButton.tag].isHighlighted = false
         contentViewController = viewControllers[tabButton.tag]
         selected = tabButton.tag
     }
@@ -75,7 +81,7 @@ class TabbarController: UIViewController {
         let iw = button.imageView!.frame.size.width
         let tw = button.titleLabel!.frame.size.width
         button.imageEdgeInsets = UIEdgeInsetsMake(0, (tw +  iw)/2, 18.0, 0)
-        button.tintColor = .darkGray
+        button.tintColor = Styles.darkGray
    }
     @IBAction func onTabButtonTap(_ sender: UIButton) {
         tabButtonDidSelect(sender)
