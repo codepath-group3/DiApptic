@@ -32,6 +32,7 @@ class CreateReadingViewController: UIViewController {
         super.viewDidLoad()
         statusButtons = [fastingButton, beforeMealButton, afterMealButton]
         medicationButtons = [insulinButton, oralButton]
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,7 +83,7 @@ class CreateReadingViewController: UIViewController {
         sender.isSelected = !sender.isSelected
     }
 
-
+    
     /*
     // MARK: - Navigation
 
