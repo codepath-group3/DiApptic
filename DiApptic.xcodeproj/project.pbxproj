@@ -9,10 +9,14 @@
 /* Begin PBXBuildFile section */
 		0379E9CD1DE110E600200E62 /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0379E9CB1DE110E600200E62 /* HomeScreenViewController.swift */; };
 		0379E9CE1DE110E600200E62 /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0379E9CC1DE110E600200E62 /* HomeScreenViewController.xib */; };
+		0379E9D11DE2800500200E62 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0379E9CF1DE2800500200E62 /* ComposeViewController.swift */; };
+		0379E9D21DE2800500200E62 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0379E9D01DE2800500200E62 /* ComposeViewController.xib */; };
 		0388AD971DD9830300157140 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0388AD951DD9830300157140 /* ProfileHeaderView.xib */; };
 		0388AD9B1DD9835D00157140 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */; };
 		0388AD9E1DD9859400157140 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */; };
 		0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */; };
+		03B8A45A1DED0C6900D0341B /* ProfileViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */; };
+		03B8A45B1DED0C6900D0341B /* ProfileViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */; };
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
 		974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974E756A1DE25EAC0023B66D /* RegisterViewController.swift */; };
 		974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974E756B1DE25EAC0023B66D /* RegisterViewController.xib */; };
@@ -37,10 +41,14 @@
 /* Begin PBXFileReference section */
 		0379E9CB1DE110E600200E62 /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		0379E9CC1DE110E600200E62 /* HomeScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeScreenViewController.xib; sourceTree = "<group>"; };
+		0379E9CF1DE2800500200E62 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		0379E9D01DE2800500200E62 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
 		0388AD961DD9830300157140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileHeaderView.xib; sourceTree = "<group>"; };
 		0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
 		0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileScreenViewController.xib; sourceTree = "<group>"; };
+		03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewCell.swift; sourceTree = "<group>"; };
+		03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewTableViewCell.xib; sourceTree = "<group>"; };
 		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974E756A1DE25EAC0023B66D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		974E756B1DE25EAC0023B66D /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -106,6 +114,7 @@
 				0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */,
 				0379E9CB1DE110E600200E62 /* HomeScreenViewController.swift */,
 				974E756A1DE25EAC0023B66D /* RegisterViewController.swift */,
+				0379E9CF1DE2800500200E62 /* ComposeViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -128,9 +137,11 @@
 				97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */,
 				0388AD951DD9830300157140 /* ProfileHeaderView.xib */,
 				0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */,
-
 				0379E9CC1DE110E600200E62 /* HomeScreenViewController.xib */,
 				974E756B1DE25EAC0023B66D /* RegisterViewController.xib */,
+				0379E9D01DE2800500200E62 /* ComposeViewController.xib */,
+				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
+				03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -233,7 +244,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0379E9D21DE2800500200E62 /* ComposeViewController.xib in Resources */,
 				974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */,
+				03B8A45B1DED0C6900D0341B /* ProfileViewTableViewCell.xib in Resources */,
 				F7930FAA1DDA341400A34847 /* AddReadingViewController.xib in Resources */,
 				97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */,
 				F7930F8E1DD9199800A34847 /* LaunchScreen.storyboard in Resources */,
@@ -303,11 +316,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03B8A45A1DED0C6900D0341B /* ProfileViewTableViewCell.swift in Sources */,
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
 				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
 				977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */,
 				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
+				0379E9D11DE2800500200E62 /* ComposeViewController.swift in Sources */,
 				F7930FA11DD94A5100A34847 /* TabbarController.swift in Sources */,
 				F7930F861DD9199800A34847 /* ViewController.swift in Sources */,
 				F7930FAD1DDA342500A34847 /* HistoryViewController.swift in Sources */,
