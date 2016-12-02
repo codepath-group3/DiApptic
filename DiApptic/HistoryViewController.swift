@@ -289,6 +289,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         adjustPieChart()
     }
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
-        
+        let readingDetailsViewController = ReadingDetailsViewController(nibName: "ReadingDetailsViewController", bundle: nil)
+        self.navigationController?.pushViewController(readingDetailsViewController, animated: true)
     }
 }
