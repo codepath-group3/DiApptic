@@ -5,13 +5,7 @@
 //  Created by Faheem Hussain on 12/1/16.
 //  Copyright © 2016 Faheem Hussain. All rights reserved.
 //
-//
-//  SACountingLabel.swift
-//  Pods
-//
-//  Created by Sudeep Agarwal on 12/13/15.
-//
-//
+
 
 import Foundation
 import UIKit
