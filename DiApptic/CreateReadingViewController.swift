@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CircleSlider
 import Parse
 
 class CreateReadingViewController: UIViewController {

@@ -8,11 +8,14 @@
 
 import UIKit
 
+
 class ReadingDetailsViewController: UIViewController {
 
+    @IBOutlet weak var readingValueLabel: CountingLabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+         readingValueLabel.countFrom(fromValue: Float(1), to: Float(185), withDuration: 1.0, andAnimationType: .EaseInOut, andCountingType: .Int)
         // Do any additional setup after loading the view.
     }
 
