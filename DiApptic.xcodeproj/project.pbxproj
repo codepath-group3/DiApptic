@@ -49,6 +49,7 @@
 		F7AC0DE31DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DE11DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift */; };
 		F7AC0DE41DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7AC0DE21DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib */; };
 		F7AC0DE61DF103F400F8D8AC /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */; };
+		F7AC0DE81DF385FA00F8D8AC /* HomeHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7AC0DE71DF385FA00F8D8AC /* HomeHeaderCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +99,7 @@
 		F7AC0DE11DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingDetailsViewController.swift; sourceTree = "<group>"; };
 		F7AC0DE21DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadingDetailsViewController.xib; sourceTree = "<group>"; };
 		F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
+		F7AC0DE71DF385FA00F8D8AC /* HomeHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeHeaderCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 		97D5AD391DD930B1006F95B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F7AC0DE71DF385FA00F8D8AC /* HomeHeaderCell.xib */,
 				F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */,
 				F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */,
 				F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */,
@@ -316,6 +319,7 @@
 				0388AD971DD9830300157140 /* ProfileHeaderView.xib in Resources */,
 				F7930FA21DD94A5100A34847 /* TabbarController.xib in Resources */,
 				F7930FA61DDA33FD00A34847 /* HomeViewController.xib in Resources */,
+				F7AC0DE81DF385FA00F8D8AC /* HomeHeaderCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
