@@ -14,7 +14,7 @@ class GlucoseReading {
     var medication: Medication?
     var activity: Activity?
     var meal: Meal?
-    
+    var note: String = "Random value to be shown in the note section of the reading details"
     init(date: Date, value: Double){
         self.date = date
         self.value = value
@@ -307,6 +307,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     }
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let readingDetailsViewController = ReadingDetailsViewController(nibName: "ReadingDetailsViewController", bundle: nil)
+        readingDetailsViewController.glucoseReading = entry.data as! GlucoseReading
         self.navigationController?.pushViewController(readingDetailsViewController, animated: true)
+        
     }
 }
