@@ -105,6 +105,22 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         l.yOffset = 10.0
         pieChartView.legend.enabled = false
         
+        let pieChartAverageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 25))
+        pieChartAverageLabel.text = "Average"
+        pieChartAverageLabel.textAlignment = .center
+        pieChartAverageLabel.textColor = Styles.darkGray
+        pieChartAverageLabel.font = UIFont(name: pieChartAverageLabel.font.fontName, size: 12.0)
+        let pieChartMgdlLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 25))
+        pieChartMgdlLabel.text = "mg/dL"
+        pieChartMgdlLabel.textAlignment = .center
+        pieChartMgdlLabel.textColor = Styles.darkGray
+        pieChartMgdlLabel.font = UIFont(name: pieChartMgdlLabel.font.fontName, size: 12.0)
+        
+        view.addSubview(pieChartAverageLabel)
+        pieChartAverageLabel.center = CGPoint(x: pieChartView.center.x + 20, y: pieChartView.center.y - 22)
+        view.addSubview(pieChartMgdlLabel)
+        pieChartMgdlLabel.center = pieChartView.center
+        pieChartMgdlLabel.center = CGPoint(x: pieChartView.center.x + 25 , y: pieChartView.center.y + 20)
         
         //l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
         //l.verticalAlignment = ChartLegendVerticalAlignmentTop;
@@ -189,6 +205,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         // Put Entry Sets into ChartDataSets
         for entrySet in entrySets {
             let ds = ScatterChartDataSet(values: entrySet)
+            ds.setScatterShape(.circle)
             //ds.setScatterShape(.)
             dataSets.append(ds)
         }
