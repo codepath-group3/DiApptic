@@ -23,6 +23,9 @@
 		977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977BE1791DDEBD6500E4B157 /* Reading.swift */; };
 		97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */; };
 		97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */; };
+		F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23C21DE24D0400385B37 /* CircleSlider.swift */; };
+		F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */; };
+		F74E23C71DE24D6C00385B37 /* CircleSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */; };
 		F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F831DD9199800A34847 /* AppDelegate.swift */; };
 		F7930F861DD9199800A34847 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F851DD9199800A34847 /* ViewController.swift */; };
 		F7930F891DD9199800A34847 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7930F871DD9199800A34847 /* Main.storyboard */; };
@@ -35,7 +38,14 @@
 		F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930FA71DDA341400A34847 /* AddReadingViewController.swift */; };
 		F7930FAA1DDA341400A34847 /* AddReadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7930FA81DDA341400A34847 /* AddReadingViewController.xib */; };
 		F7930FAD1DDA342500A34847 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930FAB1DDA342500A34847 /* HistoryViewController.swift */; };
-		F7930FAE1DDA342500A34847 /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7930FAC1DDA342500A34847 /* HistoryViewController.xib */; };
+		F7AC0DD81DEF941700F8D8AC /* CreateReadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */; };
+		F7AC0DDA1DEF943900F8D8AC /* CreateReadingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */; };
+		F7AC0DDC1DEF945400F8D8AC /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DDB1DEF945400F8D8AC /* Styles.swift */; };
+		F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DDD1DEF946000F8D8AC /* RoundButton.swift */; };
+		F7AC0DE01DEF960200F8D8AC /* HistoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */; };
+		F7AC0DE31DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DE11DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift */; };
+		F7AC0DE41DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F7AC0DE21DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib */; };
+		F7AC0DE61DF103F400F8D8AC /* CountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +67,9 @@
 		97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.debug.xcconfig"; sourceTree = "<group>"; };
 		DE1898CDF20C7CF8490CD462 /* Pods-DiApptic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.release.xcconfig"; sourceTree = "<group>"; };
+		F74E23C21DE24D0400385B37 /* CircleSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
+		F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSliderView.swift; sourceTree = "<group>"; };
+		F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CircleSliderView.xib; sourceTree = "<group>"; };
 		F7930F801DD9199800A34847 /* DiApptic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DiApptic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7930F831DD9199800A34847 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F7930F851DD9199800A34847 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,7 +84,14 @@
 		F7930FA71DDA341400A34847 /* AddReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddReadingViewController.swift; sourceTree = "<group>"; };
 		F7930FA81DDA341400A34847 /* AddReadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddReadingViewController.xib; sourceTree = "<group>"; };
 		F7930FAB1DDA342500A34847 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
-		F7930FAC1DDA342500A34847 /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
+		F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreateReadingViewController.xib; sourceTree = "<group>"; };
+		F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateReadingViewController.swift; sourceTree = "<group>"; };
+		F7AC0DDB1DEF945400F8D8AC /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
+		F7AC0DDD1DEF946000F8D8AC /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
+		F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistoryViewController.xib; sourceTree = "<group>"; };
+		F7AC0DE11DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadingDetailsViewController.swift; sourceTree = "<group>"; };
+		F7AC0DE21DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadingDetailsViewController.xib; sourceTree = "<group>"; };
+		F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CountingLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +126,8 @@
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F7AC0DE11DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift */,
+				F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */,
 				F7930F9F1DD94A5100A34847 /* TabbarController.swift */,
 				F7930FA31DDA33FD00A34847 /* HomeViewController.swift */,
 				F7930FA71DDA341400A34847 /* AddReadingViewController.swift */,
@@ -130,9 +152,11 @@
 		97D5AD391DD930B1006F95B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */,
+				F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */,
+				F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */,
 				F7930FA41DDA33FD00A34847 /* HomeViewController.xib */,
 				F7930FA81DDA341400A34847 /* AddReadingViewController.xib */,
-				F7930FAC1DDA342500A34847 /* HistoryViewController.xib */,
 				F7930FA01DD94A5100A34847 /* TabbarController.xib */,
 				97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */,
 				0388AD951DD9830300157140 /* ProfileHeaderView.xib */,
@@ -142,8 +166,29 @@
 				0379E9D01DE2800500200E62 /* ComposeViewController.xib */,
 				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 				03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */,
+				F7AC0DE21DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib */,
+
 			);
 			name = Views;
+			sourceTree = "<group>";
+		};
+		F74E23C11DE24CE600385B37 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F74E23C21DE24D0400385B37 /* CircleSlider.swift */,
+				F7AC0DDD1DEF946000F8D8AC /* RoundButton.swift */,
+				F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */,
+				F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		F74E23E61DE2833A00385B37 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				F7AC0DDB1DEF945400F8D8AC /* Styles.swift */,
+			);
+			name = Styles;
 			sourceTree = "<group>";
 		};
 		F7930F771DD9199800A34847 = {
@@ -167,6 +212,8 @@
 		F7930F821DD9199800A34847 /* DiApptic */ = {
 			isa = PBXGroup;
 			children = (
+				F74E23E61DE2833A00385B37 /* Styles */,
+				F74E23C11DE24CE600385B37 /* Components */,
 				97D5AD391DD930B1006F95B6 /* Views */,
 				97D5AD381DD9308D006F95B6 /* Models */,
 				97D5AD371DD93021006F95B6 /* View Controllers */,
@@ -245,16 +292,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				0379E9D21DE2800500200E62 /* ComposeViewController.xib in Resources */,
+				F7AC0DD81DEF941700F8D8AC /* CreateReadingViewController.xib in Resources */,
+				F74E23C71DE24D6C00385B37 /* CircleSliderView.xib in Resources */,
 				974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */,
 				03B8A45B1DED0C6900D0341B /* ProfileViewTableViewCell.xib in Resources */,
 				F7930FAA1DDA341400A34847 /* AddReadingViewController.xib in Resources */,
 				97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */,
 				F7930F8E1DD9199800A34847 /* LaunchScreen.storyboard in Resources */,
-				F7930FAE1DDA342500A34847 /* HistoryViewController.xib in Resources */,
 				F7930F8B1DD9199800A34847 /* Assets.xcassets in Resources */,
 				0379E9CE1DE110E600200E62 /* HomeScreenViewController.xib in Resources */,
 				F7930F891DD9199800A34847 /* Main.storyboard in Resources */,
 				0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */,
+				F7AC0DE01DEF960200F8D8AC /* HistoryViewController.xib in Resources */,
+				F7AC0DE41DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib in Resources */,
 				0388AD971DD9830300157140 /* ProfileHeaderView.xib in Resources */,
 				F7930FA21DD94A5100A34847 /* TabbarController.xib in Resources */,
 				F7930FA61DDA33FD00A34847 /* HomeViewController.xib in Resources */,
@@ -276,7 +326,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6D0B91ECAD720EBF9C76FB5F /* [CP] Embed Pods Frameworks */ = {
@@ -317,15 +367,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				03B8A45A1DED0C6900D0341B /* ProfileViewTableViewCell.swift in Sources */,
+				F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */,
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
-				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
+				F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
+				F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */,
+				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
+				F7AC0DDA1DEF943900F8D8AC /* CreateReadingViewController.swift in Sources */,
+				F7AC0DDC1DEF945400F8D8AC /* Styles.swift in Sources */,
 				977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */,
 				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
 				0379E9D11DE2800500200E62 /* ComposeViewController.swift in Sources */,
 				F7930FA11DD94A5100A34847 /* TabbarController.swift in Sources */,
 				F7930F861DD9199800A34847 /* ViewController.swift in Sources */,
 				F7930FAD1DDA342500A34847 /* HistoryViewController.swift in Sources */,
+				F7AC0DE61DF103F400F8D8AC /* CountingLabel.swift in Sources */,
+				F7AC0DE31DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift in Sources */,
 				F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */,
 				0388AD9E1DD9859400157140 /* ProfileScreenViewController.swift in Sources */,
 				0388AD9B1DD9835D00157140 /* ProfileHeaderView.swift in Sources */,

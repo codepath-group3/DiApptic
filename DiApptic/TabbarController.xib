@@ -15,6 +15,8 @@
                 <outlet property="contentView" destination="iI0-VV-Do2" id="ikf-4w-esg"/>
                 <outlet property="historyButton" destination="Ovb-BX-uOp" id="shV-48-6Gd"/>
                 <outlet property="homeButton" destination="Z7g-bx-2ij" id="WZc-Jg-24T"/>
+                <outlet property="profileButton" destination="H6a-uq-z2K" id="yzt-u1-YmD"/>
+                <outlet property="tabbarView" destination="dG5-eg-WWe" id="fTv-9w-csI"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -28,42 +30,70 @@
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dG5-eg-WWe" userLabel="Tabbar View">
-                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <rect key="frame" x="0.0" y="615" width="375" height="52"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="mD2-Un-zWC">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7g-bx-2ij">
-                                    <rect key="frame" x="0.0" y="0.0" width="125" height="50"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z7g-bx-2ij">
+                                    <rect key="frame" x="0.0" y="0.0" width="94" height="50"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="18"/>
-                                    <state key="normal" title="Home" image="home">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="tintColor" red="0.2784313725" green="0.73333333329999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <inset key="titleEdgeInsets" minX="-26" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="30" minY="0.0" maxX="0.0" maxY="18"/>
+                                    <state key="normal" title="Home" image="home24x24">
+                                        <color key="titleColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected">
+                                        <color key="titleColor" red="0.27843137254901962" green="0.73333333333333328" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="onTabButtonTap:" destination="-1" eventType="touchUpInside" id="TDr-VP-vqf"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovb-BX-uOp">
-                                    <rect key="frame" x="125" y="0.0" width="125" height="50"/>
+                                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ovb-BX-uOp">
+                                    <rect key="frame" x="94" y="0.0" width="93.5" height="50"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <color key="tintColor" red="0.2784313725" green="0.73333333329999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <inset key="titleEdgeInsets" minX="-26" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="18"/>
-                                    <state key="normal" title="History" image="history">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="History" image="history24x24">
+                                        <color key="titleColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected">
+                                        <color key="titleColor" red="0.27843137254901962" green="0.73333333333333328" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="onTabButtonTap:" destination="-1" eventType="touchUpInside" id="OVS-tx-SW6"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DU-uc-QIE">
-                                    <rect key="frame" x="250" y="0.0" width="125" height="50"/>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6a-uq-z2K" userLabel="Profile Button">
+                                    <rect key="frame" x="187.5" y="0.0" width="94" height="50"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                    <inset key="titleEdgeInsets" minX="-24" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <color key="tintColor" red="0.2784313725" green="0.73333333329999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <inset key="titleEdgeInsets" minX="-26" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="18"/>
-                                    <state key="normal" title="Add" image="add">
-                                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <state key="normal" title="Profile" image="user24x24">
+                                        <color key="titleColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected">
+                                        <color key="titleColor" red="0.27843137254901962" green="0.73333333333333328" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="onTabButtonTap:" destination="-1" eventType="touchUpInside" id="bWY-n3-SSM"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5DU-uc-QIE">
+                                    <rect key="frame" x="281.5" y="0.0" width="93.5" height="50"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                    <color key="tintColor" red="0.2784313725" green="0.73333333329999995" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <inset key="titleEdgeInsets" minX="-26" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    <inset key="imageEdgeInsets" minX="24" minY="0.0" maxX="0.0" maxY="18"/>
+                                    <state key="normal" title="Add" image="add24x24">
+                                        <color key="titleColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="selected">
+                                        <color key="titleColor" red="0.27843137254901962" green="0.73333333333333328" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </state>
                                     <connections>
                                         <action selector="onTabButtonTap:" destination="-1" eventType="touchUpInside" id="wVF-py-QqX"/>
@@ -74,10 +104,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="6NL-TY-Bm0"/>
-                        <constraint firstAttribute="bottom" secondItem="mD2-Un-zWC" secondAttribute="bottom" id="JCo-YH-aDP"/>
+                        <constraint firstAttribute="height" constant="52" id="6NL-TY-Bm0"/>
                         <constraint firstAttribute="trailing" secondItem="mD2-Un-zWC" secondAttribute="trailing" id="VEO-BN-nen"/>
                         <constraint firstItem="mD2-Un-zWC" firstAttribute="leading" secondItem="dG5-eg-WWe" secondAttribute="leading" id="VZ0-eU-HWQ"/>
+                        <constraint firstAttribute="bottom" secondItem="mD2-Un-zWC" secondAttribute="bottom" constant="2" id="Y7k-BP-tb0"/>
                         <constraint firstItem="mD2-Un-zWC" firstAttribute="top" secondItem="dG5-eg-WWe" secondAttribute="top" id="tdz-Py-92f"/>
                     </constraints>
                 </view>
@@ -96,8 +126,9 @@
         </view>
     </objects>
     <resources>
-        <image name="add" width="24" height="24"/>
-        <image name="history" width="24" height="24"/>
-        <image name="home" width="24" height="24"/>
+        <image name="add24x24" width="24" height="24"/>
+        <image name="history24x24" width="24" height="24"/>
+        <image name="home24x24" width="24" height="24"/>
+        <image name="user24x24" width="24" height="24"/>
     </resources>
 </document>

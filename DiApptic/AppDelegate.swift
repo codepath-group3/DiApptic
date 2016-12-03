@@ -10,15 +10,18 @@ import UIKit
 import Parse
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, LoginDelegate {
 
     var window: UIWindow?
-
+    var loginViewController: LoginViewController!
+    var tabbarViewController: TabbarController!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         Parse.setApplicationId("cuRMkMTRwxGTYVofphrR5ROWEBVJIF8pYYyTLcM3", clientKey: "BFkrS2bmejYuP5895kBffPpjI3JJFpPIfjn0ZHHG")
-        
+        tabbarViewController = TabbarController(nibName: "TabbarController", bundle: nil)
+        loginViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        loginViewController.delegate = self
         //let newEnterNameController = LoginViewController(nibName: "LoginViewController", bundle: nil)
         //self.navigationController.pushViewController(newEnterNameController, animated: true)
         //window?.rootViewController = newEnterNameController
@@ -27,11 +30,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //self.navigationController.pushViewController(newEnterNameController, animated: true)
         //window?.rootViewController = profileScreenViewController
 
-        window?.rootViewController = TabbarController(nibName: "TabbarController", bundle: nil)
+       // window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let currentUser = PFUser.current()
+        if currentUser != nil {
+            window?.rootViewController = tabbarViewController
+        } else {
+            window?.rootViewController = loginViewController
+        }
 
         return true
     }
-
+    func didLogin() {
+        window?.rootViewController = tabbarViewController
+    }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

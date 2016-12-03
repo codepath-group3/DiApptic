@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CircleSlider
 import Parse
 
 class AddReadingViewController: UIViewController {
@@ -29,40 +28,23 @@ class AddReadingViewController: UIViewController {
     var carbsIntake: Int?
     var readingValue: Int?
     
-    private var circleSlider: CircleSlider! {
-        didSet {
-            self.circleSlider.tag = 0
-        }
-    }
-    
-    private var valueLabel: UILabel!
-    private var progressLabel: UILabel!
-    private var timer: Timer?
-    private var progressValue: Float = 0
-    private var sliderOptions: [CircleSliderOption] {
-        return [
-            CircleSliderOption.barColor(UIColor.red),
-            CircleSliderOption.thumbColor(UIColor.blue),
-            CircleSliderOption.trackingColor(UIColor.green),
-            CircleSliderOption.barWidth(20),
-            CircleSliderOption.startAngle(-45),
-            CircleSliderOption.maxValue(150),
-            CircleSliderOption.minValue(20)
-            //CircleSliderOption.thumbImage(UIImage(named: "thumb_image")!)
-        ]
-    }
-    private var progressOptions: [CircleSliderOption] {
-        return [
-            .barColor(UIColor.red),
-            .trackingColor(UIColor.blue),
-            .barWidth(30),
-            .sliderEnabled(false)
-        ]
-    }
-  
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.buildCircleSlider()
+        addCircularBorder(x: 50, y : 200, button: breakfastButton)
+        addCircularBorder(x: 150, y : 200,button: lunchButton)
+        addCircularBorder(x: 250, y : 200,button: dinnerButton)
+        addCircularBorder(x: 50, y : 300,button: injectionButton)
+        addCircularBorder(x: 250, y : 300,button: pillButton)
+    }
+    
+    func addCircularBorder(x: Int, y: Int, button: UIButton) {
+        button.backgroundColor = .clear
+        button.frame = CGRect(x: x, y: y, width: 60, height: 60)
+        button.layer.cornerRadius = 0.5 * button.bounds.size.width
+        button.clipsToBounds = true
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.gray.cgColor
+
     }
     
     @IBAction func onCarbsSliderSelected(_ sender: UISlider) {
@@ -71,62 +53,47 @@ class AddReadingViewController: UIViewController {
         carbsIntake = currentValue
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        self.circleSlider.frame = self.readingSliderArea.bounds
-        self.valueLabel.center = CGPoint(x: self.circleSlider.bounds.width * 0.5, y: self.circleSlider.bounds.height * 0.5)
-    }
-    
-    private func buildCircleSlider() {
-        self.circleSlider = CircleSlider(frame: self.readingSliderArea.bounds, options: self.sliderOptions)
-        self.circleSlider?.addTarget(self, action: #selector(valueChange(sender:)), for: .valueChanged)
-        self.readingSliderArea.addSubview(self.circleSlider!)
-        self.valueLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        self.valueLabel.textAlignment = .center
-        self.circleSlider.addSubview(self.valueLabel)
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func valueChange(sender: CircleSlider) {
-        switch sender.tag {
-        case 0:
-            self.valueLabel.text = "\(Int(sender.value))"
-            readingValue = Int(self.valueLabel.text!)
-        case 1:
-            self.progressLabel.text = "\(Int(sender.value))%"
-        default:
-            break
-        }
-    }
-    
     @IBAction func onBreakfastSelected(_ sender: UIButton) {
         context = "Breakfast"
         print("Breakfast selected")
+        breakfastButton.tintColor = UIColor.cyan
+        lunchButton.tintColor = UIColor.gray
+        dinnerButton.tintColor = UIColor.gray
     }
     
     @IBAction func onLunchSelected(_ sender: UIButton) {
         context = "Lunch"
         print("Lunch selected")
+        lunchButton.tintColor = UIColor.cyan
+        breakfastButton.tintColor = UIColor.gray
+        dinnerButton.tintColor = UIColor.gray
     }
     
     @IBAction func onDinnerSelected(_ sender: UIButton) {
         context = "Dinner"
         print("Dinner selected")
+        dinnerButton.tintColor = UIColor.cyan
+        lunchButton.tintColor = UIColor.gray
+        breakfastButton.tintColor = UIColor.gray
     }
 
     @IBAction func onInjectionSelected(_ sender: Any) {
         medicationType = 1
         print("Injection selected")
+        injectionButton.tintColor = UIColor.cyan
+        pillButton.tintColor = UIColor.gray
     }
     
     @IBAction func onPillSelected(_ sender: UIButton) {
         medicationType = 2
         print("Pill selected")
+        pillButton.tintColor = UIColor.cyan
+        injectionButton.tintColor = UIColor.gray
     }
     
     func createReading() {
