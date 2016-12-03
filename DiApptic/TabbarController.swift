@@ -29,22 +29,43 @@ class TabbarController: UIViewController {
     var addReadingViewController: UIViewController!
     var viewControllers: [UIViewController] = []
     
-    var selected: Int = 0
+    var selectedIndex: Int = 0
+
+    var leftToRight: Bool = true
+    var oldCenter: CGPoint!
+    var newCenter: CGPoint!
+    
+    var oldVc: UIViewController!
+    
     var contentViewController: UIViewController! {
         didSet(oldContentViewController){
             view.layoutIfNeeded()
-            if oldContentViewController != nil {
-                oldContentViewController.willMove(toParentViewController: nil)
-                oldContentViewController.view.removeFromSuperview()
-                //oldContentViewController.removeFromParentViewController()
-                oldContentViewController.didMove(toParentViewController: nil)
-            }
+            oldVc = oldContentViewController
             contentViewController.willMove(toParentViewController: self)
             contentViewController.view.frame = contentView.bounds
-            //addChildViewController(contentViewController)
             contentView.addSubview(contentViewController.view)
+            if oldContentViewController != nil {
+                oldCenter = oldContentViewController.view.center
+                newCenter = oldContentViewController.view.center
+                contentViewController.view.center.x = newCenter.x + (leftToRight ? -contentView.bounds.size.width :contentView.bounds.size.width)
+            }
             contentViewController.didMove(toParentViewController: self)
             self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.8, options: [.curveEaseInOut], animations: {
+                if self.oldVc != nil {
+                    self.oldVc.view.center.x = self.oldCenter.x + (self.leftToRight ? self.contentView.bounds.size.width : -self.contentView.bounds.size.width)
+                    self.contentViewController.view.center.x = self.newCenter.x
+                }
+            }, completion: {
+                (value: Bool) in
+                if self.oldVc != nil {
+                    oldContentViewController.willMove(toParentViewController: nil)
+                    oldContentViewController.view.removeFromSuperview()
+                    //oldContentViewController.removeFromParentViewController()
+                    oldContentViewController.didMove(toParentViewController: nil)
+                }
+            })
+
         }
     }
     override func viewDidLoad() {
@@ -57,16 +78,17 @@ class TabbarController: UIViewController {
         }
         homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
         homeNavigationController = UINavigationController(rootViewController: homeViewController)
-        
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
         historyNavigationController = UINavigationController(rootViewController: historyViewController)
-        //addReadingViewController = AddReadingViewController(nibName: "AddReadingViewController", bundle: nil)
         addReadingViewController = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
         addReadingNavigationController = UINavigationController(rootViewController: addReadingViewController)
         viewControllers = [homeViewController, historyViewController ,homeViewController,addReadingViewController]
         navigationControllers = [homeNavigationController, historyNavigationController, homeNavigationController, addReadingNavigationController]
+        for nav in navigationControllers {
+            nav.navigationBar.backgroundColor = Styles.darkBlue
+        }
         //buttons[selected].isSelected = true
-        tabButtonDidSelect(buttons[selected])
+        tabButtonDidSelect(buttons[selectedIndex])
         NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidShow(notification:)), name: .UIKeyboardDidShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidHide(notification:)), name: .UIKeyboardDidHide, object: nil)
     }
@@ -76,16 +98,13 @@ class TabbarController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func tabButtonDidSelect(_ tabButton: UIButton) {
-        let previous = selected
-        buttons[previous].tintColor = Styles.darkGray
-        buttons[previous].setTitleColor(Styles.darkGray, for: UIControlState.normal)
-        //buttons[previous].isSelected = false
+        leftToRight = selectedIndex > tabButton.tag
+        buttons[selectedIndex].tintColor = Styles.darkGray
+        buttons[selectedIndex].setTitleColor(Styles.darkGray, for: UIControlState.normal)
         buttons[tabButton.tag].tintColor = Styles.lightBlue
         buttons[tabButton.tag].setTitleColor(Styles.lightBlue, for: UIControlState.normal)
-        //buttons[tabButton.tag].isSelected = true
-        //buttons[tabButton.tag].isHighlighted = false
         contentViewController = navigationControllers[tabButton.tag]
-        selected = tabButton.tag
+        selectedIndex = tabButton.tag
     }
     fileprivate func layout(_ button: UIButton) {
         let iw = button.imageView!.frame.size.width
