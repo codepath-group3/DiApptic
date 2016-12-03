@@ -132,6 +132,7 @@
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 				F7AC0DE11DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift */,
 				F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */,
 				F7930F9F1DD94A5100A34847 /* TabbarController.swift */,
@@ -171,7 +172,6 @@
 				0379E9CC1DE110E600200E62 /* HomeScreenViewController.xib */,
 				974E756B1DE25EAC0023B66D /* RegisterViewController.xib */,
 				0379E9D01DE2800500200E62 /* ComposeViewController.xib */,
-				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 				03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */,
 				F7AC0DE21DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib */,
 			);

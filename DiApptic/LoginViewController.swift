@@ -73,6 +73,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (user, error) -> Void in
                 
                 if ((user) != nil) {
+                    
                     //let vc = TabbarController(nibName: "TabbarController", bundle: nil)
                     //self.navigationController!.pushViewController(vc, animated: true)
                     self.delegate.didLogin()
