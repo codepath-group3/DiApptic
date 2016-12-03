@@ -20,11 +20,45 @@
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="Login" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rh2-0h-hFj">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="249"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yJn-bV-qRJ" userLabel="spacer">
+                                        <rect key="frame" x="166.5" y="0.0" width="42" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vw8-Pd-ygL">
+                                        <rect key="frame" x="137.5" y="20.5" width="100" height="128"/>
+                                        <color key="backgroundColor" red="0.08235294118" green="0.79607843140000001" blue="0.4431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="Zhp-tV-1i4"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-P5-QVk">
+                                        <rect key="frame" x="67.5" y="148.5" width="240" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="7gv-sj-lYc"/>
+                                            <constraint firstAttribute="width" constant="240" id="dMt-CY-OkM"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="rh2-0h-hFj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="dAX-tw-0pe"/>
+                            <constraint firstItem="rh2-0h-hFj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="nHa-L4-iER"/>
+                            <constraint firstAttribute="trailing" secondItem="rh2-0h-hFj" secondAttribute="trailing" id="umS-Bx-bXz"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="137.18140929535232"/>
         </scene>
     </scenes>
 </document>
