@@ -10,7 +10,7 @@ import UIKit
 import Parse
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, LoginDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, LoginDelegate, LogoutDelegate {
 
     var window: UIWindow?
     var loginViewController: LoginViewController!
@@ -33,6 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginDelegate {
        // window?.rootViewController = LoginViewController(nibName: "LoginViewController", bundle: nil)
         let currentUser = PFUser.current()
         if currentUser != nil {
+            tabbarViewController.delegate = self;
             window?.rootViewController = tabbarViewController
         } else {
             window?.rootViewController = loginViewController
@@ -42,6 +43,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginDelegate {
     }
     func didLogin() {
         window?.rootViewController = tabbarViewController
+    }
+    
+    func didLogout() {
+       window?.rootViewController = loginViewController
     }
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
