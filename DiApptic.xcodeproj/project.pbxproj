@@ -17,6 +17,9 @@
 		0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */; };
 		03B8A45A1DED0C6900D0341B /* ProfileViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */; };
 		03B8A45B1DED0C6900D0341B /* ProfileViewTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */; };
+		03D529441DF293E000793904 /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529431DF293E000793904 /* ParseUtils.swift */; };
+		03D529461DF2B49500793904 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529451DF2B49500793904 /* Message.swift */; };
+		03D529481DF2BE8500793904 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529471DF2BE8500793904 /* Utils.swift */; };
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
 		974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974E756A1DE25EAC0023B66D /* RegisterViewController.swift */; };
 		974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974E756B1DE25EAC0023B66D /* RegisterViewController.xib */; };
@@ -59,6 +62,9 @@
 		0388AD9D1DD9859400157140 /* ProfileScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileScreenViewController.xib; sourceTree = "<group>"; };
 		03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewTableViewCell.swift; sourceTree = "<group>"; };
 		03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProfileViewTableViewCell.xib; sourceTree = "<group>"; };
+		03D529431DF293E000793904 /* ParseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
+		03D529451DF2B49500793904 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		03D529471DF2BE8500793904 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974E756A1DE25EAC0023B66D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		974E756B1DE25EAC0023B66D /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -145,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				977BE1791DDEBD6500E4B157 /* Reading.swift */,
+				03D529451DF2B49500793904 /* Message.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -167,7 +174,6 @@
 				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 				03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */,
 				F7AC0DE21DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib */,
-
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -179,6 +185,8 @@
 				F7AC0DDD1DEF946000F8D8AC /* RoundButton.swift */,
 				F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */,
 				F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */,
+				03D529431DF293E000793904 /* ParseUtils.swift */,
+				03D529471DF2BE8500793904 /* Utils.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -326,7 +334,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		6D0B91ECAD720EBF9C76FB5F /* [CP] Embed Pods Frameworks */ = {
@@ -375,6 +383,7 @@
 				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
 				F7AC0DDA1DEF943900F8D8AC /* CreateReadingViewController.swift in Sources */,
 				F7AC0DDC1DEF945400F8D8AC /* Styles.swift in Sources */,
+				03D529441DF293E000793904 /* ParseUtils.swift in Sources */,
 				977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */,
 				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
 				0379E9D11DE2800500200E62 /* ComposeViewController.swift in Sources */,
@@ -382,11 +391,13 @@
 				F7930F861DD9199800A34847 /* ViewController.swift in Sources */,
 				F7930FAD1DDA342500A34847 /* HistoryViewController.swift in Sources */,
 				F7AC0DE61DF103F400F8D8AC /* CountingLabel.swift in Sources */,
+				03D529461DF2B49500793904 /* Message.swift in Sources */,
 				F7AC0DE31DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift in Sources */,
 				F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */,
 				0388AD9E1DD9859400157140 /* ProfileScreenViewController.swift in Sources */,
 				0388AD9B1DD9835D00157140 /* ProfileHeaderView.swift in Sources */,
 				0379E9CD1DE110E600200E62 /* HomeScreenViewController.swift in Sources */,
+				03D529481DF2BE8500793904 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

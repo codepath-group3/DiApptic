@@ -7,15 +7,29 @@
 //
 
 import UIKit
+import Parse
+
+
 
 class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
-
+    var currentUser: PFUser?
+    var data = [Message]()
+    weak var delegate: LogoutDelegate?
+    
+    override func viewDidAppear(_ animated: Bool) {
+        ParseUtils.getMessages(userId: (currentUser?.objectId)!, success: { (messages: [Message]) in
+            self.data = messages;
+            self.tableView.reloadData();
+            }, failure: {
+                
+        })
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        currentUser = PFUser.current();
 
 //        let nib = UINib(nibName: "ProfileHeaderView", bundle: nil)
 //        let profileHeaderView = nib.instantiate(withOwner: self, options: nil)[0] as! ProfileHeaderView
@@ -26,17 +40,23 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         //tableView.tableHeaderView = profileHeaderView;
         // Do any additional setup after loading the view.
         
-        let composeButton = UIBarButtonItem(title: "Compose", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ComposeViewController.onCompose))
+        
+        let composeButton = UIBarButtonItem(title: "Compose", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProfileScreenViewController.onCompose))
         self.navigationItem.rightBarButtonItem = composeButton;
+        
+        let signoutButton = UIBarButtonItem(title: "Sign Out", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProfileScreenViewController.onSignOut))
+        self.navigationItem.leftBarButtonItem = signoutButton
         
     
         let cellNib = UINib(nibName: "ProfileViewTableViewCell", bundle: nil)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.rowHeight = 120;
+        
         tableView.estimatedRowHeight = 120
         tableView.register(cellNib, forCellReuseIdentifier: "profileView.identifier")
         tableView.dataSource = self;
         tableView.delegate = self;
+        tableView.tableHeaderView?.frame.size = CGSize(width: UIScreen.main.bounds.size.width, height: 1);
     }
 
     override func didReceiveMemoryWarning() {
@@ -50,13 +70,42 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationController?.pushViewController(composeVC, animated: true)
     }
     
+    func onSignOut() {
+        // TODO: nil current user
+        delegate?.didLogout();
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10;
+        return self.data.count;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileView.identifier", for: indexPath) as! ProfileViewTableViewCell;
+        cell.timestampLabel.text = "20m"
+        cell.postContent.text = data[indexPath.row].messageText;
+        cell.usernameLabel.text = currentUser?.username
         return cell;
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true;
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let favorite = UITableViewRowAction(style: .normal, title: "Like") { action, index in
+            print("favorite button tapped")
+        }
+        favorite.backgroundColor = UIColor.red
+        let reply = UITableViewRowAction(style: .normal, title: "Reply") { action, index in
+            print("favorite button tapped")
+        }
+        reply.backgroundColor = UIColor.blue
+        return [favorite, reply]
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
+    
     
 
     /*

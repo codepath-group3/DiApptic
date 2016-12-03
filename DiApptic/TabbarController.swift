@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol LogoutDelegate: class {
+    func didLogout()
+}
+
 class TabbarController: UIViewController {
 
     @IBOutlet weak var contentView: UIView!
@@ -17,6 +21,8 @@ class TabbarController: UIViewController {
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var addReadingButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
+    weak var delegate: LogoutDelegate?
+    
     var buttons: [UIButton] = []
     
     var homeNavigationController: UINavigationController!
@@ -76,13 +82,14 @@ class TabbarController: UIViewController {
         for button: UIButton in buttons {
             layout(button)
         }
-/*
-        let navigation = UINavigationController()
+
+        /*let navigation = UINavigationController()
         let profileView = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
         navigation.viewControllers = [profileView]
         homeViewController = navigation;*/
 
-        homeViewController = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        homeViewController = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
+        (homeViewController as! ProfileScreenViewController).delegate = delegate;
         homeNavigationController = UINavigationController(rootViewController: homeViewController)
 
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
