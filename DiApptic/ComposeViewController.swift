@@ -11,6 +11,7 @@ import Parse
 
 class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
+    @IBOutlet weak var postButton: UIButton!
     @IBOutlet weak var addAttachment: UIImageView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     @IBOutlet weak var dividerView: UIView!
@@ -47,9 +48,10 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         
         originalConstraint  = bottomConstraint;
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.onKeyboardUp(notification:)), name: .UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.onKeyboardDown(notification:)), name: .UIKeyboardDidHide, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.onKeyboardUp(notification:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.onKeyboardDown(notification:)), name: .UIKeyboardWillHide, object: nil)
+        postButton.backgroundColor = Styles.darkBlue
+        postButton.tintColor = UIColor.white
     }
     override func viewDidAppear(_ animated: Bool) {
          print("set to \(bottomConstraint.constant)")

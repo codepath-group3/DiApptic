@@ -12,6 +12,7 @@
                 <outlet property="attachmentScrollView" destination="dAt-Sm-c9T" id="Sl9-9g-rd9"/>
                 <outlet property="bottomConstraint" destination="Y7e-UR-ezi" id="Kek-iZ-Hj3"/>
                 <outlet property="dividerView" destination="lP1-PK-UZk" id="blr-2b-D2d"/>
+                <outlet property="postButton" destination="n0W-OT-VIR" id="8il-rD-m4o"/>
                 <outlet property="profileImage" destination="XcC-7A-23M" id="HkL-Wl-FFV"/>
                 <outlet property="textArea" destination="Vl7-8c-2X7" id="qTT-fx-XHv"/>
                 <outlet property="usernameLabel" destination="cho-JB-gCh" id="ht4-oH-yOa"/>
@@ -101,26 +102,41 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ubd-Z8-hef" userLabel="PostContainer">
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n0W-OT-VIR">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="45" id="v6q-tR-9V4"/>
+                                            </constraints>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                            <state key="normal" title="Post"/>
+                                            <state key="normal" title="Post">
+                                                <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
                                             <connections>
                                                 <action selector="onPost:" destination="-1" eventType="touchUpInside" id="Y3i-K1-9gb"/>
                                             </connections>
                                         </button>
-                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="add24x24" translatesAutoresizingMaskIntoConstraints="NO" id="5s6-so-rsV">
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo24x24" translatesAutoresizingMaskIntoConstraints="NO" id="5s6-so-rsV">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="10" id="LXg-wO-CiI"/>
-                                                <constraint firstAttribute="height" constant="10" id="ddR-HB-FT0"/>
+                                                <constraint firstAttribute="width" constant="20" id="LXg-wO-CiI"/>
+                                                <constraint firstAttribute="height" constant="20" id="ddR-HB-FT0"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera24x24" translatesAutoresizingMaskIntoConstraints="NO" id="ZyQ-OX-YT3">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="7Tr-UZ-XiA"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="20" id="S8r-65-yHH"/>
+                                                <constraint firstAttribute="height" constant="20" id="qYb-5L-dcZ"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="uOr-bY-ZaH"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="n0W-OT-VIR" firstAttribute="leading" secondItem="5s6-so-rsV" secondAttribute="trailing" constant="30" id="IIy-aj-oUd"/>
                                         <constraint firstAttribute="trailing" secondItem="n0W-OT-VIR" secondAttribute="trailing" constant="10" id="RBB-lE-lT6"/>
+                                        <constraint firstItem="5s6-so-rsV" firstAttribute="centerY" secondItem="ZyQ-OX-YT3" secondAttribute="centerY" id="dMJ-z3-8QW"/>
+                                        <constraint firstItem="5s6-so-rsV" firstAttribute="leading" secondItem="ZyQ-OX-YT3" secondAttribute="trailing" constant="30" id="eO9-3q-kvC"/>
                                         <constraint firstItem="n0W-OT-VIR" firstAttribute="centerY" secondItem="5s6-so-rsV" secondAttribute="centerY" id="kX9-dW-fNe"/>
                                         <constraint firstAttribute="height" constant="40" id="woA-Vf-ueK"/>
                                         <constraint firstAttribute="bottom" secondItem="n0W-OT-VIR" secondAttribute="bottom" constant="10" id="x1q-5u-REF"/>
-                                        <constraint firstAttribute="trailing" secondItem="5s6-so-rsV" secondAttribute="trailing" constant="69" id="zya-Qu-M8p"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -146,7 +162,8 @@
         </view>
     </objects>
     <resources>
-        <image name="add24x24" width="24" height="24"/>
+        <image name="camera24x24" width="24" height="24"/>
+        <image name="photo24x24" width="24" height="24"/>
         <image name="user128x128" width="128" height="128"/>
     </resources>
 </document>
