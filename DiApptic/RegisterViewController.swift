@@ -12,31 +12,29 @@ import Parse
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var profileImage: UIImageView!
-    @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var firstnameField: UITextField!
     @IBOutlet weak var lastnameField: UITextField!
     @IBOutlet weak var professionField: UITextField!
-    @IBOutlet weak var inlineUsernameError: UILabel!
     @IBOutlet weak var inlineLastnameError: UILabel!
     @IBOutlet weak var inlineFirstnameError: UILabel!
     @IBOutlet weak var inlinePasswordError: UILabel!
     @IBOutlet weak var inlineEmailError: UILabel!
+    @IBOutlet weak var registerButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        usernameField.delegate = self
         password.delegate = self
         emailField.delegate = self
         firstnameField.delegate = self
         lastnameField.delegate = self
+        getRoundedView(view: registerButton)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
         inlineEmailError.isHidden = true
         inlinePasswordError.isHidden = true
-        inlineUsernameError.isHidden = true
         inlineFirstnameError.isHidden = true
         inlineLastnameError.isHidden = true
     }
@@ -52,10 +50,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     func checkForErrors() {
-        if((usernameField.text?.characters.count)! < 4) {
-            inlineUsernameError.isHidden = false
-            inlineUsernameError.text = "Username must be greater than 5 characters "
-        }
         if((password.text?.characters.count)! < 4) {
             inlinePasswordError.isHidden = false
             inlinePasswordError.text = "Password must be greater than 6 characters "
@@ -76,7 +70,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     func registerUser() {
         var newUser = PFUser()
-        newUser["username"] = usernameField.text
         newUser["password"] = password.text
         newUser["email"] = emailField.text
         newUser["firstName"] = firstnameField.text
@@ -99,5 +92,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    func getRoundedView(view: UIView) {
+        view.layer.cornerRadius = 5
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.clear.cgColor
+        view.clipsToBounds = true
+    }
 
 }

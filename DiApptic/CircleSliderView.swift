@@ -17,6 +17,7 @@ class CircleSliderView: UIView {
     
     @IBOutlet var contentView: UIView!
     var valueLabel: UILabel!
+    var measurementLabel: UILabel!
     
     required init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
@@ -46,7 +47,16 @@ class CircleSliderView: UIView {
         valueLabel.textAlignment = .center
         valueLabel.text = "0"
         valueLabel.font = valueLabel.font.withSize(35)
+        //
+        measurementLabel = UILabel(frame: CGRect(x: 0, y: 100, width: 200, height: 50))
+        //measurementLabel.center = circleSlider.center
+        measurementLabel.textAlignment = .center
+        measurementLabel.text = "mg/dL"
+        measurementLabel.textColor = UIColor.darkGray
+        measurementLabel.font = valueLabel.font.withSize(15)
+        
         contentView.addSubview(valueLabel)
+        contentView.addSubview(measurementLabel)
         addSubview(contentView)
         circleSlider.showTouchCircle()
     }
@@ -68,6 +78,10 @@ class CircleSliderView: UIView {
     
     func sliderFailed() {
         // while sliding user went out of the tolerance range for slider
+    }
+    
+    func onValueChanged() -> Int {
+        return Int(self.valueLabel.text!)!
     }
     
 }

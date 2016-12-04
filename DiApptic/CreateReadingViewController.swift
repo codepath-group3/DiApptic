@@ -11,6 +11,7 @@ import Parse
 
 class CreateReadingViewController: UIViewController {
     
+    @IBOutlet weak var circularSlider: CircleSliderView!
     @IBOutlet weak var fastingButton: RoundButton!
     @IBOutlet weak var beforeMealButton: RoundButton!
     @IBOutlet weak var afterMealButton: RoundButton!
@@ -18,36 +19,38 @@ class CreateReadingViewController: UIViewController {
     
     @IBOutlet weak var insulinButton: RoundButton!
     @IBOutlet weak var oralButton: RoundButton!
+    @IBOutlet weak var notesField: UITextView!
     var medicationButtons: [RoundButton] = []
     
-    var context: String?
-    var medicationType: Int?
-    var physicalActivity: String?
+    var status: String?
+    var medicationType: String?
     var notes: String?
-    var carbsIntake: Int?
-    var readingValue: Int?
+    var recordingValue: Int? = 42
     
     override func viewDidLoad() {
         super.viewDidLoad()
         edgesForExtendedLayout = []
         statusButtons = [fastingButton, beforeMealButton, afterMealButton]
         medicationButtons = [insulinButton, oralButton]
-        
+        let saveBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CreateReadingViewController.onSave))
+        self.navigationItem.rightBarButtonItem  = saveBarButtonItem
+        notesField.layer.borderWidth = 0.5
+        notesField.layer.borderColor = UIColor.lightGray.cgColor
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     func createReading() {
-        var reading = PFObject(className:"Reading")
-        reading["value"] = readingValue
+        print("@@@@",PFUser.current())
+        let reading = PFObject(className:"Recording")
+        recordingValue = circularSlider.onValueChanged()
+        reading["recordingValue"] = recordingValue
         reading["medicationType"] = medicationType
-        reading["carbsTaken"] = carbsIntake
-        reading["physicalActivity"] = physicalActivity
-        reading["context"] = context
-        //reading["note"] = notesField.text
+        reading["status"] = status
+        reading["notes"] = notesField.text
         reading.saveInBackground { (saved:Bool, error:Error?) -> Void in
             if saved {
                 print("saved worked")
@@ -57,28 +60,70 @@ class CreateReadingViewController: UIViewController {
         }
     }
     @IBAction func statusTap(_ sender: RoundButton) {
-        for button in statusButtons {
-            if button == sender {
-                button.isSelected = true
-            }else {
-                button.isSelected = false
+        //for button in statusButtons {
+            if sender == fastingButton {
+                if(sender.isSelected) {
+                    sender.isSelected = false
+                    status = ""
+                }else {
+                     sender.isSelected = true
+                     afterMealButton.isSelected = false
+                     beforeMealButton.isSelected = false
+                     status = "Fasting"
+                }
+        } else if sender == beforeMealButton {
+                if(sender.isSelected) {
+                    sender.isSelected = false
+                    status = ""
+                }else {
+                    sender.isSelected = true
+                    afterMealButton.isSelected = false
+                    fastingButton.isSelected = false
+                    status = "Before Meal"
+                }
+            } else if sender == afterMealButton {
+                if(sender.isSelected) {
+                    sender.isSelected = false
+                    status = ""
+                }else {
+                    sender.isSelected = true
+                    fastingButton.isSelected = false
+                    beforeMealButton.isSelected = false
+                    status = "After Meal"
+                }
             }
-        }
     }
     
     @IBAction func medicationTap(_ sender: RoundButton) {
-        for button in medicationButtons {
-            if button == sender {
-                button.isSelected = true
-            }else {
-                button.isSelected = false
+            if sender == insulinButton {
+                if(sender.isSelected) {
+                    sender.isSelected = false
+                    medicationType = ""
+                }else {
+                    sender.isSelected = true
+                    oralButton.isSelected = false
+                    medicationType = "Insulin"
+                    print("Insulin")
+                }
+            } else if sender ==  oralButton{
+                if(sender.isSelected) {
+                    sender.isSelected = false
+                    medicationType = ""
+                }else {
+                    sender.isSelected = true
+                    insulinButton.isSelected = false
+                    medicationType = "Oral"
+                    print("Oral")
+                }
             }
-        }
     }
     
-    @IBAction func onSave(_ sender: Any) {
+    func onSave() {
         createReading()
+        let homeVC = HomeViewController(nibName: "HomeViewController", bundle: nil)
+        self.navigationController?.pushViewController(homeVC, animated: true)
     }
+   
     @IBAction func onTapButton(_ sender: RoundButton) {
         sender.isSelected = !sender.isSelected
     }

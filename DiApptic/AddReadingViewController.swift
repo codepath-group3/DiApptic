@@ -19,8 +19,8 @@ class AddReadingViewController: UIViewController {
     @IBOutlet weak var carbsSlider: UISlider!
     @IBOutlet weak var injectionButton: UIButton!
     @IBOutlet weak var pillButton: UIButton!
-    @IBOutlet weak var notesField: UITextField!
-    
+    @IBOutlet weak var notesField: UITextView!
+
     var context: String?
     var medicationType: Int?
     var physicalActivity: String?
