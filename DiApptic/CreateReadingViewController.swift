@@ -59,6 +59,7 @@ class CreateReadingViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func statusTap(_ sender: RoundButton) {
         //for button in statusButtons {
             if sender == fastingButton {
