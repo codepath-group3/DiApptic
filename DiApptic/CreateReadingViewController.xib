@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,8 +13,10 @@
             <connections>
                 <outlet property="afterMealButton" destination="vZq-gH-xXd" id="NXE-Up-an6"/>
                 <outlet property="beforeMealButton" destination="UdT-Sw-6g7" id="WdE-4G-ljO"/>
+                <outlet property="circularSlider" destination="MMx-WA-GaD" id="uqp-1q-yod"/>
                 <outlet property="fastingButton" destination="YeH-4H-1Km" id="bu0-bU-k3a"/>
                 <outlet property="insulinButton" destination="lzu-Yf-W4j" id="yXN-Ja-cni"/>
+                <outlet property="notesField" destination="bTZ-hF-9wV" id="xvM-xW-alh"/>
                 <outlet property="oralButton" destination="xmt-TH-iTm" id="ewE-q8-Khy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -215,17 +217,19 @@
                         <constraint firstAttribute="height" constant="20" id="Mim-ps-9tO"/>
                     </constraints>
                 </stackView>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sNt-Nc-NFC">
-                    <rect key="frame" x="0.0" y="429" width="375" height="30"/>
-                    <nil key="textColor"/>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bTZ-hF-9wV">
+                    <rect key="frame" x="12" y="429" width="355" height="70"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="70" id="reF-kM-ejZ"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="jFJ-Pe-51e" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="2ar-PP-Z5e"/>
-                <constraint firstAttribute="trailing" secondItem="sNt-Nc-NFC" secondAttribute="trailing" id="5hN-PY-p7o"/>
                 <constraint firstItem="MMx-WA-GaD" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="907-3t-qH3"/>
                 <constraint firstAttribute="trailing" secondItem="2mX-wc-9zq" secondAttribute="trailing" constant="4" id="9QV-76-sde"/>
                 <constraint firstItem="MMx-WA-GaD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Eqj-oS-PGn"/>
@@ -236,14 +240,15 @@
                 <constraint firstItem="f5T-CI-I0q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="L4k-qP-Mw0"/>
                 <constraint firstItem="qAm-0O-iZz" firstAttribute="top" secondItem="MMx-WA-GaD" secondAttribute="bottom" constant="10" id="Lsr-g4-HyU"/>
                 <constraint firstItem="jFJ-Pe-51e" firstAttribute="top" secondItem="6Y0-Jl-zGZ" secondAttribute="bottom" constant="10" id="Lzs-bi-u9G"/>
+                <constraint firstItem="bTZ-hF-9wV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="12" id="P5z-o1-fHW"/>
+                <constraint firstItem="bTZ-hF-9wV" firstAttribute="top" secondItem="jFJ-Pe-51e" secondAttribute="bottom" constant="10" id="PCv-uz-TBX"/>
                 <constraint firstAttribute="trailing" secondItem="f5T-CI-I0q" secondAttribute="trailing" id="VgE-Wx-Rt3"/>
-                <constraint firstItem="sNt-Nc-NFC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Wli-3i-HPV"/>
                 <constraint firstItem="f5T-CI-I0q" firstAttribute="top" secondItem="qAm-0O-iZz" secondAttribute="bottom" constant="10" id="aiF-6Z-VQP"/>
                 <constraint firstAttribute="trailing" secondItem="6Y0-Jl-zGZ" secondAttribute="trailing" id="ijR-YK-Xw7"/>
-                <constraint firstItem="sNt-Nc-NFC" firstAttribute="top" secondItem="jFJ-Pe-51e" secondAttribute="bottom" constant="10" id="jdL-R3-fbQ"/>
                 <constraint firstItem="2mX-wc-9zq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="4" id="qhn-BC-ute"/>
                 <constraint firstItem="6Y0-Jl-zGZ" firstAttribute="top" secondItem="2mX-wc-9zq" secondAttribute="bottom" constant="10" id="sJO-rn-L5Q"/>
                 <constraint firstItem="2mX-wc-9zq" firstAttribute="top" secondItem="f5T-CI-I0q" secondAttribute="bottom" constant="10" id="vgn-8H-1Er"/>
+                <constraint firstAttribute="trailing" secondItem="bTZ-hF-9wV" secondAttribute="trailing" constant="8" id="wUo-gs-X7t"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>

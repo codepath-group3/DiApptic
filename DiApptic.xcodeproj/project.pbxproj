@@ -22,9 +22,13 @@
 		03D529481DF2BE8500793904 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529471DF2BE8500793904 /* Utils.swift */; };
 		03D558221DF392F400E8A797 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D558211DF392F400E8A797 /* HomeHeaderCell.swift */; };
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
+		970118621DE27BDC0023A34C /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970118601DE27BDC0023A34C /* CircleSlider.swift */; };
+		970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970118611DE27BDC0023A34C /* CircleSliderView.swift */; };
 		974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974E756A1DE25EAC0023B66D /* RegisterViewController.swift */; };
 		974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974E756B1DE25EAC0023B66D /* RegisterViewController.xib */; };
 		977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977BE1791DDEBD6500E4B157 /* Reading.swift */; };
+		97BBC8CE1DF356A1001781CB /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97BBC8CC1DF356A1001781CB /* EditProfileViewController.swift */; };
+		97BBC8CF1DF356A1001781CB /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97BBC8CD1DF356A1001781CB /* EditProfileViewController.xib */; };
 		97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */; };
 		97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */; };
 		F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23C21DE24D0400385B37 /* CircleSlider.swift */; };
@@ -69,9 +73,14 @@
 		03D529471DF2BE8500793904 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		03D558211DF392F400E8A797 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		970118601DE27BDC0023A34C /* CircleSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
+		970118611DE27BDC0023A34C /* CircleSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSliderView.swift; sourceTree = "<group>"; };
 		974E756A1DE25EAC0023B66D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		974E756B1DE25EAC0023B66D /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		977BE1791DDEBD6500E4B157 /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
+		97BBC8CC1DF356A1001781CB /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		97BBC8CD1DF356A1001781CB /* EditProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileViewController.xib; sourceTree = "<group>"; };
+		97BBC8D01DF39BA7001781CB /* DiApptic.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DiApptic.entitlements; sourceTree = "<group>"; };
 		97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -133,6 +142,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		970118641DE27BE80023A34C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				970118601DE27BDC0023A34C /* CircleSlider.swift */,
+				970118611DE27BDC0023A34C /* CircleSliderView.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +181,8 @@
 		97D5AD391DD930B1006F95B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+
+				97BBC8CD1DF356A1001781CB /* EditProfileViewController.xib */,
 				F7AC0DE71DF385FA00F8D8AC /* HomeHeaderCell.xib */,
 				F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */,
 				F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */,
@@ -227,7 +247,9 @@
 		F7930F821DD9199800A34847 /* DiApptic */ = {
 			isa = PBXGroup;
 			children = (
+				97BBC8D01DF39BA7001781CB /* DiApptic.entitlements */,
 				F74E23E61DE2833A00385B37 /* Styles */,
+				970118641DE27BE80023A34C /* Components */,
 				F74E23C11DE24CE600385B37 /* Components */,
 				97D5AD391DD930B1006F95B6 /* Views */,
 				97D5AD381DD9308D006F95B6 /* Models */,
@@ -238,6 +260,8 @@
 				F7930F8A1DD9199800A34847 /* Assets.xcassets */,
 				F7930F8C1DD9199800A34847 /* LaunchScreen.storyboard */,
 				F7930F8F1DD9199800A34847 /* Info.plist */,
+				0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */,
+				97BBC8CC1DF356A1001781CB /* EditProfileViewController.swift */,
 			);
 			path = DiApptic;
 			sourceTree = "<group>";
@@ -277,8 +301,14 @@
 				TargetAttributes = {
 					F7930F7F1DD9199800A34847 = {
 						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = KYLS7NK483;
 						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -308,6 +338,7 @@
 				0379E9D21DE2800500200E62 /* ComposeViewController.xib in Resources */,
 				F7AC0DD81DEF941700F8D8AC /* CreateReadingViewController.xib in Resources */,
 				F74E23C71DE24D6C00385B37 /* CircleSliderView.xib in Resources */,
+				97BBC8CF1DF356A1001781CB /* EditProfileViewController.xib in Resources */,
 				974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */,
 				03B8A45B1DED0C6900D0341B /* ProfileViewTableViewCell.xib in Resources */,
 				F7930FAA1DDA341400A34847 /* AddReadingViewController.xib in Resources */,
@@ -381,8 +412,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				03B8A45A1DED0C6900D0341B /* ProfileViewTableViewCell.swift in Sources */,
 				F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */,
+				970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */,
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
 				03D558221DF392F400E8A797 /* HomeHeaderCell.swift in Sources */,
 				F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */,
@@ -390,6 +423,7 @@
 				F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */,
 				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
 				F7AC0DDA1DEF943900F8D8AC /* CreateReadingViewController.swift in Sources */,
+				97BBC8CE1DF356A1001781CB /* EditProfileViewController.swift in Sources */,
 				F7AC0DDC1DEF945400F8D8AC /* Styles.swift in Sources */,
 				03D529441DF293E000793904 /* ParseUtils.swift in Sources */,
 				977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */,
@@ -535,6 +569,8 @@
 			baseConfigurationReference = 97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DiApptic/DiApptic.entitlements;
+				DEVELOPMENT_TEAM = KYLS7NK483;
 				INFOPLIST_FILE = DiApptic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -549,6 +585,8 @@
 			baseConfigurationReference = DE1898CDF20C7CF8490CD462 /* Pods-DiApptic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = DiApptic/DiApptic.entitlements;
+				DEVELOPMENT_TEAM = KYLS7NK483;
 				INFOPLIST_FILE = DiApptic/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
