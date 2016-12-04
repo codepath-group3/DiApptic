@@ -14,6 +14,8 @@ target 'DiApptic' do
               config.build_settings['SWIFT_VERSION'] = '3.0'
           end
       end
-  end  # Pods for DiApptic
+
+  end
+
 
 end

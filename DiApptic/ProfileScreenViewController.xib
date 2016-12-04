@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TgX-Dc-cFf">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="1" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="TgX-Dc-cFf">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-Kx-mMR" customClass="ProfileHeaderView" customModule="DiApptic" customModuleProvider="target">
@@ -29,13 +29,13 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="TgX-Dc-cFf" firstAttribute="top" secondItem="7iR-Kx-mMR" secondAttribute="bottom" id="KAL-VK-EDG"/>
+                <constraint firstItem="TgX-Dc-cFf" firstAttribute="top" secondItem="7iR-Kx-mMR" secondAttribute="bottom" constant="18" id="ABT-jB-vtV"/>
                 <constraint firstItem="7iR-Kx-mMR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KGa-H0-bPK"/>
                 <constraint firstAttribute="bottom" secondItem="TgX-Dc-cFf" secondAttribute="bottom" id="KN4-5S-5ck"/>
                 <constraint firstAttribute="trailing" secondItem="7iR-Kx-mMR" secondAttribute="trailing" id="UnV-j1-fNz"/>
                 <constraint firstAttribute="trailing" secondItem="TgX-Dc-cFf" secondAttribute="trailing" id="nz6-aM-kvj"/>
                 <constraint firstItem="TgX-Dc-cFf" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wBK-Zy-Kw7"/>
-                <constraint firstItem="7iR-Kx-mMR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="wv9-yS-V1L"/>
+                <constraint firstItem="7iR-Kx-mMR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="48" id="wv9-yS-V1L"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="105.5"/>
         </view>
