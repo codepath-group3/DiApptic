@@ -9,7 +9,6 @@
 import UIKit
 
 class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @IBOutlet weak var sampleImageView: UIImageView!
 
     @IBOutlet weak var addAttachmentButton: UIImageView!
     @IBOutlet weak var textArea: UITextView!
@@ -35,7 +34,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         //scrollView = UIScrollView(frame: view.bounds)
         attachmentScrollView.layer.borderWidth = 1
         
-        attachmentScrollView.contentSize = CGSize(width: sampleImageView.frame.size.width, height: 150)
+        attachmentScrollView.contentSize = CGSize(width: 150, height: 150)
         attachmentScrollView.autoresizingMask = UIViewAutoresizing.flexibleWidth
     }
 
@@ -49,7 +48,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         ParseUtils.postMessage(message: textArea.text, success: { 
             print("success callback")
             self.navigationController?.popViewController(animated: true)
-            
             }, failure: {
                 print("message post failed")
         })
@@ -70,8 +68,6 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
         let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
-        //sampleImageView.image = originalImage
         
         let imageView  = UIImageView(frame: CGRect(x: 10 + (number * 150), y: 10, width: 130, height: 130))
         imageView.image = originalImage

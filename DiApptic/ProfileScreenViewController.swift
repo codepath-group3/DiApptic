@@ -9,8 +9,6 @@
 import UIKit
 import Parse
 
-
-
 class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
