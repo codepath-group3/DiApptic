@@ -145,8 +145,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         
         //lineChartView.setScaleMinima(10, scaleY: 1)
         lineChartView.data = sChartData
-        lineChartView.setVisibleXRangeMaximum(8)
-        lineChartView.moveViewToX(Double(xAxisDateFormatter.dates.count) - 8)
+        lineChartView.setVisibleXRangeMaximum(5)
+        lineChartView.moveViewToX(Double(xAxisDateFormatter.dates.count) - 5)
         //lineChartView.centerViewTo(xValue: Double(xAxisDateFormatter.dates.count) - 10, yValue: 1, axis: .left)
         //lineChartView.viewpo
         //setPieChart(dataPoints: readingTypes, values: pieReadings)
