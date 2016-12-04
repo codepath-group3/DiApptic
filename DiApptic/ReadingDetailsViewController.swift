@@ -20,12 +20,16 @@ class ReadingDetailsViewController: UIViewController {
     @IBOutlet weak var medicationLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var medicationSection: UIStackView!
+    @IBOutlet weak var mgdlLabel: UILabel!
+    
     var glucoseReading: GlucoseReading!
+    
+    let dateFormatter: DateFormatter = DateFormatter()
     
     var reading: GlucoseReading! {
         didSet(oldValue) {
             if reading != nil {
-                dateLabel.text = "\(reading.date)"
+                dateLabel.text = dateFormatter.string(from: reading.date)
                 noteLabel.text = reading.note
                 var readingColor: UIColor!
                 if reading.value < 70 {
@@ -37,14 +41,17 @@ class ReadingDetailsViewController: UIViewController {
                 }
                 readingValueLabel.textColor = readingColor
                 bloodDropImageView.tintColor = readingColor
+                mgdlLabel.textColor = readingColor
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        reading = glucoseReading
+        dateFormatter.dateStyle = .long
         edgesForExtendedLayout = []
+        
+        reading = glucoseReading
          readingValueLabel.countFrom(fromValue: Float(1), to: Float(reading.value), withDuration: 1.0, andAnimationType: .EaseInOut, andCountingType: .Int)
         //medicationSection.isHidden = true
         // Do any additional setup after loading the view.

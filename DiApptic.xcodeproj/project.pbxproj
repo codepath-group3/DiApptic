@@ -22,7 +22,6 @@
 		03D529481DF2BE8500793904 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529471DF2BE8500793904 /* Utils.swift */; };
 		03D558221DF392F400E8A797 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D558211DF392F400E8A797 /* HomeHeaderCell.swift */; };
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
-		970118621DE27BDC0023A34C /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970118601DE27BDC0023A34C /* CircleSlider.swift */; };
 		970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970118611DE27BDC0023A34C /* CircleSliderView.swift */; };
 		974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974E756A1DE25EAC0023B66D /* RegisterViewController.swift */; };
 		974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974E756B1DE25EAC0023B66D /* RegisterViewController.xib */; };
@@ -31,8 +30,9 @@
 		97BBC8CF1DF356A1001781CB /* EditProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97BBC8CD1DF356A1001781CB /* EditProfileViewController.xib */; };
 		97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */; };
 		97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */; };
+		97E39E361DF4B31E00034BFC /* EditProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E39E351DF4B31E00034BFC /* EditProfileHeaderCell.xib */; };
+		97E39E381DF4B3BE00034BFC /* EditProfileDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E39E371DF4B3BE00034BFC /* EditProfileDetailCell.xib */; };
 		F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23C21DE24D0400385B37 /* CircleSlider.swift */; };
-		F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */; };
 		F74E23C71DE24D6C00385B37 /* CircleSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */; };
 		F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F831DD9199800A34847 /* AppDelegate.swift */; };
 		F7930F861DD9199800A34847 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F851DD9199800A34847 /* ViewController.swift */; };
@@ -84,6 +84,8 @@
 		97D5AD3A1DD930CA006F95B6 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.debug.xcconfig"; sourceTree = "<group>"; };
+		97E39E351DF4B31E00034BFC /* EditProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileHeaderCell.xib; sourceTree = "<group>"; };
+		97E39E371DF4B3BE00034BFC /* EditProfileDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileDetailCell.xib; sourceTree = "<group>"; };
 		DE1898CDF20C7CF8490CD462 /* Pods-DiApptic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.release.xcconfig"; sourceTree = "<group>"; };
 		F74E23C21DE24D0400385B37 /* CircleSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
 		F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSliderView.swift; sourceTree = "<group>"; };
@@ -154,6 +156,8 @@
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */,
+				97BBC8CC1DF356A1001781CB /* EditProfileViewController.swift */,
 				F7AC0DE11DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift */,
 				F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */,
 				F7930F9F1DD94A5100A34847 /* TabbarController.swift */,
@@ -181,9 +185,9 @@
 		97D5AD391DD930B1006F95B6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-
 				97BBC8CD1DF356A1001781CB /* EditProfileViewController.xib */,
 				F7AC0DE71DF385FA00F8D8AC /* HomeHeaderCell.xib */,
+				97E39E351DF4B31E00034BFC /* EditProfileHeaderCell.xib */,
 				F7AC0DDF1DEF960200F8D8AC /* HistoryViewController.xib */,
 				F7AC0DD71DEF941700F8D8AC /* CreateReadingViewController.xib */,
 				F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */,
@@ -198,6 +202,7 @@
 				0379E9D01DE2800500200E62 /* ComposeViewController.xib */,
 				03B8A4591DED0C6900D0341B /* ProfileViewTableViewCell.xib */,
 				F7AC0DE21DF0FB6F00F8D8AC /* ReadingDetailsViewController.xib */,
+				97E39E371DF4B3BE00034BFC /* EditProfileDetailCell.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -211,7 +216,6 @@
 				F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */,
 				03D529431DF293E000793904 /* ParseUtils.swift */,
 				03D529471DF2BE8500793904 /* Utils.swift */,
-				0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */,
 				03D558211DF392F400E8A797 /* HomeHeaderCell.swift */,
 				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 			);
@@ -260,8 +264,6 @@
 				F7930F8A1DD9199800A34847 /* Assets.xcassets */,
 				F7930F8C1DD9199800A34847 /* LaunchScreen.storyboard */,
 				F7930F8F1DD9199800A34847 /* Info.plist */,
-				0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */,
-				97BBC8CC1DF356A1001781CB /* EditProfileViewController.swift */,
 			);
 			path = DiApptic;
 			sourceTree = "<group>";
@@ -337,6 +339,7 @@
 			files = (
 				0379E9D21DE2800500200E62 /* ComposeViewController.xib in Resources */,
 				F7AC0DD81DEF941700F8D8AC /* CreateReadingViewController.xib in Resources */,
+				97E39E361DF4B31E00034BFC /* EditProfileHeaderCell.xib in Resources */,
 				F74E23C71DE24D6C00385B37 /* CircleSliderView.xib in Resources */,
 				97BBC8CF1DF356A1001781CB /* EditProfileViewController.xib in Resources */,
 				974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */,
@@ -345,6 +348,7 @@
 				97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */,
 				F7930F8E1DD9199800A34847 /* LaunchScreen.storyboard in Resources */,
 				F7930F8B1DD9199800A34847 /* Assets.xcassets in Resources */,
+				97E39E381DF4B3BE00034BFC /* EditProfileDetailCell.xib in Resources */,
 				0379E9CE1DE110E600200E62 /* HomeScreenViewController.xib in Resources */,
 				F7930F891DD9199800A34847 /* Main.storyboard in Resources */,
 				0388AD9F1DD9859400157140 /* ProfileScreenViewController.xib in Resources */,
@@ -412,7 +416,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-
 				03B8A45A1DED0C6900D0341B /* ProfileViewTableViewCell.swift in Sources */,
 				F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */,
 				970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */,
