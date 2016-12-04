@@ -136,7 +136,6 @@
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 				F7AC0DE11DF0FB6F00F8D8AC /* ReadingDetailsViewController.swift */,
 				F7AC0DD91DEF943900F8D8AC /* CreateReadingViewController.swift */,
 				F7930F9F1DD94A5100A34847 /* TabbarController.swift */,
@@ -192,7 +191,9 @@
 				F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */,
 				03D529431DF293E000793904 /* ParseUtils.swift */,
 				03D529471DF2BE8500793904 /* Utils.swift */,
+				0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */,
 				03D558211DF392F400E8A797 /* HomeHeaderCell.swift */,
+				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -237,7 +238,6 @@
 				F7930F8A1DD9199800A34847 /* Assets.xcassets */,
 				F7930F8C1DD9199800A34847 /* LaunchScreen.storyboard */,
 				F7930F8F1DD9199800A34847 /* Info.plist */,
-				0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */,
 			);
 			path = DiApptic;
 			sourceTree = "<group>";

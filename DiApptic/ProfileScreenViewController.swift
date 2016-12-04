@@ -79,11 +79,14 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.data.count;
+        // Plus 1 for header view
+        return self.data.count + 1;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileViewHeader.identifier", for: indexPath) as! HomeHeaderCell;
+            cell.usernameLabel.text = PFUser.current()?.username
+            print (PFUser.current()?.parseClassName)
             return cell
         }
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileView.identifier", for: indexPath) as! ProfileViewTableViewCell;
@@ -98,6 +101,9 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if (indexPath.row == 0) {
+            return [];
+        }
         let favorite = UITableViewRowAction(style: .normal, title: "Like") { action, index in
             print("favorite button tapped")
         }

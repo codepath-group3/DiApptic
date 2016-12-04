@@ -18,6 +18,10 @@ class ProfileViewTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        profileImageView.layer.cornerRadius = 4.0;
+        timestampLabel.textColor = UIColor.gray
+        usernameLabel.textColor = UIColor.gray
+        postContent.textColor = Styles.darkGray
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

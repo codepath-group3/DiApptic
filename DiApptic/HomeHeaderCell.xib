@@ -12,7 +12,7 @@
             <rect key="frame" x="0.0" y="0.0" width="481" height="241"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4qb-88-Lr6" id="Bj4-as-0UY">
-                <frame key="frameInset" width="481" height="240.5"/>
+                <frame key="frameInset" width="481" height="240"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sky_blue_background" translatesAutoresizingMaskIntoConstraints="NO" id="15n-e3-M20"/>
@@ -23,23 +23,55 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="VB3-Vv-JwV">
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LnR-UL-aWp">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mYh-7e-Kb9">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Glucose" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eit-ML-IeB">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="80" id="XrP-0T-NyZ"/>
-                                                    <constraint firstAttribute="width" constant="80" id="qDS-bd-jMx"/>
+                                                    <constraint firstItem="eit-ML-IeB" firstAttribute="centerX" secondItem="LnR-UL-aWp" secondAttribute="centerX" id="Ay0-bu-l3A"/>
+                                                    <constraint firstItem="mYh-7e-Kb9" firstAttribute="top" secondItem="LnR-UL-aWp" secondAttribute="top" constant="8" id="Ecr-PW-yZ4"/>
+                                                    <constraint firstItem="mYh-7e-Kb9" firstAttribute="centerX" secondItem="LnR-UL-aWp" secondAttribute="centerX" id="LJU-L9-1Xt"/>
+                                                    <constraint firstItem="eit-ML-IeB" firstAttribute="top" secondItem="mYh-7e-Kb9" secondAttribute="bottom" constant="4" id="TZA-cy-agL"/>
+                                                    <constraint firstAttribute="height" constant="70" id="XrP-0T-NyZ"/>
+                                                    <constraint firstAttribute="width" constant="70" id="qDS-bd-jMx"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="matt_damon" translatesAutoresizingMaskIntoConstraints="NO" id="Tqj-AB-VQZ">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user128x128" translatesAutoresizingMaskIntoConstraints="NO" id="Tqj-AB-VQZ">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="7ns-m4-gEN"/>
                                                     <constraint firstAttribute="width" constant="120" id="InE-la-emk"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yib-M1-coX">
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Bj-kb-iAl">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HbA1c" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGh-Cg-Aq4">
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="80" id="4dV-0B-erg"/>
-                                                    <constraint firstAttribute="height" constant="80" id="K1t-bp-2ij"/>
+                                                    <constraint firstAttribute="width" constant="70" id="4dV-0B-erg"/>
+                                                    <constraint firstItem="rGh-Cg-Aq4" firstAttribute="top" secondItem="3Bj-kb-iAl" secondAttribute="bottom" constant="4" id="Fb8-ZW-BlC"/>
+                                                    <constraint firstAttribute="height" constant="70" id="K1t-bp-2ij"/>
+                                                    <constraint firstItem="rGh-Cg-Aq4" firstAttribute="centerX" secondItem="yib-M1-coX" secondAttribute="centerX" id="LAR-qR-FAP"/>
+                                                    <constraint firstItem="3Bj-kb-iAl" firstAttribute="centerX" secondItem="yib-M1-coX" secondAttribute="centerX" id="eqh-dv-b1L"/>
+                                                    <constraint firstItem="3Bj-kb-iAl" firstAttribute="top" secondItem="yib-M1-coX" secondAttribute="top" constant="8" id="jHa-oe-KE5"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -183,14 +215,16 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="glucoseView" destination="LnR-UL-aWp" id="6Ue-UH-v87"/>
+                <outlet property="hba1cView" destination="yib-M1-coX" id="eoV-Pk-MJp"/>
                 <outlet property="profileImage" destination="Tqj-AB-VQZ" id="r9C-1j-e44"/>
-                <outlet property="usernameLabel" destination="8HY-dn-vjq" id="8Tn-tN-qzW"/>
+                <outlet property="usernameLabel" destination="8HY-dn-vjq" id="21Y-JF-d9S"/>
             </connections>
             <point key="canvasLocation" x="28.5" y="29.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="matt_damon" width="1920" height="1080"/>
         <image name="sky_blue_background" width="1600" height="1200"/>
+        <image name="user128x128" width="128" height="128"/>
     </resources>
 </document>

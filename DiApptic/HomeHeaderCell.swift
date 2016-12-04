@@ -10,7 +10,9 @@ import UIKit
 
 class HomeHeaderCell: UITableViewCell {
 
+    @IBOutlet weak var glucoseView: UIView!
     
+    @IBOutlet weak var hba1cView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var usernameLabel: UILabel!
@@ -20,10 +22,18 @@ class HomeHeaderCell: UITableViewCell {
         
         
         // Profile image: radius, border
-        profileImage.layer.cornerRadius = self.profileImage.frame.size.width/2
+        profileImage.layer.cornerRadius = 60
+        profileImage.clipsToBounds = true
+        profileImage.layer.borderWidth = 2.0
+        profileImage.layer.borderColor = Styles.darkBlue.cgColor
         
-        profileImage.layer.borderWidth = 1.0
-        profileImage.layer.borderColor = Styles.lightBlue.cgColor
+        glucoseView.layer.cornerRadius = 35
+        glucoseView.clipsToBounds = true
+        glucoseView.backgroundColor = Styles.lightBlue
+        
+        hba1cView.layer.cornerRadius = 35
+        hba1cView.clipsToBounds = true
+        hba1cView.backgroundColor = Styles.lightBlue
         
     }
 
