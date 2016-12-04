@@ -16,6 +16,7 @@
                 <outlet property="medicationImageView" destination="2m9-lk-enD" id="yum-9G-qzt"/>
                 <outlet property="medicationLabel" destination="s5v-yj-BY2" id="Zd8-Pr-T4F"/>
                 <outlet property="medicationSection" destination="Zea-TS-T6x" id="NPf-p7-C0g"/>
+                <outlet property="mgdlLabel" destination="dwu-mJ-PSW" id="HOQ-Jp-Z1p"/>
                 <outlet property="noteLabel" destination="LYN-rB-IQa" id="dSg-Sz-koo"/>
                 <outlet property="readingValueLabel" destination="Oth-xH-Ly3" id="xxY-u2-UgI"/>
                 <outlet property="statusImageView" destination="lwT-B6-t5K" id="2Sx-KJ-qXF"/>
@@ -46,34 +47,33 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="2HT-ng-AR1">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="2HT-ng-AR1">
                             <rect key="frame" x="0.0" y="70.5" width="359" height="46"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-5c-hdi">
-                                    <rect key="frame" x="0.0" y="25.5" width="4.5" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" text="                " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIF-5c-hdi">
+                                    <rect key="frame" x="0.0" y="25.5" width="71" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="drop64x64" translatesAutoresizingMaskIntoConstraints="NO" id="nQ4-Yp-i6Z">
-                                    <rect key="frame" x="71" y="6" width="40" height="40"/>
+                                    <rect key="frame" x="77" y="6" width="40" height="40"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="40" id="H0Y-Ad-X7l"/>
                                         <constraint firstAttribute="height" constant="40" id="Vap-jh-ynm"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-xH-Ly3" customClass="CountingLabel" customModule="DiApptic" customModuleProvider="target">
-                                    <rect key="frame" x="124.5" y="0.0" width="110" height="46"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" horizontalCompressionResistancePriority="760" text="999" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oth-xH-Ly3" customClass="CountingLabel" customModule="DiApptic" customModuleProvider="target">
+                                    <rect key="frame" x="122.5" y="0.0" width="108.5" height="46"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="110" id="X5o-d9-aug"/>
                                         <constraint firstAttribute="height" constant="46" id="buR-kl-VR9"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="mg/dL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwu-mJ-PSW">
-                                    <rect key="frame" x="243" y="25.5" width="50" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="260" verticalHuggingPriority="251" text="mg/dL" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwu-mJ-PSW">
+                                    <rect key="frame" x="237" y="25.5" width="50" height="20.5"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="50" id="KDt-9H-H1G"/>
                                     </constraints>
@@ -81,8 +81,8 @@
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDa-y0-fyz">
-                                    <rect key="frame" x="354.5" y="25.5" width="4.5" height="20.5"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="240" verticalHuggingPriority="251" text="               " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MDa-y0-fyz">
+                                    <rect key="frame" x="292.5" y="25.5" width="66.5" height="20.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>

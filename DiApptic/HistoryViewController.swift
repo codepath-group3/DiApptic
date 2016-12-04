@@ -57,6 +57,9 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     
     @IBOutlet weak var lineChartView: LineChartView!
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var totalCountLabel: UILabel!
+    @IBOutlet weak var highestValueLabel: UILabel!
+    @IBOutlet weak var lowestValueLabel: UILabel!
     
     let xAxisDateFormatter: XAxisDateFormatter = XAxisDateFormatter()
     var dataByDate: [[GlucoseReading]] = []
@@ -117,10 +120,10 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         pieChartMgdlLabel.font = UIFont(name: pieChartMgdlLabel.font.fontName, size: 12.0)
         
         view.addSubview(pieChartAverageLabel)
-        pieChartAverageLabel.center = CGPoint(x: pieChartView.center.x + 20, y: pieChartView.center.y - 22)
+        pieChartAverageLabel.center = CGPoint(x: pieChartView.center.x , y: pieChartView.center.y - 22)
         view.addSubview(pieChartMgdlLabel)
         pieChartMgdlLabel.center = pieChartView.center
-        pieChartMgdlLabel.center = CGPoint(x: pieChartView.center.x + 25 , y: pieChartView.center.y + 20)
+        pieChartMgdlLabel.center = CGPoint(x: pieChartView.center.x , y: pieChartView.center.y + 20)
         
         //l.horizontalAlignment = ChartLegendHorizontalAlignmentRight;
         //l.verticalAlignment = ChartLegendVerticalAlignmentTop;
@@ -255,12 +258,13 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     func adjustPieChart() {
         let fromIndex = Int(lineChartView.lowestVisibleX)
         let toIndex = Int(lineChartView.highestVisibleX)
+        var highest: Double = 0
+        var lowest: Double = 9999
         var highs: Double = 0
         var lows: Double = 0
         var normals: Double = 0
         var totalCount: Double = 0
         var total: Double = 0
-        
         for index in fromIndex...toIndex {
             for reading in dataByDate[index] {
                 if reading.isLow() {
@@ -272,6 +276,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
                 }
                 totalCount += 1
                 total += reading.value
+                if reading.value > highest {
+                    highest = reading.value
+                }
+                if reading.value < lowest {
+                    lowest = reading.value
+                }
             }
         }
         let lowEntry = PieChartDataEntry(value: lows, label: "Lows")
@@ -296,11 +306,17 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
             ], range: NSMakeRange(0, attrString.length))
         pieChartView.centerAttributedText = attrString
         pieChartView.data = pieChartData
+        totalCountLabel.text = "\(Int(totalCount))"
+        highestValueLabel.text = "\(Int(highest))"
+        lowestValueLabel.text = "\(Int(lowest))"
+    }
+    func adjustLabels(){
         
     }
     func chartTranslated(_ chartView: ChartViewBase, dX: CGFloat, dY: CGFloat) {
         //debounce()
         adjustPieChart()
+        adjustLabels()
     }
     func chartScaled(_ chartView: ChartViewBase, scaleX: CGFloat, scaleY: CGFloat) {
         adjustPieChart()
