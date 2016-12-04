@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EditProfileViewController: UIViewController {
+class EditProfileViewController: UIViewController, UITabe {
 
     override func viewDidLoad() {
         super.viewDidLoad()
