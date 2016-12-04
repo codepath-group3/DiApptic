@@ -8,6 +8,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController" customModule="DiApptic" customModuleProvider="target">
             <connections>
+                <outlet property="addAttachmentButton" destination="5s6-so-rsV" id="q1B-HE-F5b"/>
+                <outlet property="attachmentScrollView" destination="dAt-Sm-c9T" id="Sl9-9g-rd9"/>
+                <outlet property="sampleImageView" destination="RSM-FY-gul" id="fJ1-JG-nJh"/>
                 <outlet property="textArea" destination="Vl7-8c-2X7" id="UrG-p2-JyK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -18,16 +21,51 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vl7-8c-2X7">
-                    <frame key="frameInset" minX="16" minY="20" width="343" height="218"/>
+                    <frame key="frameInset" minX="16" minY="83" width="343" height="200"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                    <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                 </textView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RSM-FY-gul">
+                    <frame key="frameInset" minX="235" minY="537" width="130" height="130"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="bgM-rt-f39"/>
+                        <constraint firstAttribute="width" constant="130" id="vf5-px-IHm"/>
+                    </constraints>
+                </imageView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dAt-Sm-c9T">
+                    <frame key="frameInset" minX="16" minY="297" width="349" height="150"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="02b-1B-sMx"/>
+                    </constraints>
+                </scrollView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="user128x128" translatesAutoresizingMaskIntoConstraints="NO" id="XcC-7A-23M">
+                    <frame key="frameInset" minX="16" minY="20" width="50" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cho-JB-gCh">
+                    <frame key="frameInset" minX="74" minY="35" width="96" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="add24x24" translatesAutoresizingMaskIntoConstraints="NO" id="5s6-so-rsV">
+                    <frame key="frameInset" minX="341" minY="465" width="24" height="24"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="24" id="LXg-wO-CiI"/>
+                        <constraint firstAttribute="height" constant="24" id="ddR-HB-FT0"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <point key="canvasLocation" x="33.5" y="108.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="add24x24" width="24" height="24"/>
+        <image name="user128x128" width="128" height="128"/>
+    </resources>
 </document>
