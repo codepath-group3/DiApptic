@@ -12,17 +12,29 @@ import Parse
 protocol LoginDelegate: class {
     func didLogin()
 }
+protocol DataDelegate: class {
+   func didAddEmail(email: String, password: String)
+}
+
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     weak var delegate: LoginDelegate!
+    weak var dataDelegate: DataDelegate!
     
+    @IBOutlet weak var inlineError: UILabel!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    @IBOutlet weak var inlinePasswordError: UILabel!
-    @IBOutlet weak var inlineEmailError: UILabel!
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var usernamePasswordSection: UIView!
+    
+    @IBOutlet weak var signUpButton: UIButton!
+    
+    @IBOutlet weak var emailIcon: UIImageView!
+    @IBOutlet weak var passwordIcon: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor(patternImage: UIImage(named: "diabetes.jpg")!)
         let currentUser = PFUser.current()
         if currentUser != nil {
             delegate.didLogin()
@@ -30,43 +42,42 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             usernameField.delegate = self
             passwordField.delegate = self
         }
-        addImageInsideTextView(textField: usernameField, image: "clock")
-        addImageInsideTextView(textField: passwordField, image: "clock")
+        emailIcon.tintColor = Styles.lightGray
+        passwordIcon.tintColor = Styles.lightGray
+        getRoundedView(view: signInButton)
+        getRoundedView(view: signUpButton)
+        getRoundedView(view: usernamePasswordSection)
+        
     }
     
-    func addImageInsideTextView(textField: UITextField, image: String) {
-        let imageView = UIImageView();
-        let image = UIImage(named: image);
-        imageView.image = image;
-        imageView.frame = CGRect(x: 10, y: 10, width: 20, height: 20)
-        textField.addSubview(imageView)
-        let leftView = UIView.init(frame: CGRect(x: 10, y: 0, width: 30, height: 30))
-        textField.leftView = leftView;
-        textField.leftViewMode = UITextFieldViewMode.always
+    func getRoundedView(view: UIView) {
+        view.layer.cornerRadius = 5
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.clear.cgColor
+        view.clipsToBounds = true
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-            inlineEmailError.isHidden = true
-            inlinePasswordError.isHidden = true
+            inlineError.isHidden = true
+            inlineError.isHidden = true
     }
     
-   
-    @IBAction func onLoginAction(_ sender: Any) {
+    @IBAction func onSignInAction(_ sender: Any) {
         let username = self.usernameField.text
         let password = self.passwordField.text
         
         if (username?.characters.count)! < 4 {
-            inlineEmailError.isHidden = false
-            inlineEmailError.text = "Username must be greater than 5 characters"
+            inlineError.isHidden = false
+            inlineError.text = "Username must be greater than 5 characters"
             
         } else if (password?.characters.count)! < 6{
-            inlinePasswordError.isHidden = false
-            inlinePasswordError.text = "Password must be greater than 6 characters"
+            inlineError.isHidden = false
+            inlineError.text = "Password must be greater than 6 characters"
             
         }else {
             
@@ -77,12 +88,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     //self.navigationController!.pushViewController(vc, animated: true)
                     self.delegate.didLogin()
                 } else {
-                    let alert = UIAlertView(title: "Error", message: "Invalid email or password", delegate: self, cancelButtonTitle: "OK")
-                    alert.show()
+                    self.inlineError.isHidden = false
+                    self.inlineError.text = "Invalid email or password"
                 }
-        })
-    }
+            })
+        }
         
+    }
+   
+    @IBAction func onSignUpAction(_ sender: Any) {
+        if usernameField.text != nil && passwordField.text !=  nil {
+            dataDelegate.didAddEmail(email: "ksdhjsgdfs", password: "sadhsgfs")
+        }
+        let vc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+        self.present(vc, animated: true)
     }
     /*
     // MARK: - Navigation
@@ -94,8 +113,4 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
-    @IBAction func onSignup(_ sender: UIButton) {
-        let vc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-        self.navigationController!.pushViewController(vc, animated: true)
-    }
 }
