@@ -20,6 +20,7 @@
 		03D529441DF293E000793904 /* ParseUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529431DF293E000793904 /* ParseUtils.swift */; };
 		03D529461DF2B49500793904 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529451DF2B49500793904 /* Message.swift */; };
 		03D529481DF2BE8500793904 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529471DF2BE8500793904 /* Utils.swift */; };
+		03D558221DF392F400E8A797 /* HomeHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D558211DF392F400E8A797 /* HomeHeaderCell.swift */; };
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
 		974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974E756A1DE25EAC0023B66D /* RegisterViewController.swift */; };
 		974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974E756B1DE25EAC0023B66D /* RegisterViewController.xib */; };
@@ -66,6 +67,7 @@
 		03D529431DF293E000793904 /* ParseUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseUtils.swift; sourceTree = "<group>"; };
 		03D529451DF2B49500793904 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		03D529471DF2BE8500793904 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		03D558211DF392F400E8A797 /* HomeHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeHeaderCell.swift; sourceTree = "<group>"; };
 		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		974E756A1DE25EAC0023B66D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		974E756B1DE25EAC0023B66D /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				F7AC0DE51DF103F400F8D8AC /* CountingLabel.swift */,
 				03D529431DF293E000793904 /* ParseUtils.swift */,
 				03D529471DF2BE8500793904 /* Utils.swift */,
+				03D558211DF392F400E8A797 /* HomeHeaderCell.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				03B8A45A1DED0C6900D0341B /* ProfileViewTableViewCell.swift in Sources */,
 				F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */,
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
+				03D558221DF392F400E8A797 /* HomeHeaderCell.swift in Sources */,
 				F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
 				F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */,

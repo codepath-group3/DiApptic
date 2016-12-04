@@ -47,13 +47,16 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         let signoutButton = UIBarButtonItem(title: "Sign Out", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProfileScreenViewController.onSignOut))
         self.navigationItem.leftBarButtonItem = signoutButton
         
-    
-        let cellNib = UINib(nibName: "ProfileViewTableViewCell", bundle: nil)
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.rowHeight = 120;
+        let headerNib = UINib(nibName: "HomeHeaderCell", bundle: nil)
+        tableView.register(headerNib, forCellReuseIdentifier: "profileViewHeader.identifier")
         
-        tableView.estimatedRowHeight = 120
+        let cellNib = UINib(nibName: "ProfileViewTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "profileView.identifier")
+        
+        
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
         tableView.dataSource = self;
         tableView.delegate = self;
         tableView.tableHeaderView?.frame.size = CGSize(width: UIScreen.main.bounds.size.width, height: 1);
@@ -79,9 +82,13 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         return self.data.count;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if (indexPath.row == 0) {
+            let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileViewHeader.identifier", for: indexPath) as! HomeHeaderCell;
+            return cell
+        }
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileView.identifier", for: indexPath) as! ProfileViewTableViewCell;
         cell.timestampLabel.text = "20m"
-        cell.postContent.text = data[indexPath.row].messageText;
+        cell.postContent.text = data[indexPath.row - 1].messageText;
         cell.usernameLabel.text = currentUser?.username
         return cell;
     }
