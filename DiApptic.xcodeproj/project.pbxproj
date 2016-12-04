@@ -32,6 +32,8 @@
 		97D5AD3D1DD930CA006F95B6 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97D5AD3B1DD930CA006F95B6 /* LoginViewController.xib */; };
 		97E39E361DF4B31E00034BFC /* EditProfileHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E39E351DF4B31E00034BFC /* EditProfileHeaderCell.xib */; };
 		97E39E381DF4B3BE00034BFC /* EditProfileDetailCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 97E39E371DF4B3BE00034BFC /* EditProfileDetailCell.xib */; };
+		97E39E3A1DF4BAC200034BFC /* EditProfileHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E39E391DF4BAC200034BFC /* EditProfileHeaderCell.swift */; };
+		97E39E3C1DF4BAEE00034BFC /* EditProfileDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97E39E3B1DF4BAEE00034BFC /* EditProfileDetailCell.swift */; };
 		F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F74E23C21DE24D0400385B37 /* CircleSlider.swift */; };
 		F74E23C71DE24D6C00385B37 /* CircleSliderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F74E23C61DE24D6C00385B37 /* CircleSliderView.xib */; };
 		F7930F841DD9199800A34847 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7930F831DD9199800A34847 /* AppDelegate.swift */; };
@@ -86,6 +88,8 @@
 		97DF408AB26C3E495F45EB6A /* Pods-DiApptic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.debug.xcconfig"; sourceTree = "<group>"; };
 		97E39E351DF4B31E00034BFC /* EditProfileHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileHeaderCell.xib; sourceTree = "<group>"; };
 		97E39E371DF4B3BE00034BFC /* EditProfileDetailCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditProfileDetailCell.xib; sourceTree = "<group>"; };
+		97E39E391DF4BAC200034BFC /* EditProfileHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileHeaderCell.swift; sourceTree = "<group>"; };
+		97E39E3B1DF4BAEE00034BFC /* EditProfileDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileDetailCell.swift; sourceTree = "<group>"; };
 		DE1898CDF20C7CF8490CD462 /* Pods-DiApptic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DiApptic.release.xcconfig"; path = "Pods/Target Support Files/Pods-DiApptic/Pods-DiApptic.release.xcconfig"; sourceTree = "<group>"; };
 		F74E23C21DE24D0400385B37 /* CircleSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
 		F74E23C41DE24D4B00385B37 /* CircleSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSliderView.swift; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 				03D529471DF2BE8500793904 /* Utils.swift */,
 				03D558211DF392F400E8A797 /* HomeHeaderCell.swift */,
 				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
+				97E39E391DF4BAC200034BFC /* EditProfileHeaderCell.swift */,
+				97E39E3B1DF4BAEE00034BFC /* EditProfileDetailCell.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -420,8 +426,10 @@
 				F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */,
 				970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */,
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
+				97E39E3C1DF4BAEE00034BFC /* EditProfileDetailCell.swift in Sources */,
 				03D558221DF392F400E8A797 /* HomeHeaderCell.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
+				97E39E3A1DF4BAC200034BFC /* EditProfileHeaderCell.swift in Sources */,
 				F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */,
 				974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */,
 				F7AC0DDA1DEF943900F8D8AC /* CreateReadingViewController.swift in Sources */,

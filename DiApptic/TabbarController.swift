@@ -28,11 +28,13 @@ class TabbarController: UIViewController {
     var homeNavigationController: UINavigationController!
     var historyNavigationController: UINavigationController!
     var addReadingNavigationController: UINavigationController!
+    var editProfileNavigationController: UINavigationController!
     var navigationControllers: [UINavigationController] = []
     
     var homeViewController: UIViewController!
     var historyViewController: UIViewController!
     var addReadingViewController: UIViewController!
+    var editProfileViewController: UIViewController!
     var viewControllers: [UIViewController] = []
     
     var selectedIndex: Int = 0
@@ -96,8 +98,13 @@ class TabbarController: UIViewController {
         historyNavigationController = UINavigationController(rootViewController: historyViewController)
         addReadingViewController = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
         addReadingNavigationController = UINavigationController(rootViewController: addReadingViewController)
-        viewControllers = [homeViewController, historyViewController ,homeViewController,addReadingViewController]
-        navigationControllers = [homeNavigationController, historyNavigationController, homeNavigationController, addReadingNavigationController]
+        
+        
+        editProfileViewController = EditProfileViewController(nibName: "EditProfileViewController", bundle: nil)
+        editProfileNavigationController = UINavigationController(rootViewController: editProfileViewController)
+
+        viewControllers = [homeViewController, historyViewController ,editProfileViewController,addReadingViewController]
+        navigationControllers = [homeNavigationController, historyNavigationController, editProfileNavigationController, addReadingNavigationController]
         for nav in navigationControllers {
             nav.navigationBar.backgroundColor = Styles.darkBlue
         }
