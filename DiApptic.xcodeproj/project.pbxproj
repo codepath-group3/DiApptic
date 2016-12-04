@@ -21,6 +21,8 @@
 		03D529461DF2B49500793904 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529451DF2B49500793904 /* Message.swift */; };
 		03D529481DF2BE8500793904 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03D529471DF2BE8500793904 /* Utils.swift */; };
 		8B9B54C222361841A766A7F4 /* Pods_DiApptic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */; };
+		970118621DE27BDC0023A34C /* CircleSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970118601DE27BDC0023A34C /* CircleSlider.swift */; };
+		970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 970118611DE27BDC0023A34C /* CircleSliderView.swift */; };
 		974E756C1DE25EAC0023B66D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 974E756A1DE25EAC0023B66D /* RegisterViewController.swift */; };
 		974E756D1DE25EAC0023B66D /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 974E756B1DE25EAC0023B66D /* RegisterViewController.xib */; };
 		977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977BE1791DDEBD6500E4B157 /* Reading.swift */; };
@@ -69,6 +71,8 @@
 		03D529451DF2B49500793904 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		03D529471DF2BE8500793904 /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DiApptic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		970118601DE27BDC0023A34C /* CircleSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSlider.swift; sourceTree = "<group>"; };
+		970118611DE27BDC0023A34C /* CircleSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleSliderView.swift; sourceTree = "<group>"; };
 		974E756A1DE25EAC0023B66D /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		974E756B1DE25EAC0023B66D /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		977BE1791DDEBD6500E4B157 /* Reading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reading.swift; sourceTree = "<group>"; };
@@ -134,6 +138,15 @@
 				1BF165A297B755144B0CBF93 /* Pods_DiApptic.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		970118641DE27BE80023A34C /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				970118601DE27BDC0023A34C /* CircleSlider.swift */,
+				970118611DE27BDC0023A34C /* CircleSliderView.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 		97D5AD371DD93021006F95B6 /* View Controllers */ = {
@@ -232,6 +245,7 @@
 			children = (
 				97BBC8D01DF39BA7001781CB /* DiApptic.entitlements */,
 				F74E23E61DE2833A00385B37 /* Styles */,
+				970118641DE27BE80023A34C /* Components */,
 				F74E23C11DE24CE600385B37 /* Components */,
 				97D5AD391DD930B1006F95B6 /* Views */,
 				97D5AD381DD9308D006F95B6 /* Models */,
@@ -394,8 +408,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+
 				03B8A45A1DED0C6900D0341B /* ProfileViewTableViewCell.swift in Sources */,
 				F7AC0DDE1DEF946000F8D8AC /* RoundButton.swift in Sources */,
+				970118631DE27BDC0023A34C /* CircleSliderView.swift in Sources */,
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
 				F74E23C51DE24D4B00385B37 /* CircleSliderView.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
@@ -405,6 +421,8 @@
 				97BBC8CE1DF356A1001781CB /* EditProfileViewController.swift in Sources */,
 				F7AC0DDC1DEF945400F8D8AC /* Styles.swift in Sources */,
 				03D529441DF293E000793904 /* ParseUtils.swift in Sources */,
+				970118621DE27BDC0023A34C /* CircleSlider.swift in Sources */,
+				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
 				977BE17A1DDEBD6500E4B157 /* Reading.swift in Sources */,
 				97D5AD3C1DD930CA006F95B6 /* LoginViewController.swift in Sources */,
 				0379E9D11DE2800500200E62 /* ComposeViewController.swift in Sources */,
