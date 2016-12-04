@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController" customModule="DiApptic" customModuleProvider="target">
             <connections>
+                <outlet property="cancelButton" destination="xiZ-X6-5CP" id="Imm-DC-ZHL"/>
                 <outlet property="emailField" destination="CWz-rF-sER" id="6OA-5B-wff"/>
                 <outlet property="firstNameField" destination="sbB-7g-6lY" id="gEy-Vs-edS"/>
                 <outlet property="inlineError" destination="bnn-z6-3ZM" id="9lp-LO-a4t"/>
@@ -27,7 +28,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diabetes" translatesAutoresizingMaskIntoConstraints="NO" id="Hh1-yy-HyO">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="diabetes" translatesAutoresizingMaskIntoConstraints="NO" id="Hh1-yy-HyO">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
@@ -96,8 +97,8 @@
                         <constraint firstAttribute="height" constant="200" id="tfN-Yx-NfI"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0s-nD-j1e">
-                    <rect key="frame" x="40" y="384" width="295" height="40"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0s-nD-j1e">
+                    <rect key="frame" x="40" y="389" width="295" height="40"/>
                     <color key="backgroundColor" red="0.33025854249999997" green="0.70371672100000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="F31-84-sFR"/>
@@ -116,6 +117,21 @@
                     <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xiZ-X6-5CP">
+                    <rect key="frame" x="40" y="439" width="295" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="9Ad-pL-q3K"/>
+                        <constraint firstAttribute="width" constant="295" id="dAX-pY-yXF"/>
+                    </constraints>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.33025854249999997" green="0.70371672100000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="onCancel:" destination="-1" eventType="touchUpInside" id="cPm-ji-OhO"/>
+                        <action selector="onRegister:" destination="-1" eventType="touchUpInside" id="GqM-gI-vOt"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -126,7 +142,10 @@
                 <constraint firstItem="bnn-z6-3ZM" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="JqG-bp-TGX"/>
                 <constraint firstItem="Ar7-Rk-6s3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="O2R-xv-h1P"/>
                 <constraint firstItem="bnn-z6-3ZM" firstAttribute="top" secondItem="Ar7-Rk-6s3" secondAttribute="bottom" constant="8" id="TqR-h2-qrg"/>
+                <constraint firstAttribute="trailing" secondItem="xiZ-X6-5CP" secondAttribute="trailing" constant="40" id="WaM-da-Qvk"/>
                 <constraint firstAttribute="trailing" secondItem="bnn-z6-3ZM" secondAttribute="trailing" constant="40" id="Z49-RP-9QQ"/>
+                <constraint firstItem="xiZ-X6-5CP" firstAttribute="top" secondItem="U0s-nD-j1e" secondAttribute="bottom" constant="10" id="axc-zc-4wp"/>
+                <constraint firstItem="xiZ-X6-5CP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="p3R-y5-WrW"/>
                 <constraint firstItem="Ar7-Rk-6s3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="40" id="yJR-C0-5A7"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="84.5"/>
