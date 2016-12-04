@@ -9,7 +9,7 @@
 import UIKit
 import Parse
 
-class RegisterViewController: UIViewController, UITextFieldDelegate, DataDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var emailField: UITextField!
@@ -19,6 +19,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, DataDelegat
     @IBOutlet weak var professionField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var inlineError: UILabel!
+    @IBOutlet weak var cancelButton: UIButton!
+    
+    var email: String!
+    var password: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, DataDelegat
         lastNameField.delegate = self
         getRoundedView(view: registerView)
         getRoundedView(view: signUpButton)
+        getRoundedView(view: cancelButton)
+        
+        if(email != nil && password != nil) {
+            emailField.text = email
+            passwordField.text = password
+        }
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -42,6 +52,12 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, DataDelegat
     @IBAction func onRegister(_ sender: UIButton) {
         checkForErrors()
         registerUser()
+    }
+    
+    
+    @IBAction func onCancel(_ sender: UIButton) {
+        let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        self.present(vc, animated: true)
     }
 
     func checkForErrors() {
@@ -94,10 +110,4 @@ class RegisterViewController: UIViewController, UITextFieldDelegate, DataDelegat
         view.layer.borderColor = UIColor.clear.cgColor
         view.clipsToBounds = true
     }
-
-    func didAddEmail(email: String, password: String) {
-        print(email)
-        print(password)
-    }
-
 }

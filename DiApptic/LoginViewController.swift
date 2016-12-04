@@ -12,14 +12,10 @@ import Parse
 protocol LoginDelegate: class {
     func didLogin()
 }
-protocol DataDelegate: class {
-   func didAddEmail(email: String, password: String)
-}
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     weak var delegate: LoginDelegate!
-    weak var dataDelegate: DataDelegate!
     
     @IBOutlet weak var inlineError: UILabel!
     @IBOutlet weak var usernameField: UITextField!
@@ -97,10 +93,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
    
     @IBAction func onSignUpAction(_ sender: Any) {
-        if usernameField.text != nil && passwordField.text !=  nil {
-            dataDelegate.didAddEmail(email: "ksdhjsgdfs", password: "sadhsgfs")
-        }
         let vc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+            if usernameField.text != nil && passwordField.text !=  nil {
+                vc.email = usernameField.text
+                vc.password = passwordField.text
+            }
         self.present(vc, animated: true)
     }
     /*
