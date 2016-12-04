@@ -11,8 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="DiApptic" customModuleProvider="target">
             <connections>
+                <outlet property="highestValueLabel" destination="erS-K6-WFb" id="cIb-WG-aeG"/>
                 <outlet property="lineChartView" destination="JCT-Yh-yaN" id="Kt8-zi-91r"/>
+                <outlet property="lowestValueLabel" destination="TqH-WV-CAt" id="nrj-M0-SmJ"/>
                 <outlet property="pieChartView" destination="eh9-0k-hnd" id="qLG-q1-cWw"/>
+                <outlet property="totalCountLabel" destination="RGT-Yx-cbL" id="JWF-ct-AiQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
