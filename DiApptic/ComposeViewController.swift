@@ -7,11 +7,20 @@
 //
 
 import UIKit
+import Parse
 
 class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    @IBOutlet weak var addAttachmentButton: UIImageView!
+    @IBOutlet weak var addAttachment: UIImageView!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var dividerView: UIView!
+    
     @IBOutlet weak var textArea: UITextView!
+    
+    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
+    
+    var originalConstraint: NSLayoutConstraint?
     var number = 0;
     
     @IBOutlet weak var attachmentScrollView: UIScrollView!
@@ -19,23 +28,31 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let composeButton = UIBarButtonItem(title: "Post", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ComposeViewController.onCompose))
+        let composeButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ComposeViewController.onCancel))
         self.navigationItem.rightBarButtonItem = composeButton;
-        
+        usernameLabel.text = PFUser.current()?.username
         
         let addImageTap = UITapGestureRecognizer(target: self, action: #selector(ComposeViewController.addImage))
-        addAttachmentButton.isUserInteractionEnabled = true;
-        addAttachmentButton.addGestureRecognizer(addImageTap)
+        addAttachment.isUserInteractionEnabled = true;
+        addAttachment.addGestureRecognizer(addImageTap)
         
         textArea.delegate = self;
         textArea.text  = "Share a tip..."
         textArea.textColor = UIColor.lightGray
         
         //scrollView = UIScrollView(frame: view.bounds)
-        attachmentScrollView.layer.borderWidth = 1
         
         attachmentScrollView.contentSize = CGSize(width: 150, height: 150)
         attachmentScrollView.autoresizingMask = UIViewAutoresizing.flexibleWidth
+        
+        originalConstraint  = bottomConstraint;
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.onKeyboardUp(notification:)), name: .UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.onKeyboardDown(notification:)), name: .UIKeyboardDidHide, object: nil)
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+         print("set to \(bottomConstraint.constant)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,14 +60,17 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         // Dispose of any resources that can be recreated.
     }
     
-    // post message to parse
-    func onCompose() {
-        ParseUtils.postMessage(message: textArea.text, success: { 
+    @IBAction func onPost(_ sender: AnyObject) {
+        ParseUtils.postMessage(message: textArea.text, success: {
             print("success callback")
             self.navigationController?.popViewController(animated: true)
             }, failure: {
                 print("message post failed")
         })
+    }
+    
+    func onCancel() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func addImage() {
@@ -73,7 +93,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         imageView.image = originalImage
         attachmentScrollView.addSubview(imageView)
         number = number + 1;
-        
+        bottomConstraint.constant = 52
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
     }
@@ -83,6 +103,29 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         if textView.textColor == UIColor.lightGray {
             textView.text = nil
             textView.textColor = UIColor.black
+        }
+    }
+    
+    func onKeyboardUp(notification: NSNotification) {
+        originalConstraint = bottomConstraint;
+        let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
+        
+        var constant = keyboardSize?.height
+        //print("keyboard height: \(constant)")
+        if (attachmentScrollView.subviews.count > 0) {
+            constant = constant! - 52
+        }
+        //print("on keyboard up setting to \((constant)!)")
+        if (bottomConstraint.constant < 216) {
+            print("UPPP: \(bottomConstraint.constant)")
+            bottomConstraint.constant = bottomConstraint.constant + 216;
+        }
+    }
+    
+    func onKeyboardDown(notification: NSNotification) {
+        //print("on keyboard down setting to \(originalConstraint?.constant)")
+        if (bottomConstraint.constant >= 216) {
+            bottomConstraint.constant = bottomConstraint.constant - 216;
         }
     }
     
