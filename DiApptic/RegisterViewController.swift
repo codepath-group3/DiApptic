@@ -9,71 +9,67 @@
 import UIKit
 import Parse
 
-class RegisterViewController: UIViewController, UITextFieldDelegate {
+class RegisterViewController: UIViewController, UITextFieldDelegate, DataDelegate {
 
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var emailField: UITextField!
-    @IBOutlet weak var password: UITextField!
-    @IBOutlet weak var firstnameField: UITextField!
-    @IBOutlet weak var lastnameField: UITextField!
+    @IBOutlet weak var lastNameField: UITextField!
+    @IBOutlet weak var firstNameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var professionField: UITextField!
-    @IBOutlet weak var inlineLastnameError: UILabel!
-    @IBOutlet weak var inlineFirstnameError: UILabel!
-    @IBOutlet weak var inlinePasswordError: UILabel!
-    @IBOutlet weak var inlineEmailError: UILabel!
-    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var inlineError: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        password.delegate = self
+        passwordField.delegate = self
         emailField.delegate = self
-        firstnameField.delegate = self
-        lastnameField.delegate = self
-        getRoundedView(view: registerButton)
+        firstNameField.delegate = self
+        lastNameField.delegate = self
+        getRoundedView(view: registerView)
+        getRoundedView(view: signUpButton)
     }
 
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        inlineEmailError.isHidden = true
-        inlinePasswordError.isHidden = true
-        inlineFirstnameError.isHidden = true
-        inlineLastnameError.isHidden = true
+        inlineError.isHidden = true
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func onRegister(_ sender: UIButton) {
         checkForErrors()
         registerUser()
     }
-    
+
     func checkForErrors() {
-        if((password.text?.characters.count)! < 4) {
-            inlinePasswordError.isHidden = false
-            inlinePasswordError.text = "Password must be greater than 6 characters "
+        if((passwordField.text?.characters.count)! < 4) {
+            inlineError.isHidden = false
+            inlineError.text = "Password must be greater than 6 characters "
         }
         if((emailField.text?.characters.count)! < 8) {
-            inlineEmailError.isHidden = false
-            inlineEmailError.text = "Email must be greater than 8 characters "
+            inlineError.isHidden = false
+            inlineError.text = "Email must be greater than 8 characters "
         }
-        if((firstnameField.text?.characters.count)! < 3) {
-            inlineFirstnameError.isHidden = false
-            inlineFirstnameError.text = "Firstname must be greater than 3 characters "
+        if((firstNameField.text?.characters.count)! < 3) {
+            inlineError.isHidden = false
+            inlineError.text = "Firstname must be greater than 3 characters "
         }
-        if((lastnameField.text?.characters.count)! < 2) {
-            inlineLastnameError.isHidden = false
-            inlineLastnameError.text = "Last name must be greater than 2 characters "
+        if((lastNameField.text?.characters.count)! < 2) {
+            inlineError.isHidden = false
+            inlineError.text = "Last name must be greater than 2 characters "
         }
     }
 
     func registerUser() {
         var newUser = PFUser()
-        newUser["password"] = password.text
+        newUser["password"] = passwordField.text
         newUser["email"] = emailField.text
-        newUser["firstName"] = firstnameField.text
-        newUser["lastName"] = lastnameField.text
+        newUser["username"] = emailField.text
+        newUser["firstName"] = firstNameField.text
+        newUser["lastName"] = lastNameField.text
         newUser["profession"] = professionField.text
         newUser.signUpInBackground(block: { (saved:Bool, error:Error?) -> Void in
             if saved {
@@ -97,6 +93,11 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         view.layer.borderWidth = 1
         view.layer.borderColor = UIColor.clear.cgColor
         view.clipsToBounds = true
+    }
+
+    func didAddEmail(email: String, password: String) {
+        print(email)
+        print(password)
     }
 
 }

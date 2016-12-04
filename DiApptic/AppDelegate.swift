@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, LoginDelegate, LogoutDele
     }
     
     func didLogout() {
+       PFUser.logOut()
        window?.rootViewController = loginViewController
     }
     func applicationWillResignActive(_ application: UIApplication) {
