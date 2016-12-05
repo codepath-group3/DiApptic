@@ -12,9 +12,11 @@ import Parse
 class Message: NSObject {
     
     var messageText: String?
+    var user: PFUser?
     
     init (object: PFObject) {
         messageText = object["text"] as! String?;
+        user = object["user"] as! PFUser;
     }
     
     class func messageFromArray(array: [PFObject]) -> [Message]{
