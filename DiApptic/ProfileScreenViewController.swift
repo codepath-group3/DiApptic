@@ -17,7 +17,7 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
     weak var delegate: LogoutDelegate?
     
     override func viewDidAppear(_ animated: Bool) {
-        ParseUtils.getMessages(userId: (currentUser?.objectId)!, success: { (messages: [Message]) in
+    ParseUtils.getMessages(user: currentUser!, success: { (messages: [Message]) in
             self.data = messages;
             self.tableView.reloadData();
             }, failure: {
@@ -72,13 +72,14 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         return self.data.count + 1;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let user = PFUser.current()!
         if (indexPath.row == 0) {
+            let user = PFUser.current()!
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileViewHeader.identifier", for: indexPath) as! HomeHeaderCell;
             cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
-            print (PFUser.current()?.parseClassName)
+            //print (PFUser.current()?.parseClassName)
             return cell
         }
+        let user = data[indexPath.row - 1].user!
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileView.identifier", for: indexPath) as! ProfileViewTableViewCell;
         cell.timestampLabel.text = "20m"
         cell.postContent.text = data[indexPath.row - 1].messageText;

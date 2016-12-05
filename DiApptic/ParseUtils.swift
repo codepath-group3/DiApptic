@@ -11,9 +11,10 @@ import Parse
 
 class ParseUtils {
     
-    static func postMessage(message: String, success: @escaping ()->(), failure: ()->()) {
+    static func postMessage(user: PFUser, message: String, success: @escaping ()->(), failure: ()->()) {
         let parseMessage = PFObject(className: "Message")
         parseMessage["text"] = message
+        parseMessage["user"] = user
         parseMessage.saveInBackground() { (saved:Bool, error:Error?) -> Void in
             if saved {
                 success();
@@ -25,13 +26,16 @@ class ParseUtils {
         }
     }
     
-    static func getMessages(userId: String, success: @escaping (_ messages: [Message])->(), failure: ()->()) {
+    static func getMessages(user: PFUser, success: @escaping (_ messages: [Message])->(), failure: ()->()) {
         let query = PFQuery(className: "Message")
         // TODO: add where clause to include user id
+        //query.whereKey("user", equalTo: user)
+        query.includeKey("user")
         query.order(byDescending: "createdAt")
         query.findObjectsInBackground { (objects:[PFObject]?, error:Error?) in
         
             if let objects = objects {
+                
                 let messages = Message.messageFromArray(array: objects)
                 success(messages);
             } else {
