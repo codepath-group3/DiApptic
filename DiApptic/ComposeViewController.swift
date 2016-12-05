@@ -20,6 +20,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    var originalImage: UIImage?
     
     var originalConstraint: NSLayoutConstraint?
     var number = 0;
@@ -67,8 +68,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
     
     @IBAction func onPost(_ sender: AnyObject) {
         let user = PFUser.current()!
-        let userId = user.objectId
-        ParseUtils.postMessage(user: user, message: textArea.text, success: {
+        
+        ParseUtils.postMessage(user: user, message: textArea.text, image: self.originalImage, success: {
             print("success callback")
             self.dismiss(animated: true, completion: nil)
             }, failure: {
@@ -95,7 +96,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // Get the image captured by the UIImagePickerController
-        let originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         
         let imageView  = UIImageView(frame: CGRect(x: 10 + (number * 150), y: 10, width: 130, height: 130))
         imageView.image = originalImage
