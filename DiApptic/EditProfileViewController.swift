@@ -38,7 +38,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         userAttributesValues = [email, firstName, lastName, profession]
         // Do any additional setup after loading the view.
         
-        let saveBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CreateReadingViewController.onSave))
+        let saveBarButtonItem = UIBarButtonItem(image: UIImage(named:"save24x24") , style: UIBarButtonItemStyle.plain,  target: self, action: #selector(CreateReadingViewController.onSave))
         self.navigationItem.rightBarButtonItem  = saveBarButtonItem
 
         
@@ -52,6 +52,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.estimatedRowHeight = 120
         tableView.dataSource = self;
         tableView.delegate = self;
+        tableView.tableFooterView = UIView()
         tableView.tableHeaderView?.frame.size = CGSize(width: UIScreen.main.bounds.size.width, height: 1);
 
     }
@@ -68,7 +69,8 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "EditProfileHeaderCell", for: indexPath) as! EditProfileHeaderCell;
-            cell.usernameLabel.text = PFUser.current()?.username
+            let user = PFUser.current()!
+            cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
             cell.selectionStyle = .none
             return cell
         }
@@ -86,6 +88,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     
     func getCurrentUserDetails() {
         var query = PFUser.query()
+        print("@@@@", PFUser.current()?.username!)
         query?.whereKey("username", equalTo:PFUser.current()?.username!)
         var user: PFUser!
         do {
@@ -142,21 +145,8 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         }
     }
     
-//    func editUserDetails() {
-//        print("@@@@",PFUser.current())
-//        let currentUser = PFUser.current()
-//    
-//        currentUser["email"] = emailField.text
-//        currentUser["username"] = emailField.text
-//        currentUser["firstName"] = firstNameField.text
-//        currentUser["lastName"] = lastNameField.text
-//        currentUser["profession"] = professionField.text        user.saveInBackground { (saved:Bool, error:Error?) -> Void in
-//            if saved {
-//                print("saved worked")
-//            } else {
-//                print(error)
-//            }
-//        }
-//    }
+    func getNoOfMessages() {
+        
+    }
 
 }
