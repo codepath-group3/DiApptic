@@ -32,6 +32,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         let composeButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ComposeViewController.onCancel))
         self.navigationItem.rightBarButtonItem = composeButton;
         usernameLabel.text = PFUser.current()?.username
+        self.navigationController?.navigationBar.backgroundColor = Styles.darkBlue
         
         let addImageTap = UITapGestureRecognizer(target: self, action: #selector(ComposeViewController.addImage))
         addAttachment.isUserInteractionEnabled = true;
@@ -72,7 +73,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
     
     func onCancel() {
-        self.navigationController?.popViewController(animated: true)
+        
+        dismiss(animated: true, completion: nil)
     }
     
     func addImage() {
@@ -95,7 +97,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         imageView.image = originalImage
         attachmentScrollView.addSubview(imageView)
         number = number + 1;
-        bottomConstraint.constant = 52
+        //bottomConstraint.constant = 52
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)
     }
@@ -113,33 +115,22 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue
         
         var constant = keyboardSize?.height
-        //print("keyboard height: \(constant)")
+        print("keyboard height: \(constant)")
         if (attachmentScrollView.subviews.count > 0) {
             constant = constant! - 52
         }
         //print("on keyboard up setting to \((constant)!)")
-        if (bottomConstraint.constant < 216) {
+        if (bottomConstraint.constant < 268) {
             print("UPPP: \(bottomConstraint.constant)")
-            bottomConstraint.constant = bottomConstraint.constant + 216;
+            bottomConstraint.constant = bottomConstraint.constant + 268;
         }
     }
     
     func onKeyboardDown(notification: NSNotification) {
         //print("on keyboard down setting to \(originalConstraint?.constant)")
-        if (bottomConstraint.constant >= 216) {
-            bottomConstraint.constant = bottomConstraint.constant - 216;
+        if (bottomConstraint.constant >= 268) {
+            bottomConstraint.constant = bottomConstraint.constant - 268;
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

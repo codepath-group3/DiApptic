@@ -28,21 +28,11 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         currentUser = PFUser.current();
-
-//        let nib = UINib(nibName: "ProfileHeaderView", bundle: nil)
-//        let profileHeaderView = nib.instantiate(withOwner: self, options: nil)[0] as! ProfileHeaderView
-//        
-//        print(profileHeaderView.usernameLabel.text)
-        //let profileHeaderView = ProfileHeaderView.initFromNib()
-        //tableView.tableHeaderView = profileHeaderView
-        //tableView.tableHeaderView = profileHeaderView;
-        // Do any additional setup after loading the view.
         
-        
-        let composeButton = UIBarButtonItem(title: "Compose", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProfileScreenViewController.onCompose))
+        let composeButton = UIBarButtonItem(image: UIImage(named:"compose24x24") , style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProfileScreenViewController.onCompose))
         self.navigationItem.rightBarButtonItem = composeButton;
         
-        let signoutButton = UIBarButtonItem(title: "Sign Out", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProfileScreenViewController.onSignOut))
+        let signoutButton = UIBarButtonItem(image: UIImage(named:"logout24x24"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ProfileScreenViewController.onSignOut))
         self.navigationItem.leftBarButtonItem = signoutButton
         
         let headerNib = UINib(nibName: "HomeHeaderCell", bundle: nil)
@@ -68,7 +58,8 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
     
     func onCompose() {
         let composeVC = ComposeViewController(nibName: "ComposeViewController", bundle: nil)
-        self.navigationController?.pushViewController(composeVC, animated: true)
+        let composeNavigation = UINavigationController(rootViewController: composeVC)
+        self.present(composeNavigation, animated: true)
     }
     
     func onSignOut() {
