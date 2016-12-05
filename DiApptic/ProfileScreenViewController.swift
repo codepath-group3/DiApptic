@@ -72,16 +72,17 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         return self.data.count + 1;
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let user = PFUser.current()!
         if (indexPath.row == 0) {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileViewHeader.identifier", for: indexPath) as! HomeHeaderCell;
-            cell.usernameLabel.text = PFUser.current()?.username
+            cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
             print (PFUser.current()?.parseClassName)
             return cell
         }
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileView.identifier", for: indexPath) as! ProfileViewTableViewCell;
         cell.timestampLabel.text = "20m"
         cell.postContent.text = data[indexPath.row - 1].messageText;
-        cell.usernameLabel.text = currentUser?.username
+        cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
         return cell;
     }
     

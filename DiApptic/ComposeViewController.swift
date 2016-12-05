@@ -51,8 +51,9 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         
         NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.onKeyboardUp(notification:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.onKeyboardDown(notification:)), name: .UIKeyboardWillHide, object: nil)
-        postButton.backgroundColor = Styles.darkBlue
+        postButton.backgroundColor = Styles.lightBlue
         postButton.tintColor = UIColor.white
+        postButton.layer.cornerRadius = 4.0
     }
     override func viewDidAppear(_ animated: Bool) {
          print("set to \(bottomConstraint.constant)")
