@@ -24,8 +24,8 @@ class HomeHeaderCell: UITableViewCell {
         // Profile image: radius, border
         profileImage.layer.cornerRadius = 60
         profileImage.clipsToBounds = true
-        profileImage.layer.borderWidth = 2.0
-        profileImage.layer.borderColor = Styles.darkBlue.cgColor
+        profileImage.layer.borderWidth = 4.0
+        profileImage.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
         
         glucoseView.layer.cornerRadius = 35
         glucoseView.clipsToBounds = true
