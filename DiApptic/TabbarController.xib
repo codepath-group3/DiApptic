@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="addReadingButton" destination="5DU-uc-QIE" id="HDX-ss-LVx"/>
                 <outlet property="contentView" destination="iI0-VV-Do2" id="ikf-4w-esg"/>
+                <outlet property="contentViewBottomSpaceConstraint" destination="Y7Z-zv-J7q" id="IIB-iW-ylO"/>
                 <outlet property="historyButton" destination="Ovb-BX-uOp" id="shV-48-6Gd"/>
                 <outlet property="homeButton" destination="Z7g-bx-2ij" id="WZc-Jg-24T"/>
                 <outlet property="profileButton" destination="H6a-uq-z2K" id="yzt-u1-YmD"/>
