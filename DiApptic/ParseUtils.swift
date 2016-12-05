@@ -11,10 +11,15 @@ import Parse
 
 class ParseUtils {
     
-    static func postMessage(user: PFUser, message: String, success: @escaping ()->(), failure: ()->()) {
+    static func postMessage(user: PFUser, message: String, image: UIImage?, success: @escaping ()->(), failure: ()->()) {
         let parseMessage = PFObject(className: "Message")
         parseMessage["text"] = message
         parseMessage["user"] = user
+        if let image = image {
+            let imageData = UIImagePNGRepresentation(image)
+            let imageFile = PFFile(name:"imageData", data:imageData!)
+            parseMessage["image"] = imageFile
+        }
         parseMessage.saveInBackground() { (saved:Bool, error:Error?) -> Void in
             if saved {
                 success();
