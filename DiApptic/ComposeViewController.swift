@@ -31,7 +31,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         // Do any additional setup after loading the view.
         let composeButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ComposeViewController.onCancel))
         self.navigationItem.rightBarButtonItem = composeButton;
-        usernameLabel.text = PFUser.current()?.username
+        let parseUser = PFUser.current()!
+        usernameLabel.text = (parseUser["firstName"] as! String) + " " + (parseUser["lastName"] as! String)
         self.navigationController?.navigationBar.backgroundColor = Styles.darkBlue
         
         let addImageTap = UITapGestureRecognizer(target: self, action: #selector(ComposeViewController.addImage))
@@ -65,9 +66,11 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
     }
     
     @IBAction func onPost(_ sender: AnyObject) {
-        ParseUtils.postMessage(message: textArea.text, success: {
+        let user = PFUser.current()!
+        let userId = user.objectId
+        ParseUtils.postMessage(user: user, message: textArea.text, success: {
             print("success callback")
-            self.navigationController?.popViewController(animated: true)
+            self.dismiss(animated: true, completion: nil)
             }, failure: {
                 print("message post failed")
         })
