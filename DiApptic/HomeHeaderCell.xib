@@ -45,7 +45,7 @@
                                                     <constraint firstAttribute="width" constant="70" id="qDS-bd-jMx"/>
                                                 </constraints>
                                             </view>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user128x128" translatesAutoresizingMaskIntoConstraints="NO" id="Tqj-AB-VQZ">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="matt_damon" translatesAutoresizingMaskIntoConstraints="NO" id="Tqj-AB-VQZ">
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="7ns-m4-gEN"/>
                                                     <constraint firstAttribute="width" constant="120" id="InE-la-emk"/>
@@ -224,7 +224,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="matt_damon" width="1920" height="1080"/>
         <image name="sky_blue_background" width="1600" height="1200"/>
-        <image name="user128x128" width="128" height="128"/>
     </resources>
 </document>
