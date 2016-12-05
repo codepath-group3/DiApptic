@@ -153,10 +153,6 @@ class TabbarController: UIViewController {
                 //self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
                 self.contentViewBottomSpaceConstraint.constant = endFrame?.size.height ?? 50.0
             }
-            self.contentViewBottomSpaceConstraint.constant = endFrame?.size.height ?? 50.0
-            print("keyboard", endFrame?.size.height)
-            
-            view.layoutIfNeeded()
             contentViewController.view.frame = contentView.bounds
             view.layoutIfNeeded()
             /*
