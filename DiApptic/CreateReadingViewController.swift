@@ -32,7 +32,7 @@ class CreateReadingViewController: UIViewController {
         edgesForExtendedLayout = []
         statusButtons = [fastingButton, beforeMealButton, afterMealButton]
         medicationButtons = [insulinButton, oralButton]
-        let saveBarButtonItem = UIBarButtonItem(title: "Save", style: UIBarButtonItemStyle.plain, target: self, action: #selector(CreateReadingViewController.onSave))
+        let saveBarButtonItem = UIBarButtonItem(image: UIImage(named:"save24x24") , style: UIBarButtonItemStyle.plain, target: self, action: #selector(CreateReadingViewController.onSave))
         self.navigationItem.rightBarButtonItem  = saveBarButtonItem
         notesField.layer.borderWidth = 0.5
         notesField.layer.borderColor = UIColor.lightGray.cgColor
@@ -47,6 +47,7 @@ class CreateReadingViewController: UIViewController {
         print("@@@@",PFUser.current())
         let reading = PFObject(className:"Recording")
         recordingValue = circularSlider.onValueChanged()
+        reading["user"] = PFUser.current()
         reading["recordingValue"] = recordingValue
         reading["medicationType"] = medicationType
         reading["status"] = status

@@ -8,10 +8,14 @@
 
 import UIKit
 
+protocol ProfileHeaderCellDelegate: class {
+    func didImageChange(newProfileImage : UIImage!)
+}
 class EditProfileHeaderCell: UITableViewCell {
+    
+    weak var imageChangeDelegate: ProfileHeaderCellDelegate!
 
     @IBOutlet weak var usernameLabel: UILabel!
-    
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var hba1cView: UIView!
     @IBOutlet weak var glucoseView: UIView!
@@ -19,12 +23,18 @@ class EditProfileHeaderCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        let tapGesture = UITapGestureRecognizer(target:self, action:Selector("imagePressed"))
+        profileImage.isUserInteractionEnabled = true // this line is important
+        profileImage.addGestureRecognizer(tapGesture)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    }
+    
+    func imagePressed() {
+        imageChangeDelegate.didImageChange(newProfileImage: profileImage?.image)
     }
 
 }

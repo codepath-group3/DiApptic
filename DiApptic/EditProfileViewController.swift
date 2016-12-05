@@ -9,10 +9,11 @@
 import UIKit
 import Parse
 
-class EditProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProfileCellDelegate {
+class EditProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProfileCellDelegate, ProfileHeaderCellDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var profileImage: UIImage!
     var email: String! = ""
     var password: String! = ""
     var firstName: String! = ""
@@ -54,7 +55,6 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         tableView.delegate = self;
         tableView.tableFooterView = UIView()
         tableView.tableHeaderView?.frame.size = CGSize(width: UIScreen.main.bounds.size.width, height: 1);
-
     }
 
     override func didReceiveMemoryWarning() {
@@ -69,6 +69,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "EditProfileHeaderCell", for: indexPath) as! EditProfileHeaderCell;
+            cell.imageChangeDelegate = self
             let user = PFUser.current()!
             cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
             cell.selectionStyle = .none
@@ -126,7 +127,10 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         print("*****", userAttributesValues[index!])
     }
 
-
+    func didImageChange(newProfileImage : UIImage!) {
+        profileImage = newProfileImage
+    }
+    
     func saveUserDetails() {
         let currentUser = PFUser.current()
         
@@ -134,14 +138,21 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         currentUser?["firstName"] = userAttributesValues[1]
         currentUser?["lastName"] = userAttributesValues[2]
         currentUser?["profession"] = userAttributesValues[3]
+        
         print("#####", userAttributesValues[3])
         currentUser?.saveInBackground { (saved:Bool, error:Error?) -> Void in
-                        if saved {
-                            print("saved worked")
-                        } else {
-                            print(error)
-                        }
-
+            if error == nil {
+                var imageData  = UIImagePNGRepresentation(self.profileImage)
+                var parseImageFile = PFFile(name: "upload_image.jpg", data: imageData!)
+                currentUser?["profilePicture"] = parseImageFile
+                currentUser?.saveInBackground { (saved:Bool, error:Error?) -> Void in
+                    if error == nil {
+                        print("data uploaded")
+                    } else {
+                        print("error")
+                    }
+                }
+            }
         }
     }
     
