@@ -9,20 +9,25 @@
 import UIKit
 import Parse
 
-class EditProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProfileCellDelegate, ProfileHeaderCellDelegate {
+class EditProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProfileCellDelegate, ProfileHeaderCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var profileImage: UIImage!
+    var profilePicture: UIImage!
     var email: String! = ""
     var password: String! = ""
     var firstName: String! = ""
     var lastName: String! = ""
     var profession: String! = ""
     
+    var originalImage: UIImage?
+    var number = 0;
+    
     let userAttributesLabels : [String] = ["E-mail address", "First Name", "Last Name", "Profession"]
     
     var userAttributesValues : [String] = []
+    
+    var cell: EditProfileHeaderCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,7 +63,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
-            let cell = self.tableView.dequeueReusableCell(withIdentifier: "EditProfileHeaderCell", for: indexPath) as! EditProfileHeaderCell;
+            cell = self.tableView.dequeueReusableCell(withIdentifier: "EditProfileHeaderCell", for: indexPath) as! EditProfileHeaderCell;
             cell.imageChangeDelegate = self
             let user = PFUser.current()!
             cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
@@ -68,6 +73,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         let detailCell = self.tableView.dequeueReusableCell(withIdentifier: "EditProfileDetailCell", for: indexPath) as! EditProfileDetailCell;
         detailCell.selectionStyle = .none
         detailCell.valueChangeDelegate = self
+        
         let index = indexPath.row
         if (index > 0) {
             detailCell.titleLabel.text = userAttributesLabels[index-1]
@@ -100,6 +106,15 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         if let userProfession = user["profession"]  {
             profession = userProfession as! String
         }
+        
+        if let userPicture = PFUser.current()!.value(forKey: "profilePicture") as? PFFile {
+            userPicture.getDataInBackground(block: { (imageData: Data?, error:Error?) -> Void in
+                if error == nil {
+                    let image = UIImage(data: imageData!)
+                    self.cell.profileImage?.image = image
+                }
+            })
+        }
     }
 
     func onSave() {
@@ -113,9 +128,26 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         userAttributesValues[index!] = newValue
     }
 
-    func didImageChange(newProfileImage : UIImage!) {
-        profileImage = newProfileImage
+    func changeImage() {
+        let imageVC = UIImagePickerController()
+        imageVC.delegate = self
+        imageVC.allowsEditing = true
+        imageVC.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        //imageVC.sourceType = UIImagePickerControllerSourceType.camera
+    
+        self.present(imageVC, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+                // Get the image captured by the UIImagePickerController
+                originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+                cell.profileImage?.image = originalImage
+                number = number + 1;
+                //bottomConstraint.constant = 52
+                // Dismiss UIImagePickerController to go back to your original view controller
+                dismiss(animated: true, completion: nil)
+    }
+
     
     func saveUserDetails() {
         let currentUser = PFUser.current()
@@ -126,9 +158,9 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
         currentUser?["profession"] = userAttributesValues[3]
         currentUser?.saveInBackground { (saved:Bool, error:Error?) -> Void in
             if error == nil {
-                //var imageData  = UIImagePNGRepresentation(self.profileImage)
-                //var parseImageFile = PFFile(name: "upload_image.jpg", data: imageData!)
-                //currentUser?["profilePicture"] = parseImageFile
+                let imageData  = UIImagePNGRepresentation((self.cell.profileImage?.image)!)
+                var parseImageFile = PFFile(name: "upload_image.jpg", data: imageData!)
+                currentUser?["profilePicture"] = parseImageFile
                 currentUser?.saveInBackground { (saved:Bool, error:Error?) -> Void in
                     if error == nil {
                         print("data uploaded")
