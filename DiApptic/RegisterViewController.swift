@@ -23,6 +23,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     
     var email: String!
     var password: String!
+    weak var delegate: LoginDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +54,6 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         checkForErrors()
         registerUser()
     }
-    
     
     @IBAction func onCancel(_ sender: UIButton) {
         let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
@@ -92,6 +92,15 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
                 print("saved worked")
             } else {
                 print(error)
+            }
+        })
+        PFUser.logInWithUsername(inBackground: emailField.text!, password: passwordField.text!, block: { (user, error) -> Void in
+            
+            if ((user) != nil) {
+                self.delegate.didLogin()
+            } else {
+                self.inlineError.isHidden = false
+                self.inlineError.text = "Invalid email or password"
             }
         })
     }

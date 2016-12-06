@@ -80,9 +80,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             PFUser.logInWithUsername(inBackground: username!, password: password!, block: { (user, error) -> Void in
                 
                 if ((user) != nil) {
-                    
-                    //let vc = TabbarController(nibName: "TabbarController", bundle: nil)
-                    //self.navigationController!.pushViewController(vc, animated: true)
                     self.delegate.didLogin()
                 } else {
                     self.inlineError.isHidden = false
@@ -95,6 +92,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
    
     @IBAction func onSignUpAction(_ sender: Any) {
         let vc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+        vc.delegate = self.delegate
             if usernameField.text != nil && passwordField.text !=  nil {
                 vc.email = usernameField.text
                 vc.password = passwordField.text
