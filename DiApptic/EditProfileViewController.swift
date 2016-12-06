@@ -84,14 +84,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func getCurrentUserDetails() {
-//        //let query = PFUser.query()
-//        //query?.whereKey("username", equalTo:PFUser.current()?.username!)
-//        var user: PFUser!
-//        do {
-//            user = try query?.findObjects().first as! PFUser
-//        } catch {
-//            print("Error finding user")
-//        }
+
         let user = PFUser.current()
         if let userEmail = user?["email"] {
             email = userEmail as! String
@@ -119,6 +112,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func onSave() {
+        
         saveUserDetails()
 //        let homeVC = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
 //        self.navigationController?.pushViewController(homeVC, animated: true)
