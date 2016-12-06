@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="105" id="KGk-i7-Jjw" customClass="ProfileViewTableViewCell" customModule="DiApptic" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="324" height="105"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="115" id="KGk-i7-Jjw" customClass="ProfileViewTableViewCell" customModule="DiApptic" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="115"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <frame key="frameInset" width="324" height="104"/>
+                <frame key="frameInset" width="329" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user128x128" translatesAutoresizingMaskIntoConstraints="NO" id="8RD-ev-cGR">
@@ -27,7 +27,7 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Post content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4r-e7-p7S">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Post content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l4r-e7-p7S">
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -37,13 +37,21 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vd4-Yz-QhD">
+                        <constraints>
+                            <constraint firstAttribute="height" constant="50" id="XjL-6d-igM"/>
+                        </constraints>
+                    </scrollView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="wdO-r0-Ik1" firstAttribute="leading" secondItem="l4r-e7-p7S" secondAttribute="leading" id="2X7-q1-3Rt"/>
                     <constraint firstItem="hY5-Q1-Rcx" firstAttribute="top" secondItem="wdO-r0-Ik1" secondAttribute="top" id="4gT-hG-06p"/>
-                    <constraint firstAttribute="bottomMargin" relation="greaterThanOrEqual" secondItem="l4r-e7-p7S" secondAttribute="bottom" constant="8" id="M10-4u-ZkE"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Vd4-Yz-QhD" secondAttribute="bottom" constant="4" id="K7N-RE-iXL"/>
                     <constraint firstItem="wdO-r0-Ik1" firstAttribute="top" secondItem="8RD-ev-cGR" secondAttribute="top" id="Qzp-Fg-Mb4"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Vd4-Yz-QhD" secondAttribute="trailing" constant="8" id="SB1-eT-Zyc"/>
+                    <constraint firstItem="Vd4-Yz-QhD" firstAttribute="leading" secondItem="l4r-e7-p7S" secondAttribute="leading" id="jMG-MM-zv1"/>
                     <constraint firstItem="8RD-ev-cGR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="llO-dX-4Zn"/>
+                    <constraint firstItem="Vd4-Yz-QhD" firstAttribute="top" secondItem="l4r-e7-p7S" secondAttribute="bottom" constant="4" id="mf0-fA-0ik"/>
                     <constraint firstItem="wdO-r0-Ik1" firstAttribute="leading" secondItem="8RD-ev-cGR" secondAttribute="trailing" constant="10" id="mxe-CX-Elx"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hY5-Q1-Rcx" secondAttribute="trailing" constant="8" id="oBz-9r-0Kk"/>
                     <constraint firstItem="l4r-e7-p7S" firstAttribute="top" secondItem="wdO-r0-Ik1" secondAttribute="bottom" constant="4" id="x30-fa-kfo"/>
@@ -52,12 +60,14 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="attachmentScrollView" destination="Vd4-Yz-QhD" id="eQk-Jt-mcp"/>
+                <outlet property="attachmentTrayHeight" destination="XjL-6d-igM" id="4QU-7n-aqP"/>
                 <outlet property="postContent" destination="l4r-e7-p7S" id="4Sr-2y-1Ar"/>
                 <outlet property="profileImageView" destination="8RD-ev-cGR" id="9kZ-RA-Xjo"/>
                 <outlet property="timestampLabel" destination="hY5-Q1-Rcx" id="ylQ-1X-9Fr"/>
                 <outlet property="usernameLabel" destination="wdO-r0-Ik1" id="E1v-mn-hwg"/>
             </connections>
-            <point key="canvasLocation" x="-153" y="82"/>
+            <point key="canvasLocation" x="-150.5" y="86.5"/>
         </tableViewCell>
     </objects>
     <resources>

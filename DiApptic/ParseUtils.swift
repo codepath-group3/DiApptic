@@ -34,8 +34,10 @@ class ParseUtils {
                         if (saveCount == images.count) {
                             success();
                         }
-                        
                     }
+                }
+                if (images.count == 0) {
+                    success()
                 }
                 
                 print("message saved")
@@ -43,6 +45,40 @@ class ParseUtils {
                 print(error)
             }
 
+        }
+    }
+    
+    static func getImages(message: PFObject, user: PFUser, success: @escaping (_ images: [UIImage])->(), failure: ()->()) {
+        let query = PFQuery(className: "MessageImage")
+        // TODO: add where clause to include user id
+        query.whereKey("user", equalTo: user)
+        query.whereKey("message", equalTo: message)
+        query.order(byDescending: "createdAt")
+        query.findObjectsInBackground { (objects:[PFObject]?, error:Error?) in
+            
+            var images = [UIImage]();
+            if let objects = objects {
+                for object in objects {
+                    
+                    let imageFile = object["image"] as? PFFile
+                    if let imageFile = imageFile {
+                        imageFile.getDataInBackground(block: { (imageData: Data?, error:Error?) -> Void in
+                            if error == nil {
+                                let image = UIImage(data: imageData!)
+                                images.append(image!)
+                                if (images.count == objects.count) {
+                                    success(images)
+                                }
+                            }
+                        })
+                    }
+                }
+                
+                //success(messages);
+            } else {
+                print("could not retrieve messages")
+                
+            }
         }
     }
     

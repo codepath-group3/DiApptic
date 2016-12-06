@@ -74,20 +74,45 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
             let user = PFUser.current()!
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileViewHeader.identifier", for: indexPath) as! HomeHeaderCell;
             cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
+            
+            let profileImg = user["profilePicture"] as? PFFile
+            if let profileImg = profileImg {
+                profileImg.getDataInBackground(block: { (imageData: Data?, error:Error?) -> Void in
+                    if error == nil {
+                        let image = UIImage(data: imageData!)
+                        cell.profileImage.image = image
+                    }
+                })
+            } else {
+                cell.profileImage.image = UIImage(named: "user128x128.png")
+            }
+            
             //print (PFUser.current()?.parseClassName)
             return cell
         }
-        let user = data[indexPath.row - 1].user!
+        let message = data[indexPath.row - 1]
+        let user = message.user!
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileView.identifier", for: indexPath) as! ProfileViewTableViewCell;
         cell.timestampLabel.text = "20m"
-        if let imageFile = data[indexPath.row - 1].imageFile {
-            imageFile.getDataInBackground(block: { (imageData: Data?, error:Error?) -> Void in
-                if error == nil {
-                    let image = UIImage(data: imageData!)
-                    cell.profileImageView.image = image
-                }
+        
+        if message.numImages > 0 {
+            //ParseUtils.getImages(message: message, user: user)
+            ParseUtils.getImages(message: message.messagePFObject!, user: user, success: { (images: [UIImage]) in
+                    print("images retrieved: \(images.count)")
+                    var number = 0
+                    for uiImage in images {
+                        let imageView  = UIImageView(frame: CGRect(x: 5 + (number * 55), y: 10, width: 50, height: 50))
+                        imageView.image = uiImage
+                        number = number + 1;
+                        cell.attachmentScrollView.addSubview(imageView)
+                    }
+                }, failure: {
+                    print("image retrieved failed")
             })
+        } else {
+            cell.attachmentTrayHeight.constant = 1;
         }
+        
         cell.postContent.text = data[indexPath.row - 1].messageText;
         cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
         return cell;
