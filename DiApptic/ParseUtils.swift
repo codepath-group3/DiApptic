@@ -11,23 +11,74 @@ import Parse
 
 class ParseUtils {
     
-    static func postMessage(user: PFUser, message: String, image: UIImage?, success: @escaping ()->(), failure: ()->()) {
+    static func postMessage(user: PFUser, message: String, images: [UIImage], success: @escaping ()->(), failure: ()->()) {
         let parseMessage = PFObject(className: "Message")
         parseMessage["text"] = message
         parseMessage["user"] = user
-        if let image = image {
-            let imageData = UIImagePNGRepresentation(image)
-            let imageFile = PFFile(name:"imageData", data:imageData!)
-            parseMessage["image"] = imageFile
-        }
+        parseMessage["numImages"] = images.count
+        
         parseMessage.saveInBackground() { (saved:Bool, error:Error?) -> Void in
             if saved {
-                success();
+                // save the images
+                var saveCount = 0;
+                for image in images {
+                    let imageData = UIImagePNGRepresentation(image)
+                    let imageFile = PFFile(name:"imageData", data:imageData!)
+                    let parseImage = PFObject(className: "MessageImage")
+                    parseImage["user"] = user
+                    parseImage["message"] = parseMessage
+                    parseImage["image"] = imageFile
+                    parseImage.saveInBackground() { (saved:Bool, error:Error?) -> Void in
+                        saveCount = saveCount + 1;
+                        print("image stored: \(saveCount)")
+                        if (saveCount == images.count) {
+                            success();
+                        }
+                    }
+                }
+                if (images.count == 0) {
+                    success()
+                }
+                
                 print("message saved")
             } else {
                 print(error)
             }
 
+        }
+    }
+    
+    static func getImages(message: PFObject, user: PFUser, success: @escaping (_ images: [UIImage])->(), failure: ()->()) {
+        let query = PFQuery(className: "MessageImage")
+        // TODO: add where clause to include user id
+        query.whereKey("user", equalTo: user)
+        query.whereKey("message", equalTo: message)
+        query.order(byDescending: "createdAt")
+        query.findObjectsInBackground { (objects:[PFObject]?, error:Error?) in
+            
+            var images = [UIImage]();
+            if let objects = objects {
+                for object in objects {
+                    
+                    let imageFile = object["image"] as? PFFile
+                    if let imageFile = imageFile {
+                        imageFile.getDataInBackground(block: { (imageData: Data?, error:Error?) -> Void in
+                            if error == nil {
+                                let image = UIImage(data: imageData!)
+                                images.append(image!)
+                                if (images.count == objects.count) {
+                                    success(images)
+                                }
+                            }
+                        })
+                    }
+                }
+                
+                //success(messages);
+            } else {
+                print("could not retrieve messages")
+                
+            }
         }
     }
     

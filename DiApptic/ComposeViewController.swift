@@ -21,6 +21,8 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     var originalImage: UIImage?
+    var loadingUtils = LoadingIndicatorUtils();
+    var attachedImages = [UIImage]()
     
     var originalConstraint: NSLayoutConstraint?
     var number = 0;
@@ -68,8 +70,9 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
     
     @IBAction func onPost(_ sender: AnyObject) {
         let user = PFUser.current()!
-        
-        ParseUtils.postMessage(user: user, message: textArea.text, image: self.originalImage, success: {
+        loadingUtils.showActivityIndicator(uiView: self.view)
+        ParseUtils.postMessage(user: user, message: textArea.text, images: attachedImages, success: {
+            self.loadingUtils.hideActivityIndicator(uiView: self.view)
             print("success callback")
             self.dismiss(animated: true, completion: nil)
             }, failure: {
@@ -102,6 +105,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         imageView.image = originalImage
         attachmentScrollView.addSubview(imageView)
         number = number + 1;
+        attachedImages.append(originalImage!)
         //bottomConstraint.constant = 52
         // Dismiss UIImagePickerController to go back to your original view controller
         dismiss(animated: true, completion: nil)

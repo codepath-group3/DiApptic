@@ -13,10 +13,14 @@ class Message: NSObject {
     
     var messageText: String?
     var user: PFUser?
+    var numImages = 0
+    var messagePFObject: PFObject?
     
     init (object: PFObject) {
+        messagePFObject = object
         messageText = object["text"] as! String?;
         user = object["user"] as! PFUser;
+        numImages = (object["numImages"] as? Int)!
     }
     
     class func messageFromArray(array: [PFObject]) -> [Message]{
@@ -25,7 +29,6 @@ class Message: NSObject {
         for object in array {
             messages.append(Message(object: object))
         }
-        
         return messages
     }
 }
