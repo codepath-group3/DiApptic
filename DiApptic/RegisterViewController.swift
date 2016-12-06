@@ -53,9 +53,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBAction func onRegister(_ sender: UIButton) {
         checkForErrors()
         registerUser()
-        
     }
-    
     
     @IBAction func onCancel(_ sender: UIButton) {
         let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)

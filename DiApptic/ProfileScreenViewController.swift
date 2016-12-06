@@ -41,8 +41,6 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         let cellNib = UINib(nibName: "ProfileViewTableViewCell", bundle: nil)
         tableView.register(cellNib, forCellReuseIdentifier: "profileView.identifier")
         
-        
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120
         tableView.dataSource = self;
@@ -54,7 +52,6 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
     
     func onCompose() {
         let composeVC = ComposeViewController(nibName: "ComposeViewController", bundle: nil)
@@ -71,6 +68,7 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         // Plus 1 for header view
         return self.data.count + 1;
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if (indexPath.row == 0) {
             let user = PFUser.current()!

@@ -44,7 +44,6 @@ class CreateReadingViewController: UIViewController {
     }
     
     func createReading() {
-        print("@@@@",PFUser.current())
         let reading = PFObject(className:"Recording")
         recordingValue = circularSlider.onValueChanged()
         reading["user"] = PFUser.current()
@@ -105,7 +104,6 @@ class CreateReadingViewController: UIViewController {
                     sender.isSelected = true
                     oralButton.isSelected = false
                     medicationType = "Insulin"
-                    print("Insulin")
                 }
             } else if sender ==  oralButton{
                 if(sender.isSelected) {
@@ -115,7 +113,6 @@ class CreateReadingViewController: UIViewController {
                     sender.isSelected = true
                     insulinButton.isSelected = false
                     medicationType = "Oral"
-                    print("Oral")
                 }
             }
     }

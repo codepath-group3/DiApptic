@@ -46,36 +46,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        
-//        signInButton.center.x  -= view.bounds.width
-//        signUpButton.center.x -= view.bounds.width
-//    }
-//    
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//        
-//        UIView.animate(withDuration: 0.5) {
-//            self.signInButton.center.x += self.view.bounds.width
-//        }
-//        
-//        UIView.animate(withDuration: 0.5, delay: 0.3, options: [],
-//                       animations: {
-//                        self.signUpButton.center.x += self.view.bounds.width
-//        },
-//                       completion: nil
-//        )
-////        
-////        UIView.animate(withDuration: 0.5, delay: 0.4, options: [],
-////                       animations: {
-////                        self.password.center.x += self.view.bounds.width
-////        },
-////                       completion: nil
-////        )
-//    }
-
-    
     func getRoundedView(view: UIView) {
         view.layer.cornerRadius = 5
         view.layer.borderWidth = 1
