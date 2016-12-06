@@ -82,6 +82,14 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         let user = data[indexPath.row - 1].user!
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileView.identifier", for: indexPath) as! ProfileViewTableViewCell;
         cell.timestampLabel.text = "20m"
+        if let imageFile = data[indexPath.row - 1].imageFile {
+            imageFile.getDataInBackground(block: { (imageData: Data?, error:Error?) -> Void in
+                if error == nil {
+                    let image = UIImage(data: imageData!)
+                    cell.profileImageView.image = image
+                }
+            })
+        }
         cell.postContent.text = data[indexPath.row - 1].messageText;
         cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
         return cell;

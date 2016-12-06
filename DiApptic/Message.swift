@@ -13,10 +13,12 @@ class Message: NSObject {
     
     var messageText: String?
     var user: PFUser?
+    var imageFile: PFFile?
     
     init (object: PFObject) {
         messageText = object["text"] as! String?;
         user = object["user"] as! PFUser;
+        imageFile = object["image"] as? PFFile
     }
     
     class func messageFromArray(array: [PFObject]) -> [Message]{
