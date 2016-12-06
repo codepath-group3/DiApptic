@@ -11,6 +11,7 @@
 		0379E9CE1DE110E600200E62 /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0379E9CC1DE110E600200E62 /* HomeScreenViewController.xib */; };
 		0379E9D11DE2800500200E62 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0379E9CF1DE2800500200E62 /* ComposeViewController.swift */; };
 		0379E9D21DE2800500200E62 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0379E9D01DE2800500200E62 /* ComposeViewController.xib */; };
+		0385E6EA1DF6650500BE69AA /* LoadingIndicatorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0385E6E91DF6650500BE69AA /* LoadingIndicatorUtils.swift */; };
 		0388AD971DD9830300157140 /* ProfileHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0388AD951DD9830300157140 /* ProfileHeaderView.xib */; };
 		0388AD9B1DD9835D00157140 /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */; };
 		0388AD9E1DD9859400157140 /* ProfileScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */; };
@@ -64,6 +65,7 @@
 		0379E9CC1DE110E600200E62 /* HomeScreenViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeScreenViewController.xib; sourceTree = "<group>"; };
 		0379E9CF1DE2800500200E62 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		0379E9D01DE2800500200E62 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		0385E6E91DF6650500BE69AA /* LoadingIndicatorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingIndicatorUtils.swift; sourceTree = "<group>"; };
 		0388AD961DD9830300157140 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ProfileHeaderView.xib; sourceTree = "<group>"; };
 		0388AD9A1DD9835D00157140 /* ProfileHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		0388AD9C1DD9859400157140 /* ProfileScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileScreenViewController.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 				97E39E391DF4BAC200034BFC /* EditProfileHeaderCell.swift */,
 				97E39E3B1DF4BAEE00034BFC /* EditProfileDetailCell.swift */,
+				0385E6E91DF6650500BE69AA /* LoadingIndicatorUtils.swift */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -428,6 +431,7 @@
 				F7930FA51DDA33FD00A34847 /* HomeViewController.swift in Sources */,
 				97E39E3C1DF4BAEE00034BFC /* EditProfileDetailCell.swift in Sources */,
 				03D558221DF392F400E8A797 /* HomeHeaderCell.swift in Sources */,
+				0385E6EA1DF6650500BE69AA /* LoadingIndicatorUtils.swift in Sources */,
 				F7930FA91DDA341400A34847 /* AddReadingViewController.swift in Sources */,
 				97E39E3A1DF4BAC200034BFC /* EditProfileHeaderCell.swift in Sources */,
 				F74E23C31DE24D0400385B37 /* CircleSlider.swift in Sources */,
