@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ProfileHeaderCellDelegate: class {
-    func didImageChange(newProfileImage : UIImage!)
+    func changeImage()
 }
 
 class EditProfileHeaderCell: UITableViewCell, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -17,7 +17,7 @@ class EditProfileHeaderCell: UITableViewCell, UIImagePickerControllerDelegate, U
     weak var imageChangeDelegate: ProfileHeaderCellDelegate!
 
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView?
     @IBOutlet weak var hba1cView: UIView!
     @IBOutlet weak var glucoseView: UIView!
     
@@ -25,9 +25,15 @@ class EditProfileHeaderCell: UITableViewCell, UIImagePickerControllerDelegate, U
         super.awakeFromNib()
         // Initialization code
         
-//        let tapGesture = UITapGestureRecognizer(target:self, action:Selector("imagePressed"))
-//        profileImage.isUserInteractionEnabled = true // this line is important
-//        profileImage.addGestureRecognizer(tapGesture)
+        let tapGesture = UITapGestureRecognizer(target:self, action:#selector(EditProfileHeaderCell.imagePressed))
+        profileImage?.isUserInteractionEnabled = true // this line is important
+        profileImage?.addGestureRecognizer(tapGesture)
+        
+        profileImage?.layer.cornerRadius = 60
+        profileImage?.clipsToBounds = true
+        profileImage?.layer.borderWidth = 4.0
+        profileImage?.layer.borderColor = UIColor.white.withAlphaComponent(0.2).cgColor
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,34 +41,6 @@ class EditProfileHeaderCell: UITableViewCell, UIImagePickerControllerDelegate, U
     }
     
     func imagePressed() {
-        print("adding image")
-        let imageVC = UIImagePickerController()
-        
-        imageVC.delegate = self
-        imageVC.allowsEditing = true
-        imageVC.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        //imageVC.sourceType = UIImagePickerControllerSourceType.camera
-        
-        //self.present(imageVC, animated: true, completion: nil)
-        imageChangeDelegate.didImageChange(newProfileImage: profileImage?.image)
+        imageChangeDelegate.changeImage()
     }
-    
-    func addImage() {
-      
-    }
-//    
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        // Get the image captured by the UIImagePickerController
-//        originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-//        
-//        let imageView  = UIImageView(frame: CGRect(x: 10 + (number * 150), y: 10, width: 130, height: 130))
-//        imageView.image = originalImage
-//        attachmentScrollView.addSubview(imageView)
-//        number = number + 1;
-//        //bottomConstraint.constant = 52
-//        // Dismiss UIImagePickerController to go back to your original view controller
-//        dismiss(animated: true, completion: nil)
-//    }
-
-
 }
