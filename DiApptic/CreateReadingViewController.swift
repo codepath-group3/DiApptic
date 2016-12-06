@@ -119,8 +119,8 @@ class CreateReadingViewController: UIViewController {
     
     func onSave() {
         createReading()
-        let profileVC = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
-        self.navigationController?.pushViewController(profileVC, animated: true)
+        let createVC = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
+        self.navigationController?.pushViewController(createVC, animated: true)
     }
    
     @IBAction func onTapButton(_ sender: RoundButton) {

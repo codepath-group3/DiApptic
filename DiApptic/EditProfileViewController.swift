@@ -84,26 +84,27 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func getCurrentUserDetails() {
-        var query = PFUser.query()
-        query?.whereKey("username", equalTo:PFUser.current()?.username!)
-        var user: PFUser!
-        do {
-            user = try query?.findObjects().first as! PFUser
-        } catch {
-            print("Error finding user")
-        }
-        if let userEmail = user["email"] {
+//        //let query = PFUser.query()
+//        //query?.whereKey("username", equalTo:PFUser.current()?.username!)
+//        var user: PFUser!
+//        do {
+//            user = try query?.findObjects().first as! PFUser
+//        } catch {
+//            print("Error finding user")
+//        }
+        let user = PFUser.current()
+        if let userEmail = user?["email"] {
             email = userEmail as! String
         }
-        if let userFirstName = user["firstName"]  {
+        if let userFirstName = user?["firstName"]  {
             firstName =  userFirstName as! String
         }
         
-        if let userLastName = user["lastName"]  {
+        if let userLastName = user?["lastName"]  {
             lastName = userLastName as! String
         }
         
-        if let userProfession = user["profession"]  {
+        if let userProfession = user?["profession"]  {
             profession = userProfession as! String
         }
         
@@ -119,8 +120,8 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
 
     func onSave() {
         saveUserDetails()
-        let homeVC = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
-        self.navigationController?.pushViewController(homeVC, animated: true)
+//        let homeVC = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
+//        self.navigationController?.pushViewController(homeVC, animated: true)
     }
     
     func didValueChange(cell: UITableViewCell!, newValue: String!) {
