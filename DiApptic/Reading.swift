@@ -106,8 +106,9 @@ class Reading: NSObject {
         
         return readings
     }
-    class func add(reading: Reading) -> [Reading]{
-        return readings
+    class func add(reading: Reading) {
+        var randomReadings = getRandomReadings()
+        randomReadings.append(reading)
     }
     class func getRandomReadings() -> [Reading] {
         let maxPerDay = 3
