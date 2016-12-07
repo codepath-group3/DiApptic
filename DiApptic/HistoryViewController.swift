@@ -167,13 +167,13 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         //lineChartView.centerViewTo(xValue: Double(xAxisDateFormatter.dates.count) - 10, yValue: 1, axis: .left)
         //lineChartView.viewpo
         //setPieChart(dataPoints: readingTypes, values: pieReadings)
-        adjustPieChart() */
+        adjustPieChart()
         
         ParseUtils.getReadings(userId: " ", success: { (readings: [Reading]) in
             print("retrieved readings")
         }, failure: {
             
-        })
+        })*/
 
     }
     func setChartReadings(readings: [Reading]){

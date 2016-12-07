@@ -10,7 +10,12 @@ import UIKit
 import Parse
 import Toaster
 
+protocol CreateReadingDelegate: class {
+    func onSaveReading(reading: Reading)
+}
 class CreateReadingViewController: UIViewController {
+    
+    weak var delegate: CreateReadingDelegate!
     
     @IBOutlet weak var circularSlider: CircleSliderView!
     @IBOutlet weak var fastingButton: RoundButton!
