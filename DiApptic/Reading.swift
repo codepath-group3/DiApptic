@@ -11,29 +11,36 @@ import Parse
 
 class Reading: NSObject {
     
-    var id: Int!
-    var type: String!
-    var timestamp: NSDate!
+    var status: Status!
+    var timestamp: Date!
     var value: Int!
-    var medicationType: Int!
-    var context: String!
-    var carbsTaken: Int!
-    var physicalActivity: String!
+    var medication: Medication!
     var note: String!
-    var shared: Bool!
-    var sharedWith: String!
-    
+
+    enum Medication: String {
+        case none = "" , pill = "Oral", insulin = "Insulin"
+    }
+    enum Status: String {
+        case general = "", fasting = "Fasting", beforeMeal = "Before Meal", afterMeal = "After Meal"
+    }
     
     init (object: PFObject) {
-        type = object["type"] as! String?;
         value = object["value"] as! Int?;
-        medicationType = object["medicationType"] as! Int?;
-        context = object["context"] as! String?;
-        carbsTaken = object["carbsTaken"] as! Int?;
-        physicalActivity = object[physicalActivity] as! String?;
+        let medicationString = object["medicationType"] as! String;
+        let statusString = object["status"] as! String;
+        medication = Medication.init(rawValue: medicationString)
+        status = Status.init(rawValue: statusString)
+        timestamp = object.updatedAt
         note = object["note"] as! String?;
-        
-
+    }
+    func isNormal() -> Bool {
+        return (value > 90 && value < 200)
+    }
+    func isHigh() -> Bool {
+        return (value > 200)
+    }
+    func isLow() -> Bool{
+        return (value < 90)
     }
     
     class func readingsFromArray(array: [PFObject]) -> [Reading]{

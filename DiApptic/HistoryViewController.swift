@@ -60,12 +60,49 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var totalCountLabel: UILabel!
     @IBOutlet weak var highestValueLabel: UILabel!
     @IBOutlet weak var lowestValueLabel: UILabel!
+    @IBOutlet weak var filtersViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var lineChartViewBottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var menuView: UIView!
     
+    var filterMenu: HorizontalButtonsList!
+    
+    var isMenuOpen: Bool! {
+        didSet {
+            if isMenuOpen! {
+                
+                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 10, options: [.curveEaseInOut], animations: {
+                    self.filtersViewHeightConstraint.constant = 50.0
+                    self.lineChartViewBottomConstraint.constant = -50
+                    self.menuView.addSubview(self.filterMenu)
+                    self.view.layoutIfNeeded()
+                }, completion: {
+                    (value: Bool) in
+
+                })
+            }else {
+                filterMenu.removeFromSuperview()
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.filtersViewHeightConstraint.constant = 0
+                    self.lineChartViewBottomConstraint.constant = 0
+                    self.filterMenu.isShowing = false;
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }
+    }
+
     let xAxisDateFormatter: XAxisDateFormatter = XAxisDateFormatter()
     var dataByDate: [[GlucoseReading]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         edgesForExtendedLayout = []
+        let filtersButton = UIBarButtonItem(image: UIImage(named:"kebab24x24"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(HistoryViewController.showFilters))
+        self.navigationItem.rightBarButtonItem = filtersButton
+        filterMenu = HorizontalButtonsList(inView: view)
+        filterMenu.didSelectFilter = {button in
+            print("add \(button.tag)")
+        }
+        isMenuOpen = false
         // Do any additional setup after loading the view.
         //lineChartView.description = " "
         //pieChartView.description = " "
@@ -119,9 +156,9 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         pieChartMgdlLabel.textColor = Styles.darkGray
         pieChartMgdlLabel.font = UIFont(name: pieChartMgdlLabel.font.fontName, size: 12.0)
         
-        view.addSubview(pieChartAverageLabel)
+        pieChartView.addSubview(pieChartAverageLabel)
         pieChartAverageLabel.center = CGPoint(x: pieChartView.center.x , y: pieChartView.center.y - 22)
-        view.addSubview(pieChartMgdlLabel)
+        pieChartView.addSubview(pieChartMgdlLabel)
         pieChartMgdlLabel.center = pieChartView.center
         pieChartMgdlLabel.center = CGPoint(x: pieChartView.center.x , y: pieChartView.center.y + 20)
         
@@ -132,9 +169,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         //l.xEntrySpace = 7.0;
         //l.yEntrySpace = 0.0;
         //l.yOffset = 0.0;
-        
-        let readingTypes = ["Highs", "Lows", "Normals"]
-        let pieReadings = [200.0,100.0, 300.0]
+
         //setChart(months, values: unitsSold)
         //setScatterChart()
         let sChartData = toScatterChartData(readings: getReadings(maxPerDay: 3))
@@ -151,6 +186,16 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         //lineChartView.viewpo
         //setPieChart(dataPoints: readingTypes, values: pieReadings)
         adjustPieChart()
+        
+        ParseUtils.getReadings(userId: " ", success: { (readings: [Reading]) in
+            print("retrieved readings")
+        }, failure: {
+            
+        })
+
+    }
+    func showFilters(){
+        isMenuOpen = !isMenuOpen
     }
     func getReadings( maxPerDay: Int) -> [GlucoseReading]{
         let dateFormatter: DateFormatter = DateFormatter()
@@ -171,6 +216,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
                 }
             }
         }
+
         return readings
     }
     
@@ -248,11 +294,6 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         }
         debounceTimer = Timer(timeInterval: 0.2, target: self, selector: #selector(HistoryViewController.adjustPieChart), userInfo: nil, repeats: false)
         RunLoop.current.add(debounceTimer!, forMode: .defaultRunLoopMode)
-    }
-    @IBAction func buttonTap(_ sender: RoundButton) {
-        sender.isSelected = !sender.isSelected
-        //sender.imageView?.image = sender.imageView?.image?.maskWithColor(color: UIColor.white)
-        //sender.tintColor = sender.isSelected ? UIColor.red: UIColor.blue
     }
     
     func adjustPieChart() {

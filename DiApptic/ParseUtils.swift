@@ -102,11 +102,10 @@ class ParseUtils {
     }
     
     static func getReadings (userId: String, success: @escaping (_ readings: [Reading])->(), failure: ()->() ) {
-        let query = PFQuery(className: "Reading")
-        // TODO: add where clause to include user id
+        let query = PFQuery(className: "Recording")
+        query.whereKey("user", equalTo: PFUser.current()!)
         query.order(byDescending: "createdAt")
         query.findObjectsInBackground { (objects:[PFObject]?, error:Error?) in
-            
             if let objects = objects {
                 let readings = Reading.readingsFromArray(array: objects)
                 success(readings);

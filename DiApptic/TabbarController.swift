@@ -21,6 +21,8 @@ class TabbarController: UIViewController {
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var addReadingButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var contentViewBottomSpaceConstraint: NSLayoutConstraint!
+    
     weak var delegate: LogoutDelegate?
     
     var buttons: [UIButton] = []
@@ -111,7 +113,7 @@ class TabbarController: UIViewController {
         //buttons[selected].isSelected = true
         tabButtonDidSelect(buttons[selectedIndex])
         NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidShow(notification:)), name: .UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidHide(notification:)), name: .UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidShow(notification:)), name: .UIKeyboardDidHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -137,6 +139,7 @@ class TabbarController: UIViewController {
         tabButtonDidSelect(sender)
     }
     func keyboardDidShow(notification: NSNotification){
+        
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
@@ -145,14 +148,19 @@ class TabbarController: UIViewController {
             let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
                 //self.keyboardHeightLayoutConstraint?.constant = 0.0
+                self.contentViewBottomSpaceConstraint.constant = 50
             } else {
                 //self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+                self.contentViewBottomSpaceConstraint.constant = endFrame?.size.height ?? 50.0
             }
+            contentViewController.view.frame = contentView.bounds
+            view.layoutIfNeeded()
+            /*
             UIView.animate(withDuration: duration,
                            delay: TimeInterval(0),
                            options: animationCurve,
                            animations: { self.view.layoutIfNeeded() },
-                           completion: nil)
+                           completion: nil)*/
         }
     }
     func keyboardDidHide(notification: NSNotification){
