@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Toaster
 
 class EditProfileViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ProfileCellDelegate, ProfileHeaderCellDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -160,8 +161,10 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
                     if error == nil {
                         print("data uploaded")
                         self.loadingUtils.hideActivityIndicator(uiView: self.view)
+                        Toast(text: "Saved Profile").show()
                     } else {
                         print("error")
+                        Toast(text: "Error in Saving Profile").show()
                     }
                 }
             }
