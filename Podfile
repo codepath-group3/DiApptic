@@ -7,6 +7,7 @@ target 'DiApptic' do
   pod 'AFNetworking'
   pod 'Parse'
   pod 'Charts'
+  pod 'Toaster', '~> 2.0'
   
   post_install do |installer|
       installer.pods_project.targets.each do |target|

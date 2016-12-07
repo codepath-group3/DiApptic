@@ -8,6 +8,7 @@
 
 import UIKit
 import Parse
+import Toaster
 
 class CreateReadingViewController: UIViewController {
     
@@ -56,8 +57,10 @@ class CreateReadingViewController: UIViewController {
             if saved {
                 print("saved worked")
                 self.loadingUtils.hideActivityIndicator(uiView: self.view)
+                Toast(text: "Saved Reading").show()
             } else {
                 print(error)
+                Toast(text: "Error").show()
             }
         }
     }
