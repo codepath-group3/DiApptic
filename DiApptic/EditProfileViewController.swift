@@ -29,6 +29,8 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     
     var cell: EditProfileHeaderCell!
     
+    var loadingUtils = LoadingIndicatorUtils();
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getCurrentUserDetails()
@@ -84,14 +86,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     func getCurrentUserDetails() {
-//        //let query = PFUser.query()
-//        //query?.whereKey("username", equalTo:PFUser.current()?.username!)
-//        var user: PFUser!
-//        do {
-//            user = try query?.findObjects().first as! PFUser
-//        } catch {
-//            print("Error finding user")
-//        }
+
         let user = PFUser.current()
         if let userEmail = user?["email"] {
             email = userEmail as! String
@@ -119,9 +114,8 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     }
 
     func onSave() {
+        loadingUtils.showActivityIndicator(uiView: self.view)
         saveUserDetails()
-//        let homeVC = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
-//        self.navigationController?.pushViewController(homeVC, animated: true)
     }
     
     func didValueChange(cell: UITableViewCell!, newValue: String!) {
@@ -165,6 +159,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
                 currentUser?.saveInBackground { (saved:Bool, error:Error?) -> Void in
                     if error == nil {
                         print("data uploaded")
+                        self.loadingUtils.hideActivityIndicator(uiView: self.view)
                     } else {
                         print("error")
                     }
