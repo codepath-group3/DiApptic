@@ -107,17 +107,21 @@ class TabbarController: UIViewController, CreateReadingDelegate {
         homeViewController = navigation;*/
 
         homeViewController = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
+        homeViewController.title = "Home"
         (homeViewController as! ProfileScreenViewController).delegate = delegate;
         homeNavigationController = UINavigationController(rootViewController: homeViewController)
 
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
+        historyViewController.title = "History and Trends"
         historyNavigationController = UINavigationController(rootViewController: historyViewController)
         addReadingViewController = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
         addReadingViewController.saveDelegate = self
+        addReadingViewController.title = "Measure and Record"
         addReadingNavigationController = UINavigationController(rootViewController: addReadingViewController)
         
         
         editProfileViewController = EditProfileViewController(nibName: "EditProfileViewController", bundle: nil)
+        editProfileViewController.title = "Profile"
         editProfileNavigationController = UINavigationController(rootViewController: editProfileViewController)
 
         viewControllers = [homeViewController, historyViewController ,editProfileViewController,addReadingViewController]
