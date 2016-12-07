@@ -26,6 +26,7 @@ class CreateReadingViewController: UIViewController {
     var medicationType: String?
     var notes: String?
     var recordingValue: Int? = 42
+    var loadingUtils = LoadingIndicatorUtils();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class CreateReadingViewController: UIViewController {
         reading.saveInBackground { (saved:Bool, error:Error?) -> Void in
             if saved {
                 print("saved worked")
+                self.loadingUtils.hideActivityIndicator(uiView: self.view)
             } else {
                 print(error)
             }
@@ -118,9 +120,8 @@ class CreateReadingViewController: UIViewController {
     }
     
     func onSave() {
+        loadingUtils.showActivityIndicator(uiView: self.view)
         createReading()
-        let createVC = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
-        self.navigationController?.pushViewController(createVC, animated: true)
     }
    
     @IBAction func onTapButton(_ sender: RoundButton) {
