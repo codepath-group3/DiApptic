@@ -35,7 +35,7 @@ class TabbarController: UIViewController, CreateReadingDelegate {
     
     var homeViewController: UIViewController!
     var historyViewController: UIViewController!
-    var addReadingViewController: UIViewController!
+    var addReadingViewController: CreateReadingViewController!
     var editProfileViewController: UIViewController!
     var viewControllers: [UIViewController] = []
     
@@ -113,6 +113,7 @@ class TabbarController: UIViewController, CreateReadingDelegate {
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
         historyNavigationController = UINavigationController(rootViewController: historyViewController)
         addReadingViewController = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
+        addReadingViewController.saveDelegate = self
         addReadingNavigationController = UINavigationController(rootViewController: addReadingViewController)
         
         
@@ -134,7 +135,7 @@ class TabbarController: UIViewController, CreateReadingDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func onSaveReading(reading: Reading) {
+    func onSaveReading(reading: Reading?) {
         selectedIndex = 1
     }
     fileprivate func layout(_ button: UIButton) {
