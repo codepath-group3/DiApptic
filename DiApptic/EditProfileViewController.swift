@@ -141,7 +141,7 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
                 // Get the image captured by the UIImagePickerController
-                originalImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+                originalImage = info[UIImagePickerControllerEditedImage] as! UIImage
                 cell.profileImage?.image = originalImage
                 number = number + 1;
                 //bottomConstraint.constant = 52

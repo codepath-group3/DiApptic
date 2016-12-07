@@ -32,7 +32,7 @@ class ComposeViewController: UIViewController, UITextViewDelegate, UIImagePicker
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let composeButton = UIBarButtonItem(title: "Cancel", style: UIBarButtonItemStyle.plain, target: self, action: #selector(ComposeViewController.onCancel))
+        let composeButton = UIBarButtonItem(image: UIImage(named:"cross24x24"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(ComposeViewController.onCancel))
         self.navigationItem.rightBarButtonItem = composeButton;
         let parseUser = PFUser.current()!
         usernameLabel.text = (parseUser["firstName"] as! String) + " " + (parseUser["lastName"] as! String)
