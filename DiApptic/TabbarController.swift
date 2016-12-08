@@ -12,7 +12,7 @@ protocol LogoutDelegate: class {
     func didLogout()
 }
 
-class TabbarController: UIViewController {
+class TabbarController: UIViewController, CreateReadingDelegate {
 
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var tabbarView: UIView!
@@ -21,6 +21,8 @@ class TabbarController: UIViewController {
     @IBOutlet weak var historyButton: UIButton!
     @IBOutlet weak var addReadingButton: UIButton!
     @IBOutlet weak var profileButton: UIButton!
+    @IBOutlet weak var contentViewBottomSpaceConstraint: NSLayoutConstraint!
+    
     weak var delegate: LogoutDelegate?
     
     var buttons: [UIButton] = []
@@ -33,11 +35,25 @@ class TabbarController: UIViewController {
     
     var homeViewController: UIViewController!
     var historyViewController: UIViewController!
-    var addReadingViewController: UIViewController!
+    var addReadingViewController: CreateReadingViewController!
     var editProfileViewController: UIViewController!
     var viewControllers: [UIViewController] = []
     
-    var selectedIndex: Int = 0
+    var selectedIndex: Int! {
+        didSet {
+            if oldValue != nil && oldValue != selectedIndex{
+                leftToRight = selectedIndex < oldValue
+                buttons[oldValue].tintColor = Styles.darkGray
+                buttons[oldValue].setTitleColor(Styles.darkGray, for: UIControlState.normal)
+            }
+            if oldValue == nil || oldValue != selectedIndex {
+                buttons[selectedIndex].tintColor = Styles.lightBlue
+                buttons[selectedIndex].setTitleColor(Styles.lightBlue, for: UIControlState.normal)
+                contentViewController = navigationControllers[selectedIndex]
+
+            }
+        }
+    }
 
     var leftToRight: Bool = true
     var oldCenter: CGPoint!
@@ -67,10 +83,10 @@ class TabbarController: UIViewController {
             }, completion: {
                 (value: Bool) in
                 if self.oldVc != nil {
-                    oldContentViewController.willMove(toParentViewController: nil)
-                    oldContentViewController.view.removeFromSuperview()
+                    self.oldVc.willMove(toParentViewController: nil)
+                    self.oldVc.view.removeFromSuperview()
                     //oldContentViewController.removeFromParentViewController()
-                    oldContentViewController.didMove(toParentViewController: nil)
+                    self.oldVc.didMove(toParentViewController: nil)
                 }
             })
 
@@ -91,16 +107,21 @@ class TabbarController: UIViewController {
         homeViewController = navigation;*/
 
         homeViewController = ProfileScreenViewController(nibName: "ProfileScreenViewController", bundle: nil)
+        homeViewController.title = "Home"
         (homeViewController as! ProfileScreenViewController).delegate = delegate;
         homeNavigationController = UINavigationController(rootViewController: homeViewController)
 
         historyViewController = HistoryViewController(nibName: "HistoryViewController", bundle: nil)
+        historyViewController.title = "History and Trends"
         historyNavigationController = UINavigationController(rootViewController: historyViewController)
         addReadingViewController = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
+        addReadingViewController.saveDelegate = self
+        addReadingViewController.title = "Measure and Record"
         addReadingNavigationController = UINavigationController(rootViewController: addReadingViewController)
         
         
         editProfileViewController = EditProfileViewController(nibName: "EditProfileViewController", bundle: nil)
+        editProfileViewController.title = "Profile"
         editProfileNavigationController = UINavigationController(rootViewController: editProfileViewController)
 
         viewControllers = [homeViewController, historyViewController ,editProfileViewController,addReadingViewController]
@@ -108,24 +129,18 @@ class TabbarController: UIViewController {
         for nav in navigationControllers {
             nav.navigationBar.backgroundColor = Styles.darkBlue
         }
-        //buttons[selected].isSelected = true
-        tabButtonDidSelect(buttons[selectedIndex])
+        selectedIndex = 0
+        //tabButtonDidSelect(buttons[selectedIndex])
         NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidShow(notification:)), name: .UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidHide(notification:)), name: .UIKeyboardDidHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(TabbarController.keyboardDidShow(notification:)), name: .UIKeyboardDidHide, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func tabButtonDidSelect(_ tabButton: UIButton) {
-        leftToRight = selectedIndex > tabButton.tag
-        buttons[selectedIndex].tintColor = Styles.darkGray
-        buttons[selectedIndex].setTitleColor(Styles.darkGray, for: UIControlState.normal)
-        buttons[tabButton.tag].tintColor = Styles.lightBlue
-        buttons[tabButton.tag].setTitleColor(Styles.lightBlue, for: UIControlState.normal)
-        contentViewController = navigationControllers[tabButton.tag]
-        selectedIndex = tabButton.tag
+    func onSaveReading(reading: Reading?) {
+        selectedIndex = 1
     }
     fileprivate func layout(_ button: UIButton) {
         let iw = button.imageView!.frame.size.width
@@ -134,9 +149,10 @@ class TabbarController: UIViewController {
         button.tintColor = Styles.darkGray
    }
     @IBAction func onTabButtonTap(_ sender: UIButton) {
-        tabButtonDidSelect(sender)
+        selectedIndex = sender.tag
     }
     func keyboardDidShow(notification: NSNotification){
+        
         if let userInfo = notification.userInfo {
             let endFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
             let duration:TimeInterval = (userInfo[UIKeyboardAnimationDurationUserInfoKey] as? NSNumber)?.doubleValue ?? 0
@@ -145,14 +161,19 @@ class TabbarController: UIViewController {
             let animationCurve:UIViewAnimationOptions = UIViewAnimationOptions(rawValue: animationCurveRaw)
             if (endFrame?.origin.y)! >= UIScreen.main.bounds.size.height {
                 //self.keyboardHeightLayoutConstraint?.constant = 0.0
+                self.contentViewBottomSpaceConstraint.constant = 50
             } else {
                 //self.keyboardHeightLayoutConstraint?.constant = endFrame?.size.height ?? 0.0
+                self.contentViewBottomSpaceConstraint.constant = endFrame?.size.height ?? 50.0
             }
+            contentViewController.view.frame = contentView.bounds
+            view.layoutIfNeeded()
+            /*
             UIView.animate(withDuration: duration,
                            delay: TimeInterval(0),
                            options: animationCurve,
                            animations: { self.view.layoutIfNeeded() },
-                           completion: nil)
+                           completion: nil)*/
         }
     }
     func keyboardDidHide(notification: NSNotification){

@@ -8,8 +8,14 @@
 
 import UIKit
 import Parse
+import Toaster
 
+protocol CreateReadingDelegate: class {
+    func onSaveReading(reading: Reading?)
+}
 class CreateReadingViewController: UIViewController {
+    
+    weak var saveDelegate: CreateReadingDelegate?
     
     @IBOutlet weak var circularSlider: CircleSliderView!
     @IBOutlet weak var fastingButton: RoundButton!
@@ -26,6 +32,7 @@ class CreateReadingViewController: UIViewController {
     var medicationType: String?
     var notes: String?
     var recordingValue: Int? = 42
+    var loadingUtils = LoadingIndicatorUtils();
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +58,16 @@ class CreateReadingViewController: UIViewController {
         reading["medicationType"] = medicationType
         reading["status"] = status
         reading["notes"] = notesField.text
+        Reading.add(reading: Reading(timestamp: Date(), status: Status(rawValue: status!)!, medication: Medication(rawValue: medicationType!)!, value: recordingValue!, note: notesField.text))
         reading.saveInBackground { (saved:Bool, error:Error?) -> Void in
             if saved {
                 print("saved worked")
+                self.loadingUtils.hideActivityIndicator(uiView: self.view)
+                Toast(text: "Saved Reading").show()
+                self.saveDelegate?.onSaveReading(reading: nil)
             } else {
                 print(error)
+                Toast(text: "Error").show()
             }
         }
     }
@@ -118,9 +130,8 @@ class CreateReadingViewController: UIViewController {
     }
     
     func onSave() {
+        loadingUtils.showActivityIndicator(uiView: self.view)
         createReading()
-        let createVC = CreateReadingViewController(nibName: "CreateReadingViewController", bundle: nil)
-        self.navigationController?.pushViewController(createVC, animated: true)
     }
    
     @IBAction func onTapButton(_ sender: RoundButton) {

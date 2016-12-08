@@ -21,6 +21,7 @@
                 <outlet property="readingValueLabel" destination="Oth-xH-Ly3" id="xxY-u2-UgI"/>
                 <outlet property="statusImageView" destination="lwT-B6-t5K" id="2Sx-KJ-qXF"/>
                 <outlet property="statusLabel" destination="ecZ-9r-B4y" id="dxI-7H-AoH"/>
+                <outlet property="statusSection" destination="cqf-e8-7OW" id="3Ae-cn-G35"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -98,7 +99,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cqf-e8-7OW">
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="cqf-e8-7OW" userLabel="Status Section">
                             <rect key="frame" x="0.0" y="166.5" width="359" height="30"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Suh-7c-pYB">

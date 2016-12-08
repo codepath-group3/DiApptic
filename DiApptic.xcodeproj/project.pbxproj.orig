@@ -231,7 +231,10 @@
 				03B8A4581DED0C6900D0341B /* ProfileViewTableViewCell.swift */,
 				97E39E391DF4BAC200034BFC /* EditProfileHeaderCell.swift */,
 				97E39E3B1DF4BAEE00034BFC /* EditProfileDetailCell.swift */,
+<<<<<<< HEAD
 				0385E6E91DF6650500BE69AA /* LoadingIndicatorUtils.swift */,
+=======
+>>>>>>> b14228b6fb0fe5bc5fd425d3c1398e42e4cd43f6
 				F7CA7EF51DF7B74000B52413 /* HorizontalButtonsList.swift */,
 			);
 			name = Components;

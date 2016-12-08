@@ -20,21 +20,23 @@ class ReadingDetailsViewController: UIViewController {
     @IBOutlet weak var medicationLabel: UILabel!
     @IBOutlet weak var noteLabel: UILabel!
     @IBOutlet weak var medicationSection: UIStackView!
+    @IBOutlet weak var statusSection: UIStackView!
+    
     @IBOutlet weak var mgdlLabel: UILabel!
     
-    var glucoseReading: GlucoseReading!
+    var reading: Reading!
     
     let dateFormatter: DateFormatter = DateFormatter()
     
-    var reading: GlucoseReading! {
+    private var _reading: Reading! {
         didSet(oldValue) {
             if reading != nil {
-                dateLabel.text = dateFormatter.string(from: reading.date)
-                noteLabel.text = reading.note
+                dateLabel.text = dateFormatter.string(from: _reading.timestamp)
+                noteLabel.text = _reading.note
                 var readingColor: UIColor!
-                if reading.value < 70 {
+                if _reading.isLow() {
                     readingColor = UIColor.yellow
-                }else if reading.value > 70 && reading.value < 200 {
+                }else if _reading.isNormal() {
                     readingColor = Styles.brightGreen
                 }else {
                     readingColor = Styles.orange
@@ -42,6 +44,30 @@ class ReadingDetailsViewController: UIViewController {
                 readingValueLabel.textColor = readingColor
                 bloodDropImageView.tintColor = readingColor
                 mgdlLabel.textColor = readingColor
+                medicationImageView.tintColor = Styles.darkerGray
+                if _reading.medication == .none {
+                    medicationSection.isHidden = true
+                }else {
+                    if (_reading.medication == .insulin){
+                        medicationLabel.text = "Insulin Injected"
+                        medicationImageView.image = UIImage(named: "syringe24x24")
+                    }else {
+                        medicationLabel.text = "Oral Medication Taken"
+                        medicationImageView.image = UIImage(named: "pill24x24")
+                    }
+                    
+                }
+                statusLabel.text = _reading.status.rawValue
+                if _reading.status == .general {
+                    statusImageView.image = UIImage(named: "user24x24")
+                }else if _reading.status == .fasting {
+                    statusImageView.image = UIImage(named: "dawn24x24")
+                }else if _reading.status == .beforeMeal {
+                    statusImageView.image = UIImage(named: "hamburger24x24")
+                }else if _reading.status == .afterMeal {
+                    statusImageView.image = UIImage(named: "dinner24x24")
+                }
+                statusImageView.tintColor = Styles.darkerGray
             }
         }
     }
@@ -50,9 +76,8 @@ class ReadingDetailsViewController: UIViewController {
         super.viewDidLoad()
         dateFormatter.dateStyle = .long
         edgesForExtendedLayout = []
-        
-        reading = glucoseReading
-         readingValueLabel.countFrom(fromValue: Float(1), to: Float(reading.value), withDuration: 1.0, andAnimationType: .EaseInOut, andCountingType: .Int)
+        _reading = reading
+         readingValueLabel.countFrom(fromValue: Float(1), to: Float(_reading.value), withDuration: 1.0, andAnimationType: .EaseInOut, andCountingType: .Int)
         //medicationSection.isHidden = true
         // Do any additional setup after loading the view.
     }

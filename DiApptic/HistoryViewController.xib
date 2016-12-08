@@ -11,9 +11,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HistoryViewController" customModule="DiApptic" customModuleProvider="target">
             <connections>
+                <outlet property="filtersViewHeightConstraint" destination="G7B-a7-Zhe" id="PXs-UT-Z82"/>
                 <outlet property="highestValueLabel" destination="erS-K6-WFb" id="cIb-WG-aeG"/>
                 <outlet property="lineChartView" destination="JCT-Yh-yaN" id="Kt8-zi-91r"/>
+                <outlet property="lineChartViewBottomConstraint" destination="f7t-J0-Cpk" id="br4-Kr-eaL"/>
                 <outlet property="lowestValueLabel" destination="TqH-WV-CAt" id="nrj-M0-SmJ"/>
+                <outlet property="menuView" destination="8sh-A5-8AT" id="4gt-5f-DT1"/>
                 <outlet property="pieChartView" destination="eh9-0k-hnd" id="qLG-q1-cWw"/>
                 <outlet property="totalCountLabel" destination="RGT-Yx-cbL" id="JWF-ct-AiQ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -24,15 +27,21 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8sh-A5-8AT" userLabel="Filters view">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="G7B-a7-Zhe"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eh9-0k-hnd" userLabel="Pie Chart View" customClass="PieChartView" customModule="Charts">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                    <rect key="frame" x="0.0" y="50" width="375" height="250"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="250" id="QkA-9S-lDQ"/>
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1qq-UG-fwU">
-                    <rect key="frame" x="0.0" y="250" width="375" height="54"/>
+                    <rect key="frame" x="0.0" y="300" width="375" height="54"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aTk-hv-3DQ">
                             <rect key="frame" x="0.0" y="0.0" width="125" height="54"/>
@@ -116,19 +125,22 @@
                     </constraints>
                 </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JCT-Yh-yaN" userLabel="Line Chart View" customClass="ScatterChartView" customModule="Charts">
-                    <rect key="frame" x="0.0" y="312" width="375" height="347"/>
+                    <rect key="frame" x="0.0" y="362" width="375" height="297"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="eh9-0k-hnd" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="AFk-WE-7Bg"/>
                 <constraint firstItem="1qq-UG-fwU" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="HE4-9C-9q5"/>
                 <constraint firstAttribute="trailing" secondItem="eh9-0k-hnd" secondAttribute="trailing" id="HHo-iK-dDK"/>
+                <constraint firstItem="8sh-A5-8AT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="OyT-uk-8n4"/>
+                <constraint firstItem="8sh-A5-8AT" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="P3Q-pL-gpb"/>
+                <constraint firstAttribute="trailing" secondItem="8sh-A5-8AT" secondAttribute="trailing" id="PWl-u1-Ntl"/>
                 <constraint firstItem="1qq-UG-fwU" firstAttribute="top" secondItem="eh9-0k-hnd" secondAttribute="bottom" id="Vpd-Aw-3Qh"/>
                 <constraint firstAttribute="bottom" secondItem="JCT-Yh-yaN" secondAttribute="bottom" constant="8" id="f7t-J0-Cpk"/>
                 <constraint firstItem="JCT-Yh-yaN" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iEi-D9-Wfz"/>
                 <constraint firstAttribute="trailing" secondItem="JCT-Yh-yaN" secondAttribute="trailing" id="kfi-qI-UIy"/>
+                <constraint firstItem="eh9-0k-hnd" firstAttribute="top" secondItem="8sh-A5-8AT" secondAttribute="bottom" id="rUP-xi-QEf"/>
                 <constraint firstItem="eh9-0k-hnd" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sk8-HD-JJL"/>
                 <constraint firstItem="JCT-Yh-yaN" firstAttribute="top" secondItem="1qq-UG-fwU" secondAttribute="bottom" constant="8" id="wFK-I6-cUq"/>
                 <constraint firstAttribute="trailing" secondItem="1qq-UG-fwU" secondAttribute="trailing" id="xs7-6m-gkC"/>
