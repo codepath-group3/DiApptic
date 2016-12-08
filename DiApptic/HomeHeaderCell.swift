@@ -10,12 +10,18 @@ import UIKit
 
 class HomeHeaderCell: UITableViewCell {
 
+    @IBOutlet weak var hba1cLabel: UILabel!
+    @IBOutlet weak var hba1cCount: UILabel!
+    @IBOutlet weak var glucoseLabel: UILabel!
+    @IBOutlet weak var averageLabelColor: UILabel!
+    @IBOutlet weak var glucoseCount: UILabel!
     @IBOutlet weak var glucoseView: UIView!
     
     @IBOutlet weak var hba1cView: UIView!
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var averageCount: UILabel!
     //@IBOutlet weak var profileImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,6 +40,17 @@ class HomeHeaderCell: UITableViewCell {
         hba1cView.layer.cornerRadius = 35
         hba1cView.clipsToBounds = true
         hba1cView.backgroundColor = Styles.lightBlue
+        
+        /*glucoseView.transform = CGAffineTransform(rotationAngle: CGFloat(-CGFloat.pi/18))
+        
+        hba1cView.transform = CGAffineTransform(rotationAngle: CGFloat(CGFloat.pi/18))*/
+        glucoseView.backgroundColor = glucoseView.backgroundColor?.withAlphaComponent(0.8)
+        hba1cView.backgroundColor = glucoseView.backgroundColor?.withAlphaComponent(0.8)
+        glucoseCount.textColor = averageCount.textColor
+        glucoseLabel.textColor = averageCount.textColor
+        
+        hba1cCount.textColor = averageCount.textColor
+        hba1cLabel.textColor = averageCount.textColor
         
     }
 
