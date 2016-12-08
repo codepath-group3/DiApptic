@@ -118,11 +118,12 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
             })
         } else {
             if let attachmentScroll = cell.attachmentScrollView {
-                cell.attachmentScrollView.removeFromSuperview()
+                //cell.attachmentScrollView.removeFromSuperview()
+                let views = cell.attachmentScrollView.subviews
+                for view in views {
+                    view.removeFromSuperview()
+                }
             }
-            /*for view in cell.attachmentScrollView.subviews {
-                    cell.attachmentScrollView.removeV
-            }*/
             cell.attachmentTrayHeight?.constant = 1;
             
         }
