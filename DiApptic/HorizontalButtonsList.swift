@@ -78,7 +78,7 @@ class HorizontalButtonsList: UIScrollView {
             let button  = FilterButton(image: image)
             
             button.bounds.size = CGSize(width: buttonWidth  , height: buttonWidth)
-            let x = CGFloat(i) * (buttonWidth + horizontalPadding) + buttonWidth/2 + 20
+            let x = CGFloat(i) * (buttonWidth + horizontalPadding) + buttonWidth/2 + 10
             button.center = CGPoint(x: x, y: buttonWidth/2 + verticalPadding)
             button.tag = i
             button.layoutButton()

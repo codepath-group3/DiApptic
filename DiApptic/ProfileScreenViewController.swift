@@ -15,6 +15,7 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
     var currentUser: PFUser?
     var data = [Message]()
     weak var delegate: LogoutDelegate?
+    var time = ["1m", "4m", "10m", "17m", "20m", "40m", "43m"]
     
     override func viewDidAppear(_ animated: Bool) {
     ParseUtils.getMessages(user: currentUser!, success: { (messages: [Message]) in
@@ -74,6 +75,7 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
             let user = PFUser.current()!
             let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileViewHeader.identifier", for: indexPath) as! HomeHeaderCell;
             cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
+            cell.selectionStyle  = .none
             
             let profileImg = user["profilePicture"] as? PFFile
             if let profileImg = profileImg {
@@ -93,10 +95,15 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         let message = data[indexPath.row - 1]
         let user = message.user!
         let cell = self.tableView.dequeueReusableCell(withIdentifier: "profileView.identifier", for: indexPath) as! ProfileViewTableViewCell;
-        cell.timestampLabel.text = "20m"
+        if (indexPath.row < time.count-1) {
+            cell.timestampLabel.text = time[indexPath.row]
+        } else {
+            cell.timestampLabel.text = "1h"
+        }
         
         if message.numImages > 0 {
             //ParseUtils.getImages(message: message, user: user)
+            cell.attachmentTrayHeight?.constant = 50;
             ParseUtils.getImages(message: message.messagePFObject!, user: user, success: { (images: [UIImage]) in
                     print("images retrieved: \(images.count)")
                     var number = 0
@@ -104,15 +111,33 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
                         let imageView  = UIImageView(frame: CGRect(x: 5 + (number * 55), y: 10, width: 50, height: 50))
                         imageView.image = uiImage
                         number = number + 1;
-                        cell.attachmentScrollView.addSubview(imageView)
+                        cell.attachmentScrollView?.addSubview(imageView)
                     }
                 }, failure: {
                     print("image retrieved failed")
             })
         } else {
-            cell.attachmentTrayHeight.constant = 1;
+            if let attachmentScroll = cell.attachmentScrollView {
+                cell.attachmentScrollView.removeFromSuperview()
+            }
+            /*for view in cell.attachmentScrollView.subviews {
+                    cell.attachmentScrollView.removeV
+            }*/
+            cell.attachmentTrayHeight?.constant = 1;
+            
         }
         
+        let profileImg = user["profilePicture"] as? PFFile
+        if let profileImg = profileImg {
+            profileImg.getDataInBackground(block: { (imageData: Data?, error:Error?) -> Void in
+                if error == nil {
+                    let image = UIImage(data: imageData!)
+                    cell.profileImageView.image = image
+                }
+            })
+        } else {
+            cell.profileImageView.image = UIImage(named: "user128x128.png")
+        }
         cell.postContent.text = data[indexPath.row - 1].messageText;
         cell.usernameLabel.text = (user["firstName"] as! String) + " " + (user["lastName"] as! String)
         return cell;
@@ -126,20 +151,23 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         if (indexPath.row == 0) {
             return [];
         }
+        
+        
         let favorite = UITableViewRowAction(style: .normal, title: "Like") { action, index in
             print("favorite button tapped")
         }
-        favorite.backgroundColor = UIColor.red
+        favorite.backgroundColor = Styles.darkBlue
         let reply = UITableViewRowAction(style: .normal, title: "Reply") { action, index in
             print("favorite button tapped")
         }
-        reply.backgroundColor = UIColor.blue
+        reply.backgroundColor = Styles.lightBlue
         return [favorite, reply]
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         
     }
+    
     
     
 

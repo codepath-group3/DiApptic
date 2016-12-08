@@ -16,7 +16,7 @@
                 <frame key="frameInset" width="329" height="114"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user128x128" translatesAutoresizingMaskIntoConstraints="NO" id="8RD-ev-cGR">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user128x128" translatesAutoresizingMaskIntoConstraints="NO" id="8RD-ev-cGR">
                         <constraints>
                             <constraint firstAttribute="width" constant="50" id="Vgw-Ni-RTE"/>
                             <constraint firstAttribute="height" constant="50" id="yd0-A6-Vdb"/>
@@ -53,6 +53,7 @@
                     <constraint firstItem="8RD-ev-cGR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="llO-dX-4Zn"/>
                     <constraint firstItem="Vd4-Yz-QhD" firstAttribute="top" secondItem="l4r-e7-p7S" secondAttribute="bottom" constant="4" id="mf0-fA-0ik"/>
                     <constraint firstItem="wdO-r0-Ik1" firstAttribute="leading" secondItem="8RD-ev-cGR" secondAttribute="trailing" constant="10" id="mxe-CX-Elx"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="8RD-ev-cGR" secondAttribute="bottom" constant="8" id="n1a-40-abt"/>
                     <constraint firstAttribute="trailingMargin" secondItem="hY5-Q1-Rcx" secondAttribute="trailing" constant="8" id="oBz-9r-0Kk"/>
                     <constraint firstItem="l4r-e7-p7S" firstAttribute="top" secondItem="wdO-r0-Ik1" secondAttribute="bottom" constant="4" id="x30-fa-kfo"/>
                     <constraint firstAttribute="trailingMargin" secondItem="l4r-e7-p7S" secondAttribute="trailing" constant="8" id="x3B-WD-bqT"/>

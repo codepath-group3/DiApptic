@@ -8,37 +8,7 @@
 
 import UIKit
 import Charts
-class GlucoseReading {
-    var date: Date
-    var value: Double
-    var medication: Medication?
-    var activity: Activity?
-    var meal: Meal?
-    var note: String = "Random value to be shown in the note section of the reading details"
-    init(date: Date, value: Double){
-        self.date = date
-        self.value = value
-    }
-    func isNormal() -> Bool {
-        return (value > 90 && value < 200)
-    }
-    func isHigh() -> Bool {
-        return (value > 200)
-    }
-    func isLow() -> Bool{
-        return (value < 90)
-    }
-    
-    enum Medication: Int {
-        case none = 1 , pill, insulin
-    }
-    enum Activity: Int {
-        case mild = 1, moderate, intense
-    }
-    enum Meal: Int {
-        case fasting = 1, beforeMeal, afterMeal
-    }
-}
+
 class XAxisDateFormatter:NSObject, IAxisValueFormatter {
     var dates: [Date] = []
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
@@ -65,6 +35,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     @IBOutlet weak var menuView: UIView!
     
     var filterMenu: HorizontalButtonsList!
+    let medicationFilters: [Medication] = [Medication.insulin, Medication.pill]
+    let statusFilters: [Status] = [Status.fasting, Status.beforeMeal, Status.afterMeal]
     
     var isMenuOpen: Bool! {
         didSet {
@@ -92,7 +64,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     }
 
     let xAxisDateFormatter: XAxisDateFormatter = XAxisDateFormatter()
-    var dataByDate: [[GlucoseReading]] = []
+    var dataByDate: [[Reading]] = []
     override func viewDidLoad() {
         super.viewDidLoad()
         edgesForExtendedLayout = []
@@ -100,7 +72,15 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         self.navigationItem.rightBarButtonItem = filtersButton
         filterMenu = HorizontalButtonsList(inView: view)
         filterMenu.didSelectFilter = {button in
-            print("add \(button.tag)")
+            self.isMenuOpen = false
+            var filtered: [Reading]!
+            if button.tag < 3 {
+                print(button.tag)
+                filtered = Reading.filter(medication: nil, status: self.statusFilters[button.tag])
+            }else {
+                filtered = Reading.filter(medication: self.medicationFilters[button.tag - 3], status: nil)
+            }
+            self.setChartReadings(readings: filtered)
         }
         isMenuOpen = false
         // Do any additional setup after loading the view.
@@ -172,6 +152,8 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
 
         //setChart(months, values: unitsSold)
         //setScatterChart()
+        setChartReadings(readings: getReadings(maxPerDay: 3))
+        /*
         let sChartData = toScatterChartData(readings: getReadings(maxPerDay: 3))
         //lineChartView.maxVisibleCount = 10
         //lineChartView.setVisibleXRange(minXRange: Double(xAxisDateFormatter.dates.count) - 10, maxXRange: Double(xAxisDateFormatter.dates.count))
@@ -191,48 +173,38 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
             print("retrieved readings")
         }, failure: {
             
-        })
+        })*/
 
+    }
+    func setChartReadings(readings: [Reading]){
+        let sChartData = toScatterChartData(readings: readings)
+        lineChartView.data = sChartData
+        lineChartView.setVisibleXRangeMaximum(5)
+        //lineChartView.moveViewToX(Double(xAxisDateFormatter.dates.count) - 5)
+        lineChartView.moveViewToAnimated(xValue: Double(xAxisDateFormatter.dates.count) - 5, yValue: 0, axis: lineChartView.leftAxis.axisDependency, duration: 1.0)
+        adjustPieChart()
     }
     func showFilters(){
         isMenuOpen = !isMenuOpen
     }
-    func getReadings( maxPerDay: Int) -> [GlucoseReading]{
-        let dateFormatter: DateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .short
-        var readings: [GlucoseReading] = []
-        
-        for year in 2016...2016 {
-            for month in 1...1 {
-                for day in 1...28 {
-                    for _ in 1...maxPerDay {
-                        let glucoseValue = Double(arc4random_uniform(200)+50)
-                        let reading = GlucoseReading(date: dateFormatter.date(from: "\(month)/\(day)/\(year)")!, value: glucoseValue)
-                        reading.activity = .intense
-                        reading.meal = .beforeMeal
-                        reading.medication = .insulin
-                        readings.append(reading)
-                    }
-                }
-            }
-        }
-
-        return readings
+    func getReadings( maxPerDay: Int) -> [Reading]{
+        return Reading.getRandomReadings()
     }
     
-    func toScatterChartData(readings: [GlucoseReading]) -> ScatterChartData{
+    func toScatterChartData(readings: [Reading]) -> ScatterChartData{
         
         var entrySets = [[ChartDataEntry]]()
         var dataSets: [ScatterChartDataSet] = []
-        var dayReadings: [GlucoseReading] = []
-        var previousReading: GlucoseReading? = nil
+        var dayReadings: [Reading] = []
+        var previousReading: Reading? = nil
+        xAxisDateFormatter.dates = []
         // Group readings by day
         for reading in readings {
             // the assumption is that readings are ordered by date
             if previousReading == nil {
                 previousReading = reading
             }
-            let order = Calendar.current.compare(reading.date, to: (previousReading?.date)!, toGranularity: .day)
+            let order = Calendar.current.compare(reading.timestamp, to: (previousReading?.timestamp)!, toGranularity: .day)
             if order != .orderedSame {
                 dataByDate.append(dayReadings)
                 dayReadings = []
@@ -242,13 +214,13 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         }
         // Create Entry Sets
         for (dateIndex, thisDayReadings) in dataByDate.enumerated() {
-            xAxisDateFormatter.dates.append(thisDayReadings[0].date)
+            xAxisDateFormatter.dates.append(thisDayReadings[0].timestamp)
             for (index, reading) in thisDayReadings.enumerated() {
                 if !entrySets.indices.contains(index) {
                     let entriesSet: [ChartDataEntry] = []
                     entrySets.append(entriesSet)
                 }
-                entrySets[index].append(ChartDataEntry(x: Double(dateIndex), y: reading.value, data: reading))
+                entrySets[index].append(ChartDataEntry(x: Double(dateIndex), y: Double(reading.value), data: reading))
             }
         }
         // Put Entry Sets into ChartDataSets
@@ -275,8 +247,6 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartData.setValueFont(NSUIFont.systemFont(ofSize: 14.0))
-        pieChartView.data = pieChartData
-
         // light green
         let normalColor = UIColor(red: 132.0/255.0, green: 209.0/255.0, blue: 148.0/255.0, alpha: 1)
         // light yellow
@@ -285,6 +255,10 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         let highColor = UIColor(red: 250.0/255.0, green: 137.0/255.0, blue: 137.0/255.0, alpha: 1)
         
         pieChartDataSet.colors = [normalColor, lowColor, highColor]
+        
+        pieChartView.data = pieChartData
+        //pieChartView.animate(xAxisDuration: TimeInterval(100), yAxisDuration: TimeInterval(100))
+        //pieChartView.spin(duration: 500, fromAngle: 0, toAngle: 360)
         
     }
     var debounceTimer: Timer?
@@ -308,6 +282,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         var total: Double = 0
         for index in fromIndex...toIndex {
             for reading in dataByDate[index] {
+                let readingValue = Double(reading.value)
                 if reading.isLow() {
                     lows += 1
                 }else if reading.isHigh() {
@@ -316,12 +291,12 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
                     normals += 1
                 }
                 totalCount += 1
-                total += reading.value
-                if reading.value > highest {
-                    highest = reading.value
+                total += readingValue
+                if readingValue > highest {
+                    highest = readingValue
                 }
-                if reading.value < lowest {
-                    lowest = reading.value
+                if readingValue < lowest {
+                    lowest = readingValue
                 }
             }
         }
@@ -364,7 +339,7 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
     }
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let readingDetailsViewController = ReadingDetailsViewController(nibName: "ReadingDetailsViewController", bundle: nil)
-        readingDetailsViewController.glucoseReading = entry.data as! GlucoseReading
+        readingDetailsViewController.reading = entry.data as! Reading
         self.navigationController?.pushViewController(readingDetailsViewController, animated: true)
         
     }
