@@ -61,8 +61,8 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="attachmentScrollView" destination="Vd4-Yz-QhD" id="eQk-Jt-mcp"/>
-                <outlet property="attachmentTrayHeight" destination="XjL-6d-igM" id="4QU-7n-aqP"/>
+                <outlet property="attachmentScrollView" destination="Vd4-Yz-QhD" id="aqS-iB-UKg"/>
+                <outlet property="attachmentTrayHeight" destination="XjL-6d-igM" id="bNi-R8-xue"/>
                 <outlet property="postContent" destination="l4r-e7-p7S" id="4Sr-2y-1Ar"/>
                 <outlet property="profileImageView" destination="8RD-ev-cGR" id="9kZ-RA-Xjo"/>
                 <outlet property="timestampLabel" destination="hY5-Q1-Rcx" id="ylQ-1X-9Fr"/>

@@ -103,7 +103,7 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         
         if message.numImages > 0 {
             //ParseUtils.getImages(message: message, user: user)
-            cell.attachmentTrayHeight?.constant = 50;
+            cell.attachmentTrayHeight.constant = 50;
             ParseUtils.getImages(message: message.messagePFObject!, user: user, success: { (images: [UIImage]) in
                     print("images retrieved: \(images.count)")
                     var number = 0
@@ -118,11 +118,12 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
             })
         } else {
             if let attachmentScroll = cell.attachmentScrollView {
-                cell.attachmentScrollView.removeFromSuperview()
+                //cell.attachmentScrollView.removeFromSuperview()
+                let views = cell.attachmentScrollView.subviews
+                for view in views {
+                    view.removeFromSuperview()
+                }
             }
-            /*for view in cell.attachmentScrollView.subviews {
-                    cell.attachmentScrollView.removeV
-            }*/
             cell.attachmentTrayHeight?.constant = 1;
             
         }

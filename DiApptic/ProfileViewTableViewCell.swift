@@ -15,8 +15,9 @@ class ProfileViewTableViewCell: UITableViewCell {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     
-    @IBOutlet weak var attachmentTrayHeight: NSLayoutConstraint!
     @IBOutlet weak var attachmentScrollView: UIScrollView!
+
+    @IBOutlet weak var attachmentTrayHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
