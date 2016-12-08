@@ -13,9 +13,11 @@ protocol LoginDelegate: class {
     func didLogin()
 }
 
-class LoginViewController: UIViewController, UITextFieldDelegate {
+class LoginViewController: UIViewController, UITextFieldDelegate, RegisterUserDelegate {
 
     weak var delegate: LoginDelegate!
+    
+    var registerViewController: RegisterViewController!
     
     @IBOutlet weak var inlineError: UILabel!
     @IBOutlet weak var usernameField: UITextField!
@@ -45,7 +47,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         getRoundedView(view: usernamePasswordSection)
         
     }
-    
+    func onCancelRegister() {
+        print("registeration canceled")
+    }
+    func onRegister() {
+        print("registered")
+    }
     func getRoundedView(view: UIView) {
         view.layer.cornerRadius = 5
         view.layer.borderWidth = 1
@@ -91,13 +98,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
    
     @IBAction func onSignUpAction(_ sender: Any) {
-        let vc = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
-        vc.delegate = self.delegate
+        registerViewController = RegisterViewController(nibName: "RegisterViewController", bundle: nil)
+        registerViewController.registerUserDelegate = self
+        registerViewController.delegate = self.delegate
             if usernameField.text != nil && passwordField.text !=  nil {
-                vc.email = usernameField.text
-                vc.password = passwordField.text
+                registerViewController.email = usernameField.text
+                registerViewController.password = passwordField.text
             }
-        self.present(vc, animated: true)
+        self.present(registerViewController, animated: true)
     }
     /*
     // MARK: - Navigation

@@ -305,9 +305,9 @@ class HistoryViewController: UIViewController, ChartViewDelegate {
         let highEntry = PieChartDataEntry(value: highs, label: "Highs")
         let pieChartDataSet = PieChartDataSet(values: [lowEntry, normalEntry, highEntry], label: "")
         // light green
-        let normalColor = UIColor(red: 132.0/255.0, green: 209.0/255.0, blue: 148.0/255.0, alpha: 1)
+        let lowColor = UIColor(red: 132.0/255.0, green: 209.0/255.0, blue: 148.0/255.0, alpha: 1)
         // light yellow
-        let lowColor = UIColor(red: 235.0/255.0, green: 216.0/255.0, blue: 124.0/255.0, alpha: 1)
+        let  normalColor = UIColor(red: 235.0/255.0, green: 216.0/255.0, blue: 124.0/255.0, alpha: 1)
         // light red
         let highColor = UIColor(red: 250.0/255.0, green: 137.0/255.0, blue: 137.0/255.0, alpha: 1)
         pieChartDataSet.colors = [normalColor, lowColor, highColor]

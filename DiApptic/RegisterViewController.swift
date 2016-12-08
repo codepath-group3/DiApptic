@@ -8,9 +8,14 @@
 
 import UIKit
 import Parse
-
+protocol RegisterUserDelegate: class {
+    func onRegister()
+    func onCancelRegister()
+}
 class RegisterViewController: UIViewController, UITextFieldDelegate {
 
+    weak var registerUserDelegate: RegisterUserDelegate!
+    
     @IBOutlet weak var registerView: UIView!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
@@ -56,8 +61,10 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func onCancel(_ sender: UIButton) {
-        let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        self.present(vc, animated: true)
+        //let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        //self.present(vc, animated: true)
+        self.dismiss(animated: true, completion: nil)
+        self.registerUserDelegate.onCancelRegister()
     }
 
     func checkForErrors() {
