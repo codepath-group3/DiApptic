@@ -103,7 +103,7 @@ class ProfileScreenViewController: UIViewController, UITableViewDelegate, UITabl
         
         if message.numImages > 0 {
             //ParseUtils.getImages(message: message, user: user)
-            cell.attachmentTrayHeight.constant = 50;
+            cell.attachmentTrayHeight?.constant = 50;
             ParseUtils.getImages(message: message.messagePFObject!, user: user, success: { (images: [UIImage]) in
                     print("images retrieved: \(images.count)")
                     var number = 0
