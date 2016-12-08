@@ -159,11 +159,9 @@ class EditProfileViewController: UIViewController, UITableViewDelegate, UITableV
                 currentUser?["profilePicture"] = parseImageFile
                 currentUser?.saveInBackground { (saved:Bool, error:Error?) -> Void in
                     if error == nil {
-                        print("data uploaded")
                         self.loadingUtils.hideActivityIndicator(uiView: self.view)
                         Toast(text: "Saved Profile").show()
                     } else {
-                        print("error")
                         Toast(text: "Error in Saving Profile").show()
                     }
                 }

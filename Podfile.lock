@@ -1,4 +1,5 @@
 PODS:
+  - ActiveLabel (0.7.0)
   - AFNetworking (3.1.0):
     - AFNetworking/NSURLSession (= 3.1.0)
     - AFNetworking/Reachability (= 3.1.0)
@@ -23,18 +24,20 @@ PODS:
   - Toaster (2.0.1)
 
 DEPENDENCIES:
+  - ActiveLabel
   - AFNetworking
   - Charts
   - Parse
   - Toaster (~> 2.0)
 
 SPEC CHECKSUMS:
+  ActiveLabel: eb405c5b99275be52fac161f7a55cab1dd672c54
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Charts: beb341928d2135613b4325a6c6aff9f2f6de895e
   Parse: 4335d65f40cb3d43190d723144bbe1afb9c38230
   Toaster: be65cd48e93a525b2a9cc4bd25a2bfc900e02d9f
 
-PODFILE CHECKSUM: 95a52a849bc57964a96ed8a91ce96ec51f7c6822
+PODFILE CHECKSUM: 7a5dba21b05b95f1cea62b0e876f14c59a990022
 
 COCOAPODS: 1.0.1
